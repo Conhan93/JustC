@@ -1,76 +1,75 @@
 /*
-	#include är C:s motsats till import i Python där man gör ett bibliotek med funktioner(metoder?) tillgängliga för programmet.
-	detta bibliotek (stdio.h) innehåller funktioner relaterad till input/output, så print funktioner, input funktioner och funktioner
-	för att komma åt filer
+	#include Ã¤r C:s motsats till import i Python dÃ¤r man gÃ¶r ett bibliotek med funktioner(metoder?) tillgÃ¤ngliga fÃ¶r programmet.
+	detta bibliotek (stdio.h) innehÃ¥ller funktioner relaterad till input/output, sÃ¥ print funktioner, input funktioner och funktioner
+	fÃ¶r att komma Ã¥t filer
 
-	De bör placeras längst upp i filen då kompilatorn läser uppifrån och ned. Om du placerar en funktion från stdio.h innan du inkluderad
-	den kommer kompilatorn inte fatta vad du menar för den har inte läst in det biblioteket än, dvs kompilatorn kommer få ett smärre sammanbrott.
+	De bÃ¶r placeras lÃ¤ngst upp i filen dÃ¥ kompilatorn lÃ¤ser uppifrÃ¥n och ned. Om du placerar en funktion frÃ¥n stdio.h innan du inkluderad
+	den kommer kompilatorn inte fatta vad du menar fÃ¶r den har inte lÃ¤st in det biblioteket Ã¤n, dvs kompilatorn kommer fÃ¥ ett smÃ¤rre sammanbrott.
 
 */
 # include <stdio.h>
 
 /*
-	Här är våran main funktion, utgångspunkten för hela vårt program som du måste(så vitt jag vet iaf) inkludera så att datorn fattar vart den ska
-	börja köra ifrån. Super duper duper viktigt, min bok har en stor varningstriangel bara för att man ska fatta hur viktig.
+	HÃ¤r Ã¤r vÃ¥ran main funktion, utgÃ¥ngspunkten fÃ¶r hela vÃ¥rt program som du mÃ¥ste(sÃ¥ vitt jag vet iaf) inkludera sÃ¥ att datorn fattar vart den ska
+	bÃ¶rja kÃ¶ra ifrÃ¥n. Super duper duper viktigt, min bok har en stor varningstriangel bara fÃ¶r att man ska fatta hur viktig.
 
-	C är en så kallad "static typed language" vilket betyder att du måste förklara typ allt för kompilatorn/preprocessorn ska förstå vad den håller på
-	med. Har att göra med något skumt minnes hokus pokus som vi kommer komma in lite på senare(mallooooooc å bits å bytes)
-	Iaf, rent praktiskt betyder att om du vill ha variabel med en int i så måste du skriva int innan.
+	C Ã¤r en sÃ¥ kallad "static typed language" vilket betyder att du mÃ¥ste fÃ¶rklara typ allt fÃ¶r kompilatorn/preprocessorn ska fÃ¶rstÃ¥ vad den hÃ¥ller pÃ¥
+	med. Har att gÃ¶ra med nÃ¥got skumt minnes hokus pokus som vi kommer komma in lite pÃ¥ senare(mallooooooc Ã¥ bits Ã¥ bytes)
+	Iaf, rent praktiskt betyder att om du vill ha variabel med en int i sÃ¥ mÃ¥ste du skriva int innan.
 
 	t.ex "int whateva = 0;"
 	eller
 	"float down_here = 0;"
 	"char charizard = 'A';" - inga str typer dock
 
-	På samma sätt behöver vi deklarera funktioner också, så datorn vet vad funktionen kommer returnera(annars härdsmälta).
-	Alltså en funktion som returnerar summan av två ints kommer ha deklarationen int innan för att den returnerar en int.
+	PÃ¥ samma sÃ¤tt behÃ¶ver vi deklarera funktioner ocksÃ¥, sÃ¥ datorn vet vad funktionen kommer returnera(annars hÃ¤rdsmÃ¤lta).
+	AlltsÃ¥ en funktion som returnerar summan av tvÃ¥ ints kommer ha deklarationen int innan fÃ¶r att den returnerar en int.
 
-	main funktionen är int för... standarder?
-	main brukar returnera 0 så man vet att programmet inte kraschat eller gjort något skumt, vissa kompilatorer brukar klaga
-	om du inte returnerar 0. GCC(min... våran kompilator?) brukar inte bry sig om du utelämnar "return 0;"
+	main funktionen Ã¤r int fÃ¶r... standarder?
+	main brukar returnera 0 sÃ¥ man vet att programmet inte kraschat eller gjort nÃ¥got skumt, vissa kompilatorer brukar klaga
+	om du inte returnerar 0. GCC(min... vÃ¥ran kompilator?) brukar inte bry sig om du utelÃ¤mnar "return 0;"
 
 	Okej sista innan vi hoppar in i funktionen!
-	"void" betyder bara att vi inte stoppar in nånting som funktionsargument, nada! du skulle tillochmed kunna skippa att
-	skriva void där om du ville, men det brukar vara bra praxis att skriva void om du saknar funktionsargument
+	"void" betyder bara att vi inte stoppar in nÃ¥nting som funktionsargument, nada! du skulle tillochmed kunna skippa att
+	skriva void dÃ¤r om du ville, men det brukar vara bra praxis att skriva void om du saknar funktionsargument
 
 */
 
 int main(void)
 {
 	/*
-		Det här är c motsvarighet till Pythons print som skriver ut våran sträng
-		"Hello World" och "\n" som är en "new-line character" dvs den säger åt
-		våran printf funktionen att skapa en ny rad(du kan sätta en ny rad vart du vill
-		i strängen)
+		Det hÃ¤r Ã¤r c motsvarighet till Pythons print som skriver ut vÃ¥ran strÃ¤ng
+		"Hello World" och "\n" som Ã¤r en "new-line character" dvs den sÃ¤ger Ã¥t
+		vÃ¥ran printf funktionen att skapa en ny rad(du kan sÃ¤tta en ny rad vart du vill
+		i strÃ¤ngen)
 
-		Och det suuuuper viktiga i C så avslutar du med ett litet semi-colon ";" så att
-		kompilatorn/preprocessorn fattar att du vill exekvera(köra) det kommandot
-		skriv ; efter allt, alltså allt allt;
+		Och det suuuuper viktiga i C sÃ¥ avslutar du med ett litet semi-colon ";" sÃ¥ att
+		kompilatorn/preprocessorn fattar att du vill exekvera(kÃ¶ra) det kommandot
+		skriv ; efter allt, alltsÃ¥ allt allt;
 	*/
 	printf("Hello World!\n");
-} //  <-- jag glömde nästan de här, de definerar kodblock, allt du indenterar på i python, sätter du sånna här på i C(wiktigt)
+} //  <-- jag glÃ¶mde nÃ¤stan de hÃ¤r, de definerar kodblock, allt du indenterar pÃ¥ i python, sÃ¤tter du sÃ¥nna hÃ¤r pÃ¥ i C(wiktigt)
 
 /*
-															KÖRA PROGRAMMET
+								KÃ–RA PROGRAMMET
 
-	I Visual Studio borde det räcka med att installerat C++ developer suite(vad det nu än hette), du kan köra set-up igen om du glömde.
-	Därefter bara debugga, jag hade lite problem med det först,(Anti-Virus trodde min .exe var virus) och du kan behöva byta från
-	"x86" till "x64" men det kan vara för att jag har GCC installerat(local windows debugger står det för mig)
+	I Visual Studio borde det rÃ¤cka med att installerat C++ developer suite(vad det nu Ã¤n hette), du kan kÃ¶ra set-up igen om du glÃ¶mde.
+	DÃ¤refter bara debugga, jag hade lite problem med det fÃ¶rst,(Anti-Virus trodde min .exe var virus) och du kan behÃ¶va byta frÃ¥n
+	"x86" till "x64" men det kan vara fÃ¶r att jag har GCC installerat(local windows debugger stÃ¥r det fÃ¶r mig)
 
-	När du startar din debug så kompileras filen och det skapas en .exe fil som körs
-	och Hello World skrivs ut i din terminal ****HITTAR INGET EXE****
+	Debugg och kÃ¶r helt enkelt.
 
 
 	LITE MER MANUELLT -
 
 	Du kan alltid ladda ner GCC https://osdn.net/projects/mingw/releases/
-	och själv bygga dina filer från en terminal(typ Powershell eller liknande).
-	Det är inte svårt jag lovar och man känner sig lite mer haxxor när man skriver från terminal
+	och sjÃ¤lv bygga dina filer frÃ¥n en terminal(typ Powershell eller liknande).
+	Det Ã¤r inte svÃ¥rt jag lovar och man kÃ¤nner sig lite mer haxxor nÃ¤r man skriver frÃ¥n terminal
 
-	När den är installerad så är det bara att navigera till den folder där du har din source fil(intro.c)
-	skriva "gcc intro.c -o intro.exe" sen har du en exekverbar fil som du kan köra
-	(I windows) ".\intro.exe" för att köra
+	NÃ¤r den Ã¤r installerad sÃ¥ Ã¤r det bara att navigera till den folder dÃ¤r du har din source fil(intro.c)
+	skriva "gcc intro.c -o intro.exe" sen har du en exekverbar fil som du kan kÃ¶ra
+	(I windows) ".\intro.exe" fÃ¶r att kÃ¶ra
 
-	På så sätt kan du skriva koden i vilken editor du vill och kompilera och köra den själv.
-	Seriöst, du kan skriva din kod i .txt fil om du vill och kompilera
+	PÃ¥ sÃ¥ sÃ¤tt kan du skriva koden i vilken editor du vill och kompilera och kÃ¶ra den sjÃ¤lv.
+	SeriÃ¶st, du kan skriva din kod i .txt fil om du vill och kompilera
 */
