@@ -7,11 +7,11 @@
 	den kommer kompilatorn inte fatta vad du menar för den har inte läst in det biblioteket än, dvs kompilatorn kommer få ett smärre sammanbrott.
 
 */
-# include <stdio.h>
+#include <stdio.h>
 
 /*
-	Här är våran main funktion, utgångspunkten för hela vårt program som du måste(så vitt jag vet iaf) inkludera så att datorn fattar vart den ska
-	börja köra ifrån. Super duper duper viktigt, min bok har en stor varningstriangel bara för att man ska fatta hur viktig.
+	Här är nedanför våran main funktion, utgångspunkten för hela vårt program som du måste(så vitt jag vet iaf) inkludera så att datorn fattar vart
+	den ska börja köra ifrån. Super duper duper viktigt, min bok har en stor varningstriangel bara för att man ska fatta hur viktig.
 
 	C är en så kallad "static typed language" vilket betyder att du måste förklara typ allt för kompilatorn/preprocessorn ska förstå vad den håller på
 	med. Har att göra med något skumt minnes hokus pokus som vi kommer komma in lite på senare(mallooooooc å bits å bytes)
