@@ -3,7 +3,7 @@
 	detta bibliotek (stdio.h) innehåller funktioner relaterad till input/output, så print funktioner, input funktioner och funktioner
 	för att komma åt filer
 
-	De bör placeras längst upp i filen då kompilatorn läser uppifrån och ned. Om du placerar en funktion från stdio.h innan du inkluderad
+	De bör placeras längst upp i filen då preprocessor/kompilator läser uppifrån och ned. Om du placerar en funktion från stdio.h innan du inkluderad
 	den kommer kompilatorn inte fatta vad du menar för den har inte läst in det biblioteket än, dvs kompilatorn kommer få ett smärre sammanbrott.
 
 */
