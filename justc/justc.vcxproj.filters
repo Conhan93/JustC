@@ -21,5 +21,8 @@
     <ClCompile Include="connysantagning.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="labbvariabler1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="intro.c" />
     <ClCompile Include="connysantagning.c" />
+    <ClCompile Include="labbvariabler1.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
