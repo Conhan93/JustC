@@ -30,6 +30,7 @@ void newlabb(void); // skapar bara lite nya rader mellan labbarna
 
 int main(void)
 {
+	// kör våra labbar i sekvens
 	labb1();
 	labb2();
 	labb3();
@@ -44,8 +45,16 @@ void labb1(void) // Skriv ut Hello + ditt namn i Console applikationen på skärme
 {
 	newlabb();
 	char namn[STRLEN] = "skriv in ditt namn har";
+	/*
+		Deklarerar en array av char(characters) av längden STRLEN som är 100
+		och initierar den med strängen "skriv in ditt namn här"
+	*/
 
 	printf("Hello %s", namn);
+	/*
+		Skriver ut strängen "hello %s" där %s är "format specifier" för en "sträng" dvs en array av chars.
+		printf stoppar in namn arrayen i strängen på platsen där vi placerat våran format specifierare
+	*/
 
 }
 
@@ -59,9 +68,14 @@ void labb2(void)
 {
 	newlabb();
 	char namn[STRLEN] = "skriv in ditt namn har";
-	int age = 0; // skriv in din ålder här
+	int age = 0; // skriv in din ålder här, bra vana att initiera dina variabler.
 
 	printf("Jag heter %s och ar %d ar gammal", namn, age);
+	/*
+		skriver ut strängen och ersätter de placerade format specifiers med variablerna.
+		viktigt att tänka på att de måste vara i samma ordning från vänster till höger.
+		så "%s... %d" , namn(sträng), age(integer).
+	*/
 }
 
 void labb3(void)
@@ -78,9 +92,13 @@ void labb3(void)
 	char fornamn[STRLEN], efternamn[STRLEN];
 	printf("skriv in ditt fornamn: ");
 	scanf("%s", fornamn);
+	/*
+		behöver inte använda address-of operatör "&" för arrayers då de
+		arrayer redan använder "pass-by-reference" istället för "pass-by-value"
+	*/
 	printf("\nskriv in ditt efternamn: ");
 	scanf("%s", efternamn);
-	printf("\nDu heter %s, %s", efternamn, fornamn);
+	printf("\nDu heter %s, %s", efternamn, fornamn); // ordningen är viktig
 
 }
 void labb4(void)
@@ -94,10 +112,14 @@ void labb4(void)
 */
 {
 	newlabb();
-	int tal1 = 0, tal2 = 0;
+	int tal1 = 0, tal2 = 0; // går att deklarera och initiera variabler av samma typ på en rad
 
 	printf("Mata in tal 1: ");
 	scanf("%d", &tal1);
+	/*
+		grunddatatyper behöver du använda address-of operatör "&" för "pass-by-reference"
+		för att scanf(scan format?) ska kunna ändra variabel
+	*/
 	printf("\nMata in tal 2: ");
 	scanf("%d", &tal2);
 	printf("\nSumman av tal1 och tal2 är: %d", tal1 + tal2);
@@ -134,6 +156,15 @@ void labb6(void)
 	printf("\nMata in tal2: ");
 	scanf("%d", &tal2);
 	printf("\nMedelvarde: %.2f\nSumma: %d\nDifferens: %d", (float)(tal1 + tal2) / 2, tal1 + tal2, abs(tal1 - tal2));
+	/*
+		Här händer det lite grejer.
+			"Medelvarde: %.2f" där våran format specifier säger vi att ska trycka ut en float med två decimalpunkter.
+			det syns genom tvåan efter punkten ".2f".
+			"(float)" är en explicit kastning av uträkningen (tal1 + tal2)/2 från int till float.
+			hade vi inte kastat om uträkningen hade datorn rundat av uträkningen till ett heltal(int).
+			"abs(tal1-tal2)" vi stoppar in skillnaden mellan tal1 och tal2 in i en funktion "abs()" från <stdlib.h>
+			som returnerar det absoluta värdet(positiva) av dess argument.
+	*/
 }
 void labb7(void)
 /*
@@ -163,8 +194,8 @@ void labb8(void)
 		printf("Mata in antal minuter: ");
 		scanf("%d", &minutes);
 	} while (minutes < 60);
-	hours = (int)minutes / 60;
-	minutes = minutes % 60;
+	hours = minutes / 60; // minuter delat på mängden minuter i en timme
+	minutes = minutes % 60; // modul, rest division(maths)
 	printf("Detta ar %d timmar och %d minuter", hours, minutes);
 }
 void newlabb(void)
