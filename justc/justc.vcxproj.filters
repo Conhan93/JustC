@@ -24,5 +24,8 @@
     <ClCompile Include="labbvariabler1.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="labb_if.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
