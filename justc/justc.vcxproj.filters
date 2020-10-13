@@ -27,5 +27,8 @@
     <ClCompile Include="labb_if.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="labb_loop1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

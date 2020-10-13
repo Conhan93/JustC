@@ -1,12 +1,12 @@
 #include <stdio.h>
-#include <string.h> // funktioner relaterande till strängar
-#include <stdlib.h> // innehåller en massa kul grejer( atoi() )
-#include <ctype.h> // inkluderad för tolower()
+#include <string.h> // contains functions related to strings
+#include <stdlib.h> // contains a lot of utilitarian functions( atoi() )
+#include <ctype.h> // included for the function: tolower()
 
 
-#define STRLEN 100
+#define STRLEN 100 // Macro used for max length of strings
 
-
+// functions prototypes
 void labb1(void);
 void labb2(void);
 void labb3(void);
@@ -22,7 +22,7 @@ void labb10(void);
 
 
 void main(void)
-{
+{ // main function sequence
 	labb1();
 	labb2();
 	labb3();
@@ -36,220 +36,220 @@ void main(void)
 }
 void labb1(void)
 /*
-	Be användaren att mata in ett tal.
-		Kontrollera om talet är större än 10.
-		Meddela användaren om talet är större än 10- Talet är större än 10.
-		Om det är mindre än 10 meddela användaren – Talet är mindre än 10
+	Ask the user to enter a number
+		Check if the number is greater than 10.
+		Notify the user if the number is greater than 10 - "Number is greater than 10." <-- print that
+		If less than print --> "Number is less than 10"
 */
 {
 	int tal = 0, kontroll = 10;
 
-	printf("Mata in tal: ");
+	printf("Enter number: ");
 	scanf("%d", &tal);
 	if (tal > kontroll)
 	{
-		printf("\nTalet ar storre an 10.");
+		printf("\nNumber is greater than 10.");
 	}
 	else if (tal < kontroll)
 	{
-		printf("\nTalet ar mindre an 10.");
+		printf("\nNumber is less than 10.");
 	}
 }
 void labb2(void)
 /*
-	Be användaren att mata in hur många paket mjölk som finns kvar.
-		Är det mindre än 10 skriv- Beställ 30 paket.
-		Är det mellan 10 och 20 skriv- Beställ 20 paket.
-		Annars skriv-Du behöver inte beställa någon mjölk.
+	Ask the user the enter the number of milk cartons left-
+		If less than 10 print - Order 30 packets.
+		If between 10 and 20 print - order 20 packets.
+		Else print - You do not need to order milk.
 */
 {
 	int nr_milk_cartons = 0;
-	printf("\nHur manga mjolk paket finns kvar?: ");
+	printf("\nAmount of milk cartons/packets left: ");
 	scanf("%d", &nr_milk_cartons);
 	if (nr_milk_cartons < 10)
 	{
-		printf("\nBestall 30 paket.");
+		printf("\nOrder 30 packets.");
 	}
-	else if (nr_milk_cartons >= 10 && nr_milk_cartons <= 20) // booleskt uttryck && == "and" i python
+	else if (nr_milk_cartons >= 10 && nr_milk_cartons <= 20) // Boolian expression && == "and" keyword in Python.
 	{
-		printf("\nBestall 20 paket mannen.");
+		printf("\nOrder 20 packets/cartons dude.");
 	}
-	else printf("\nBehover ingen mjolk.");
+	else printf("\nDon't need no milk.");
 }
 void labb3(void)
 /*
-	Be användaren mata in temperaturen tagen från en febertermometer.
-		Om tempen är över 37.8 skriv- Du har feber.
-		Om den är över 39.5 skriv-Du bör uppsöka läkare.
-		Om den är mindre än 37.8 skriv- Du har inte feber.
+	Ask the user for temperature input from a body temp gauge
+		If temp is over 37.8 write - you have a fever.
+		If greater than 39.5 write - You should see a doctor.
+		If less than 37.8 write - You don't have a fever.
 */
 {
 	float temperature = 0;
-	printf("\nMata in temperatur: ");
+	printf("\nEnter temperature: ");
 	scanf("%d", &temperature);
-	if (temperature > 39.5) printf("\nDu bor uppsoka lakare.");
-	else if (temperature > 37.8) printf("\nDu har feber");
-	else printf("\nDu har inte feber.");
+	if (temperature > 39.5) printf("\nYou should see a doctor.."); // pay attention the order of condition checks on this labb
+	else if (temperature > 37.8) printf("\nyou have a fever.");
+	else printf("\nYou don't have a fever.");
 }
 void labb4(void)
 /*
-	Be användaren mata in sin ålder.
-		Om den är mindre än 18 är användaren ej myndig. Om den är över 65 är den pensionär.
-		Annars är den myndig men inte pensionär. Meddela användaren om vad som gäller beroende på dennes ålder.
-		Kontrollera också att användaren har matat in ett riktigt tal.
-		Har den matat in andra tecken än siffror meddela användaren att den har ar matat in en felaktig ålder.
+	Ask the user to enter their age.
+		If less than 18 then user is not "of age". If over 65 then user is a retiree.
+		Otherwise user is of age but not retiree. Notify user of their "status"
+		Check if user input is an actual number(check if int)
+		If invalid input print out "Wrong age"
 */
 {
 	char input[STRLEN];
 	int age = 1;
-	printf("\nAnge alder: ");
+	printf("\nenter age: ");
 	scanf("%s", input);
 
 	if (age = atoi(input))
-		/* atoi() returnerar int värdet av input om det går annars returnerar den 0
-		*  I C så är 0 == False när den utvärderas som ett booleskt uttryck
-		*  så den här if satsen kollar om det går att konvertera input till en integer
+		/* atoi() returns value of input if it is able to otherwise it returns 0
+		*  In C 0 == False when evaluated as a boolean expression/condition check
+		*  So this if-statement checks if input is able to be converted to int(if int == valid input)
 		*/
 	{
-		if (age < 18) printf("\nEj myndig");
-		else if (age >= 18 && age <= 65) printf("\nMyndig, ej pensionar");
-		else if (age < 65) printf("\nPensionar!");
-		else printf("\nFelaktig alder");
+		if (age < 18) printf("\nnot of age");
+		else if (age >= 18 && age <= 65) printf("\nof age but not too old");
+		else if (age < 65) printf("\nGeezer!");
+		else printf("\nWrong Age");
 	}
-	else printf("\nFelaktig inmatning");
+	else printf("\nInvalid Input");
 }
 void labb5(void)
 /*
-	Be användaren ange vilken kategori den tillhör-vuxen, pensionär, student.
-		Om den är pensionär eller student kostar resan 20 kr.
-		Om den är vuxen kostar resan 30 kr.
-		Annars skall användaren informeras att den har angett en felaktig kategori.
+	Let the user enter a category(Adult, Student, Retiree)
+		If retiree or Student, trip costs 20 kr
+		If Adult, trip costs 30 kr
+		Otherwise let the user know they entered an invalid category
 
-	Vill stefan att man ska använda strängar här? kommer ju senare
+	Does Stefan want us to use strings for these?(string operations further down)
 */
 {
 	int category = 0;
-	printf("\nAnge kategori(1, vuxen, 2 student, 3 pensionar): ");
+	printf("\nEnter category(1, adult, 2 student, 3 retiree): ");
 	scanf("%d", &category);
-	if (category == 2 || category == 3) printf("\nResan kostar 20 kr"); // dubbla strecken || == "or" i python.
-	else if (category == 1) printf("\nResan kostar 30 kr");
-	else printf("\nFelaktig inmatning");
+	if (category == 2 || category == 3) printf("\nTrip costs 20 kr"); // dubbla strecken || == "or" i python.
+	else if (category == 1) printf("\nTrip costs 30 kr");
+	else printf("\nInvalid Input");
 }
 void labb6(void)
 /*
-	Be användaren mata in sitt födelse år.
-		Om det är större eller lika med 1980 men mindre än 1990 skriv ut –Du är född på 1980-talet.
-		Om det är mindre än 2000 men större än eller lika med 1990 skriv ut- Du är född på 1990-talet.
-		Om det är mindre än 1980 eller större än eller lika med 2000, skriv- Du är inte född på 1990 eller 1980-talen.
+	Let the user enter their year of birth.
+		If greater or equal to 1980 but less than 1990 - print "born in the 1980's"
+		If less than 2000 but greater than or equal to 1990 - print "born in the 90's"
+		If less than 1980 or greater than or equal to 2000 - print "not born in 80's or 90's"
 */
 {
 	int birth_date = 0;
-	printf("\nAnge fodelsear: ");
+	printf("\nEnter year of birth: ");
 	scanf("%d", &birth_date);
-	if (birth_date >= 1980 && birth_date < 1990) printf("\nFodd pa 80-talet");
-	else if (birth_date >= 1990 && birth_date < 2000) printf("\nFodd pa 90-talet-basta talet");
-	else printf("\nInte fodd pa 90 eller 80 -talen");
+	if (birth_date >= 1980 && birth_date < 1990) printf("\nborn in the 1980's");
+	else if (birth_date >= 1990 && birth_date < 2000) printf("\nborn in the 90's - best decade");
+	else printf("\nnot born in 80's or 90's");
 }
 void labb7(void)
 /*
-	Skapa en inloggning där användaren först får ange användarnamn och sedan lösenord.
-		Ange det som du anser vara riktiga uppgifter i två konstanter i koden.
-		Kontrollera sedan om det är riktigt inmatat och meddela användare om
-		den antingen är inloggad eller matat in fel lösenord eller fel användarnamn
+	Create a log in where user must enter username and then password
+		Create constants for username and password.
+		Check if input matches with username and password
+		Notify user of log-in or if password or username is invalid
 */
 {
 	char username[] = "admin", password[] = "password";
 	char input_username[STRLEN], input_password[STRLEN];
-	printf("\nMata in anvandarnamn: ");
+	printf("\nEnter username: ");
 	scanf("%s", input_username);
-	printf("Mata in losenord: ");
+	printf("Enter password: ");
 	scanf("%s", input_password);
-	if (!strcmp(username, input_username) && !strcmp(password, input_password)) printf("\ninloggad");
-	// strcmp() från <string.h> jämför strängar, returnerar 0 om de är lika. uttropstecknet i C är lika med "not" i python
-	// så !strcmp(username, input_username) ger True ifall strängarna matchar, det är lite dubbel negativ.
-	// strcmp ger 0 som är lika med False om strängarna matchar, men med vårat "!" så letar vi efter False som då blir utvärderad som True
-	// för vi hittade vad vi letade efter! kanske är lite rörigt.
+	if (!strcmp(username, input_username) && !strcmp(password, input_password)) printf("\nLogged in");
+	// strcmp() from <string.h> compares strings and returns 0 if they match. Exclamation mark is equal to "not" in Python(Also known as "negation")
+	// so !strcmp(username, input_username) evaluates to "True" if the strings match, It's a bit of a double negative, strcmp == 0 which is false,
+	// but negated to True through "not" or use of "!".
+	// So in practice !strcmp(string1, string2) evaluates to True if strings match
 	else
 	{
-		if (strcmp(username, input_username)) printf("\nFel anvandarnamn"); // här kollar vi om strcmp() inte ger 0, dvs strängarna matchar inte!
-		if (strcmp(password, input_password)) printf("\nFel losenord");
+		if (strcmp(username, input_username)) printf("\nWrong Username"); // Here we check if strcmp returns !0(not 0) which means the strings
+		if (strcmp(password, input_password)) printf("\nWrong Password"); //     don't match! 
 	}
 }
 void labb8(void)
 /*
-	Be användaren att mata in namnet på ett land där den bor.
-		Om det är Sverige, Danmark, eller Norge skall användare informeras att-Du bor i Skandinavien.
-		Om inte meddela användaren att den inte bor i Skandinavien.
+	Ask the user to enter the name of the country they're frp,
+		IF they're from sweden, denmark or norway, inform them they're from scandinavia
+		If not, let them know they're not from scandinavia
 */
 {
-	char scandinavian_countries[] = "sverigedanmarknorge";
+	char scandinavian_countries[] = "swedendenmarknorway";
 	char your_country[STRLEN];
-	printf("\nMata in ditt land: ");
+	printf("\nEnter your country of origin: ");
 	scanf("%s", your_country);
 	for (int index = 0; index < strlen(your_country); index++)
 		your_country[index] = tolower(your_country[index]);
 	/*
-		Okej först har vi en loop som går igenom strängen där vi tryckte in vår input
-		sen på varje plats i den här strängen ersätter vi char:en med en lowercase av den char:en
-		genom funktionen tolower() som tar en char som argument och returnerar en lowercase version
-		av den char:en
+		Alright here's a small for loop where we loop through the elements of the your_country string
+		and using the tolower() function to change the elements to lowercase(this is so the search is not case sensitive)
+		tolower() is a function that takes a char argument and returns it but in lowercase()
 	*/
-	if (strstr(scandinavian_countries, your_country)) printf("\nDu bor i skandinavien");
+	if (strstr(scandinavian_countries, your_country)) printf("\nyou live in scandinavia!");
 	/*
-		strstr() letar efter substrängen(your_country) i huvudsträngen(scandinavian_countries) och returnerar en pekare(nånting)
-		till den första platsen den hittar den och NULL om inte. Rent praktiskt om du använder den i if sats så betyder den utvärderas
-		till True ifall den hittar substrängen. då i C så är typ allt == True
+		strstr() is a function that searches for a substring(your_country) in a main string(scandinavian_countries) and returns
+		a pointer to the substrings first occurence(something), if none is found it returns NULL.
+		in this example it's just used a boolean type check to see if it finds the substring at all.
+		then the pointer will be evaluated as True
 	*/
-	else printf("\nDu bor inte i skandinavien");
+	else printf("\nYou don't live in scandinavia!");
 }
 void labb9(void)
 /*
-	Be användaren mata in ett bilmärke.
-	Om det inte är lika med Volvo skall du kontrollera om det är en Volkswagen, BMW eller Audi. Skriv ut att bilen är tysk.
-	Om den är Renault eller Peugeot eller Citroen skriv att den är fransk.
-	Annars skriv ut att bilen inte är tysk eller fransk eller svensk.
-	Skriv inget om bilen är en Volvo.
+	Ask the user to enter a car brand
+	If it's not equal to Volvo you'll check if it's a Volkswagen, BMW or Audi, then print out "german car"
+	If Renault, Peugeot or Citroen print - "french car"
+	Otherwise print out, "not german or french"
+	print nothing if car brand is volvo
 */
 {
 	char car_brand[STRLEN];
 
-	printf("\nMata in bilmarke: ");
+	printf("\nenter car brand: ");
 	scanf("%s", car_brand);
 	for (int index = 0; index < strlen(car_brand); index++)
 		car_brand[index] = tolower(car_brand[index]);
 	if (strcmp(car_brand, "volvo"))
 	{
-		if (strstr("volkswagenbmwaudi", car_brand)) printf("\nBilen ar tysk");
-		else if (strstr("renaultpeugeotcitroen", car_brand)) printf("\nBilen ar fransk");
-		else printf("\nEj fransk eller tysk");
+		if (strstr("volkswagenbmwaudi", car_brand)) printf("\ngerman car");
+		else if (strstr("renaultpeugeotcitroen", car_brand)) printf("\nfrench car");
+		else printf("\nnot german or french");
 	}
 }
 void labb10(void)
-/*	Be användaren mata in en summa på hur mycket pengar den har.
-		Be sedan användaren att ange om den har rabatt.
-		a. Om summan är mellan 15 och 25 och användaren inte har rabatt skriv – Du kan köpa en liten hamburgare. b
-		. Om summan är mellan 15 och 25 och användaren har rabatt skriv – Du kan köpa en liten hamburgare och en pommes frites.
-		c. Om summan är större än 25 och mindre än eller lika med 50 och användaren inte har rabatt skriv – Du kan köpa en stor hamburgare.
-		d. Om summan är större än 25 och mindre än eller lika med 50 och användaren har rabatt skriv – Du kan köpa en stor hamburgare och pommes frites.
-		e. Om summan är större än 60 eller om den är 50 och 60 och användaren har rabatt skriv – Du kan köpa ett meal med dryck.
+/*	Ask the user to enter an amount of money.
+		Then ask the user if they have access to a discount
+		a. If amount is between 15 and 25 and user does not have a discount print - "small hamburger"
+		b. If amount is between 15 and 25 but user has discount print  – "small hamburger and small fries"
+		c. If amount is greater than 25 and smaller or equal to 50 but no discount print - "big burger"
+		d. If amount is greather than 25 and smaller or equal to 50 but has discount print  – "big burger and fries"
+		e. If amount is greater than 60 or equal to 50 or 60 and has user has discount print -  "meal and drink"
 */
 {
 	int summa = 0;
 	char rabatt = 'n';
-	printf("Skriv in hur mycket du har: ");
+	printf("Enter amount of money: ");
 	scanf("%d%*c", &summa);
-	printf("Har du rabatt?(j/n): ");
+	printf("do you have a discount?(y/n): ");
 	scanf("%c", &rabatt);
 	if (summa >= 15 && summa <= 25)
 	{
-		if (rabatt == 'j') printf("\nLiten Hamburgare & Pommes");
-		else printf("\nLiten Hamburgare");
+		if (rabatt == 'y') printf("\nsmall hamburger and small fries");
+		else printf("\nsmall hamburger");
 	}
 	else if (summa > 25 && summa <= 50)
 	{
-		if (rabatt = 'j') printf("\nStor hamburgare & pommes");
-		else printf("\nStor hamburgare");
+		if (rabatt = 'y') printf("\nbig burger and fries");
+		else printf("\nbig burger");
 	}
-	else if ((summa > 60 || summa == 50 || summa == 60) && rabatt == 'j') printf("\nMeal med dryck"); // parenteser mannen!
+	else if ((summa > 60 || summa == 50 || summa == 60) && rabatt == 'y') printf("\nmeal and drink"); // parenteser mannen!
 
 }

@@ -143,6 +143,7 @@
     <ClCompile Include="connysantagning.c" />
     <ClCompile Include="labbvariabler1.c" />
     <ClCompile Include="labb_if.c" />
+    <ClCompile Include="labb_loop1.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
