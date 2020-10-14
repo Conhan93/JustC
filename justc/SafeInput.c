@@ -43,6 +43,13 @@ bool GetInputFloat(char* prompt, float* value)
 	if (GetInput(prompt, buff, sizeof(buff)) != INPUT_RESULT_OK) // runs getinput() and returns false if it fails
 		return false;
 	float l = -100000000.0f; // really small float number
+	
+	/*
+		I just checked and I think Stefan wanted to use a Macro here like for
+		LONG_MIN but couldn't find it because the macro for the smallest float
+		isn't in "limits.h" but in "float.h" so he just picked a really small
+		number instead
+	*/
 
 	l = strtof(buff, NULL, 10);
 	if (l == -100000000.0f) return false;
