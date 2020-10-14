@@ -90,6 +90,8 @@ void labb3(void)
 	if (temperature > 39.5) printf("\nYou should see a doctor.."); // pay attention the order of condition checks on this labb
 	else if (temperature > 37.8) printf("\nyou have a fever.");
 	else printf("\nYou don't have a fever.");
+	
+	//Ask yourself what would happen if you reverse the order of the conditionals above
 }
 void labb4(void)
 /*
@@ -106,7 +108,8 @@ void labb4(void)
 	scanf("%s", input);
 
 	if (age = atoi(input))
-		/* atoi() returns value of input if it is able to otherwise it returns 0
+		/* Technically, this is an extra feature outside of stated lab parameters but is still nice to have
+		*  atoi() returns value of input if it is able to, otherwise it returns 0
 		*  In C 0 == False when evaluated as a boolean expression/condition check
 		*  So this if-statement checks if input is able to be converted to int(if int == valid input)
 		*/
@@ -141,6 +144,7 @@ void labb6(void)
 		If greater or equal to 1980 but less than 1990 - print "born in the 1980's"
 		If less than 2000 but greater than or equal to 1990 - print "born in the 90's"
 		If less than 1980 or greater than or equal to 2000 - print "not born in 80's or 90's"
+		
 */
 {
 	int birth_date = 0;
@@ -217,7 +221,8 @@ void labb9(void)
 	scanf("%s", car_brand);
 	for (int index = 0; index < strlen(car_brand); index++)
 		car_brand[index] = tolower(car_brand[index]);
-	if (strcmp(car_brand, "volvo"))
+	
+	if (strcmp(car_brand, "volvo")) //This returns 0 if it matches with volvo (see labb7). (if input == volvo -> ignore everything under this if-statement)
 	{
 		if (strstr("volkswagenbmwaudi", car_brand)) printf("\ngerman car");
 		else if (strstr("renaultpeugeotcitroen", car_brand)) printf("\nfrench car");
@@ -228,16 +233,19 @@ void labb10(void)
 /*	Ask the user to enter an amount of money.
 		Then ask the user if they have access to a discount
 		a. If amount is between 15 and 25 and user does not have a discount print - "small hamburger"
-		b. If amount is between 15 and 25 but user has discount print  – "small hamburger and small fries"
+		b. If amount is between 15 and 25 but user has discount print  â€“ "small hamburger and small fries"
 		c. If amount is greater than 25 and smaller or equal to 50 but no discount print - "big burger"
-		d. If amount is greather than 25 and smaller or equal to 50 but has discount print  – "big burger and fries"
+		d. If amount is greather than 25 and smaller or equal to 50 but has discount print  â€“ "big burger and fries"
 		e. If amount is greater than 60 or equal to 50 or 60 and has user has discount print -  "meal and drink"
 */
 {
 	int summa = 0;
 	char rabatt = 'n';
 	printf("Enter amount of money: ");
-	scanf("%d%*c", &summa);
+	scanf("%d%*c", &summa); // The extra (%*c) tells your scan to not save the newline input (pressing enter)
+				// Without it, the next scanf(line 249) will take this previous newline and input it into "rabatt"
+				// This will ofcourse not meet any conditionals and subsequently end the program
+
 	printf("do you have a discount?(y/n): ");
 	scanf("%c", &rabatt);
 	if (summa >= 15 && summa <= 25)
@@ -247,7 +255,7 @@ void labb10(void)
 	}
 	else if (summa > 25 && summa <= 50)
 	{
-		if (rabatt = 'y') printf("\nbig burger and fries");
+		if (rabatt == 'y') printf("\nbig burger and fries");
 		else printf("\nbig burger");
 	}
 	else if ((summa > 60 || summa == 50 || summa == 60) && rabatt == 'y') printf("\nmeal and drink"); // parenteser mannen!

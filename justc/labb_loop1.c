@@ -126,36 +126,46 @@ void labb6(void)
 void labb6_a(void)
 {
 	int temp1 = 0, temp2 = 0, temp3 = 0, iteration = 1;
-	while (1)
+	while (1) // while true
 	{
-		int input = 0;
+		int input = 0; //important to zero any reusable variables
 		float average = 0;
 		printf("\nEnter temperature: ");
 		scanf("%d", &input);
-		if (iteration % 2 == 0) temp2 = input;
-		else if (iteration % 3 == 0) temp3 = input;
-		else temp1 = input;
-		average = (float)(temp1 + temp2 + temp3) / 3;
+								//What follows is a "while loop" version of a standard "for loop"
+		if (iteration % 2 == 0) temp2 = input;          //iteration starts at 1 and will therefore execute the "else" statement
+		else if (iteration % 3 == 0) temp3 = input;	//iteration 2 and 3 will trigger the "if" statement and "else if" respectively 
+		else temp1 = input;				
+		average = (float)(temp1 + temp2 + temp3) / 3;	//Through every iteration, the input values are added to variable "average" and calculated
 		if (average > 25) printf("\nAlarm!");
 		iteration++;
 	}
 }
 void labb6_b(void)
 {
-	int temperatures[] = { 0, 0, 0 };
+	int temperatures[] = { 0, 0, 0 }; // declaring and initializing an array with three, zeroed, elements
 	for (int index = 0; index < 3; index++)
 	{
 		int sum = 0;
 		float average = 0;
 		printf("\nEnter temperature: ");
-		scanf("%d", &temperatures[index]);
-		//compute avrg
+		scanf("%d", &temperatures[index]); //starting index = 0 means the first element in the temperatures array { 0, 0, 0 } takes first input
+		//compute avrg for every iteration									    ^
 		for (int index_avrg = 0; index_avrg < 3; index_avrg++)
 		{
 			sum += temperatures[index_avrg];
 		}
 		average = (float)(sum / 3);
 		if (average > 25) printf("\nAlarm!");
-		if (index == 2) index = -1;
+		if (index == 2) index = -1; 
+		/* 
+		restarts the loop if the alarm was not raised.
+		in the loop "for (int index = 0; index < 3; index++)" the last statement on the right allways goes last.
+	        which means if we were to set index to 0 the following would occur: 
+		1) index = 0;
+		2) index++;  
+		3) index = 1;
+		4) inputs values into elements[1-3] instead of elements[0-2] 
+		Setting index = -1 ticks it over to index = 0 before running the loop again
 	}
 }
