@@ -45,6 +45,98 @@ void labb2(void)
 	else printf("\nwtf");
 }
 void labb3(void)
+/*
+	Create an application where:
+		a. User inputs two numbers
+		b. Print out sum of the numbers. 
+		c. Print a prompt asking user if they want to continue(y/n)?. 
+		d. If "y" - repeat a - c
+		e. if "n" exit program
+*/
 {
+	do
+	{
+		int number1 = 0, number2 = 0;
+		char break_loop = 'n';
+		printf("\nEnter first number: ");
+		scanf("%d", &number1);
+		printf("\nEnter second number: ");
+		scanf("%d", &number2);
+		printf("\nDo you want to continue(y/n)?: ");
+		scanf("%c", &break_loop);
+		if (break_loop == 'y') break;
+	} while (1);
 
+}
+void labb4(void)
+/*
+	Ask user to input a number
+		Save value in a variable and repeat the process 10 times.
+		add saved input to a sum
+		when done print "the sum is: (sum)" 
+*/
+{
+	int sum = 0; // needs to be declared outside the scope of for loop to persist.
+	for (int iteration = 1; iteration <= 10; iteration++)
+	{
+		int input = 0;
+		printf("\nEnter value %d: ", iteration);
+		scanf("%d", &input);
+		sum += input; // increments sum by value of input variable
+	}
+	printf("The sum is: %d", sum);
+}
+void labb5(void)
+/*
+	Create a program where user gets input a number
+		Let the program print out all the numbers smaller than input but greater than 0.
+		Solve using a loop
+*/
+{
+	int input = 0;
+	printf("\nEnter number: ");
+	scanf("%d", &input);
+	for (int number = input; number > 0; number--) // for loop in reverse
+		printf("\n%d", number);
+}
+void labb6(void)
+/*
+	Create a loop that takes temperature inputs
+		If the average of the last three inputs > 25 print "Alarm 
+		a) Solve using three variables
+		b) Solve using an array
+*/
+{
+	labb6_a(); // solved using three variables
+	labb6_b(); // solved using array
+}
+void labb6_a(void)
+{
+	int temp1 = 0, temp2 = 0, temp3 = 0;
+	while (1)
+	{
+		int input = 0, iteration = 1;
+		printf("\nEnter temperature: ");
+		scanf("%d", &input);
+		if (iteration % 2 == 0) temp2 = input;
+		else if (iteration % 3 == 0) temp3 = input;
+		else temp1 = input;
+		printf("\nAverage: %.2f", (float)(temp1 + temp2 + temp3) / 3);
+		iteration++;
+	}
+}
+void labb6_b(void)
+{
+	int temperatures[] = [0, 0, 0];
+	for (int index = 0; index < 3; index++)
+	{
+		int sum = 0;
+		printf("\nEnter temperature: ");
+		scanf("%d", &temperatures[index]);
+		//compute avrg
+		for (int index_avrg = 0; index_avrg < 3; index_avrg)
+			sum += temperatures[index_avrg];
+		printf("\nAverage is: %.2f", (float)(sum / 3));
+		if (index == 2) index = 0;
+	}
 }
