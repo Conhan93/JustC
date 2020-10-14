@@ -1,11 +1,23 @@
 #include <stdio.h>
 #include <string.h>
 
-
+void labb1(void);
+void labb2(void);
+void labb3(void);
+void labb4(void);
+void labb5(void);
+void labb6_a(void);
+void labb6_b(void);
+void labb6(void);
 
 int main(void)
 {
-
+	labb1();
+	labb2();
+	labb3();
+	labb4();
+	labb5();
+	labb6();
 }
 void labb1(void)
 /*
@@ -30,17 +42,17 @@ void labb2(void)
 */
 {
 	int tal1, tal2;
-	printf("Enter numbers in format(tal1,tal2): ");
-	scanf("%d,%d", &tal1, &tal2);
+	printf("\nEnter numbers in format(tal1,tal2): ");
+	scanf("%d,%d", &tal1, &tal2); // make sure to enter numbers in the given format!
 	if (tal1 < tal2)
 	{
 		for (int number = tal1; number <= tal2; number++)
-			printf("%d", number);
+			printf("%d ", number);
 	}
 	else if (tal2 < tal1)
 	{
 		for (int number = tal2; number <= tal1; number++)
-			printf("%d", number);
+			printf("%d ", number);
 	}
 	else printf("\nwtf");
 }
@@ -48,8 +60,8 @@ void labb3(void)
 /*
 	Create an application where:
 		a. User inputs two numbers
-		b. Print out sum of the numbers. 
-		c. Print a prompt asking user if they want to continue(y/n)?. 
+		b. Print out sum of the numbers.
+		c. Print a prompt asking user if they want to continue(y/n)?.
 		d. If "y" - repeat a - c
 		e. if "n" exit program
 */
@@ -62,9 +74,10 @@ void labb3(void)
 		scanf("%d", &number1);
 		printf("\nEnter second number: ");
 		scanf("%d", &number2);
+		printf("\nSum: %d", number1 + number2);
 		printf("\nDo you want to continue(y/n)?: ");
-		scanf("%c", &break_loop);
-		if (break_loop == 'y') break;
+		scanf("%*[\n]%c", &break_loop);
+		if (break_loop == 'n') return;
 	} while (1);
 
 }
@@ -73,7 +86,7 @@ void labb4(void)
 	Ask user to input a number
 		Save value in a variable and repeat the process 10 times.
 		add saved input to a sum
-		when done print "the sum is: (sum)" 
+		when done print "the sum is: (sum)"
 */
 {
 	int sum = 0; // needs to be declared outside the scope of for loop to persist.
@@ -102,7 +115,7 @@ void labb5(void)
 void labb6(void)
 /*
 	Create a loop that takes temperature inputs
-		If the average of the last three inputs > 25 print "Alarm 
+		If the average of the last three inputs > 25 print "Alarm
 		a) Solve using three variables
 		b) Solve using an array
 */
@@ -112,31 +125,37 @@ void labb6(void)
 }
 void labb6_a(void)
 {
-	int temp1 = 0, temp2 = 0, temp3 = 0;
+	int temp1 = 0, temp2 = 0, temp3 = 0, iteration = 1;
 	while (1)
 	{
-		int input = 0, iteration = 1;
+		int input = 0;
+		float average = 0;
 		printf("\nEnter temperature: ");
 		scanf("%d", &input);
 		if (iteration % 2 == 0) temp2 = input;
 		else if (iteration % 3 == 0) temp3 = input;
 		else temp1 = input;
-		printf("\nAverage: %.2f", (float)(temp1 + temp2 + temp3) / 3);
+		average = (float)(temp1 + temp2 + temp3) / 3;
+		if (average > 25) printf("\nAlarm!");
 		iteration++;
 	}
 }
 void labb6_b(void)
 {
-	int temperatures[] = [0, 0, 0];
+	int temperatures[] = { 0, 0, 0 };
 	for (int index = 0; index < 3; index++)
 	{
 		int sum = 0;
+		float average = 0;
 		printf("\nEnter temperature: ");
 		scanf("%d", &temperatures[index]);
 		//compute avrg
-		for (int index_avrg = 0; index_avrg < 3; index_avrg)
+		for (int index_avrg = 0; index_avrg < 3; index_avrg++)
+		{
 			sum += temperatures[index_avrg];
-		printf("\nAverage is: %.2f", (float)(sum / 3));
-		if (index == 2) index = 0;
+		}
+		average = (float)(sum / 3);
+		if (average > 25) printf("\nAlarm!");
+		if (index == 2) index = -1;
 	}
 }
