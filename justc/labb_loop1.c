@@ -159,13 +159,12 @@ void labb6_b(void)
 		if (average > 25) printf("\nAlarm!");
 		if (index == 2) index = -1; 
 		/* 
-		restarts the loop if the alarm was not raised.
 		in the loop "for (int index = 0; index < 3; index++)" the last statement on the right allways goes last.
 	        which means if we were to set index to 0 the following would occur: 
 		1) index = 0;
 		2) index++;  
 		3) index = 1;
-		4) inputs values into elements[1-3] instead of elements[0-2] 
+		4) inputs values into elements[1-2] instead of elements[0-2] 
 		Setting index = -1 ticks it over to index = 0 before running the loop again
 		*/
 	}
