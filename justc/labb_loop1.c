@@ -2,8 +2,6 @@
 #include <string.h>
 
 
-#define LABB1 11
-
 
 int main(void)
 {
@@ -15,12 +13,13 @@ void labb1(void)
 		Solve using a for loop.
 */
 {
-	int numbers[LABB1] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-	for (int index = 0; index < LABB1; index++)
-	{
-		printf("%d, ", numbers[index]);
-	}
+	/*
+		The first argument is setting variables that'll be in the scope of the for loop
+		The second argument is the condition that the for loop checks everytime it runs
+		the third is what the for loop does at the end of its run(increments number in this case)
+	*/
+	for (int number = 0; number <= 10; number++) // for loops have a tiny invisible code block after them, one execution long
+		printf("%d ", number); // so you don't have to put braces here if the for loop just does one thing
 }
 void labb2(void)
 /*
@@ -31,7 +30,7 @@ void labb2(void)
 */
 {
 	int tal1, tal2;
-	printf("Mata in tal i format (tal1,tal2): ");
+	printf("Enter numbers in format(tal1,tal2): ");
 	scanf("%d,%d", &tal1, &tal2);
 	if (tal1 < tal2)
 	{
@@ -45,7 +44,7 @@ void labb2(void)
 	}
 	else printf("\nwtf");
 }
-void labb3(void)
+void labb3(void) // this is in the wrong labb!!! string labb not loop labb
 /*	
 	With a string variable like this b = "I am a C  hacker."
 		a. Print ut the position of the last "a" --- Skriv ut vilken position sista a har 
@@ -71,5 +70,13 @@ void labb3(void)
 	}
 	printf("Langden av strangen ar: %d", strlen(b));
 
-	// NOT FINISHED
+	char temp[] = b;
+	char delimiter[] = " ";
+
+	char* word = strtok(temp, delimiter);
+	while (word != NULL)
+	{
+		print("%s\n", word);
+		word = strtok(NULL, delimiter);
+	}
 }

@@ -2,15 +2,15 @@
 #include <stdlib.h>
 /*
 	<stdlib> = standard library
-	använder för att få tillgång tills abs(x) som returner det absoluta värdet av x som en int 
+	Used to get access to abs(x) function which returns the absolute value(positive value) of x
 */
 
 #define STRLEN 100
 /*
-	definerar en global konstant STRLEN = 100 som ska vara våran max längd/storlek för de strängar
-	vi använder
+	Defines or declares a macro of 100(int) which we use to set the size
+	of the strings we are going to use
 
-	Konstanter brukar skrivas med bara STORA BOKSTÄVER
+	Macros are written all upper case MACROS
 */
 
 
@@ -23,14 +23,13 @@ void labb5(void);
 void labb6(void);
 void labb7(void);
 void labb8(void);
-void newlabb(void); // skapar bara lite nya rader mellan labbarna
-
+void newlabb(void); // Just prints two newlines
 
 
 
 int main(void)
 {
-	// kör våra labbar i sekvens
+	// labbs in sequence
 	labb1();
 	labb2();
 	labb3();
@@ -41,162 +40,165 @@ int main(void)
 	labb8();
 }
 
-void labb1(void) // Skriv ut Hello + ditt namn i Console applikationen på skärmen
+void labb1(void) // Print hello + your name
 {
 	newlabb();
-	char namn[STRLEN] = "skriv in ditt namn har";
+	char namn[STRLEN] = "Enter your name here";
 	/*
-		Deklarerar en array av char(characters) av längden STRLEN som är 100
-		och initierar den med strängen "skriv in ditt namn här"
+		Declares an array with the length of STRLEN which we defined to 100
+		then we initialize the array to the string literal "enter your name here"
 	*/
 
 	printf("Hello %s", namn);
 	/*
-		Skriver ut strängen "hello %s" där %s är "format specifier" för en "sträng" dvs en array av chars.
-		printf stoppar in namn arrayen i strängen på platsen där vi placerat våran format specifierare
+		Prints ut the string "hello %s" where "%s" is a format specifier for a "string"/char array.
+		printf puts the name array/string into the place where we put our format specifier "%s".
 	*/
 
 }
 
 void labb2(void)
 /*
-	Skapa en Application.
-		a. Skapa en variabel string name med ditt namn
-		b. Skapa en int age med din ålder.
-		c. Skriv sedan ut Jag heter Kalle (innehållet i name) och är 27(innehållet i age) år.
+	Create an application
+		a. Create a string namn with the text "enter name here"
+		b. Create an int with your age
+		c. Then print a string that says "my name is x and i am y years old.
 */
 {
 	newlabb();
-	char namn[STRLEN] = "skriv in ditt namn har";
-	int age = 0; // skriv in din ålder här, bra vana att initiera dina variabler.
+	char namn[STRLEN] = "Enter name here";
+	int age = 0; // Enter name here, good praxis to initiate your variables
 
-	printf("Jag heter %s och ar %d ar gammal", namn, age);
+	printf("My name is %s and I am %d years old", namn, age); // Trivia : printf = print format -> prints formatted string
 	/*
-		skriver ut strängen och ersätter de placerade format specifiers med variablerna.
-		viktigt att tänka på att de måste vara i samma ordning från vänster till höger.
-		så "%s... %d" , namn(sträng), age(integer).
+		Prints the string with variables placed in where we placed format specifiers
+		in order they're entered
+		so "%s... %d" , namn(string), age(integer).
 	*/
 }
 
 void labb3(void)
 /*
-	Skapa en applikation där användaren matar in för och efternamn.
-		a. Skriv ut Skriv in ditt förnamn: . Ta emot värdet i en variabel
-		b. Låt markören vänta på din inmatning på samma rad.
-		c. Gör på samma sätt med efternamnet.
-		d. Skriv sedan ut namnen i omvänd ordning.
-		e. Se till att resultatet ser ut så här.(stefans bild!)
+	Create an application where the user enters first and lastname
+		a. Print "Enter your name" and save the name in a variable
+		b. Await input on the same line(no newline)
+		c. Repeat for lastname
+		d. Print the names in reverse order
+		e. Make sure output looks like this .(see stefans teeny tiny picture!)
 */
 {
 	newlabb();
 	char fornamn[STRLEN], efternamn[STRLEN];
-	printf("skriv in ditt fornamn: ");
+	printf("enter firstname: ");
 	scanf("%s", fornamn);
 	/*
-		behöver inte använda address-of operatör "&" för arrayers då de
-		arrayer redan använder "pass-by-reference" istället för "pass-by-value"
+		No need for address-of operator "&" for arrays as they already
+		use "pass-by-reference" instead of pass-by-value like most basic
+		data types.
 	*/
-	printf("\nskriv in ditt efternamn: ");
+	printf("\nenter lastname: ");
 	scanf("%s", efternamn);
-	printf("\nDu heter %s, %s", efternamn, fornamn); // ordningen är viktig
+	printf("\nYour name is %s, %s", efternamn, fornamn); // order of variables and specifiers must match
 
 }
 void labb4(void)
 /*
-	Skapa en applikation där användaren matar in två tal
-		a. Skriv in Mata in tal 1:
-		b. Ta emot detta tal i en variabel
-		c. Skriv in Mata in tal 2:
-		d. Ta emot värdet på detta tal
-		e. Skriv ut på skärmen - Summan av tal1 och tal 2 är: summan
+	Write an application where the user is asked to enter two numbers
+		a. Print enter first number: 
+		b. Save value in a variable
+		c. Print enter second number:
+		d. Save this value in a variable too(shocker).
+		e. print "the sum is (sum)"
 */
 {
 	newlabb();
-	int tal1 = 0, tal2 = 0; // går att deklarera och initiera variabler av samma typ på en rad
+	int tal1 = 0, tal2 = 0; // possible to declare and initiate several variables on the same row
 
-	printf("Mata in tal 1: ");
+	printf("Enter first number: ");
 	scanf("%d", &tal1);
 	/*
-		grunddatatyper behöver du använda address-of operatör "&" för "pass-by-reference"
-		för att scanf(scan format?) ska kunna ändra variabel
+		basic data types need the address-of operator "&" to be able to be "passed by reference"
+		which they need to be if you want to change them when they're passed to functions
+		like how you want to change the value of tal1 when passing it to scanf()
 	*/
-	printf("\nMata in tal 2: ");
+	printf("\nEnter second number: ");
 	scanf("%d", &tal2);
-	printf("\nSumman av tal1 och tal2 är: %d", tal1 + tal2);
+	printf("\nThe sum is: %d", tal1 + tal2);
 }
 
 void labb5(void)
 /*
-	Skriv ett program som tar in ett födelse år från användaren.
-		a. Ta emot födelseåret och räkna ut personens ålder
-		b. Skriv på skärmen- Din ålder är : ålder
-		c. Pröva att sätta dagens datum i en variabel och utgå från årtalet i detta datum i din beräkning.
+	Write a program that takes the users birth year and prints their age
+		a. Take birth year and calculate age
+		b. Print to screen - "Your age is: (age)"
+		c. Try setting todays date(year) in a variable and use this to calculate age
 */
 {
 	newlabb();
 	int date_of_birth = 0, current_year = 2020;
-	printf("Skriv in fodelsear: ");
+	printf("enter birth year: ");
 	scanf("%d", &date_of_birth);
-	printf("\nDu ar %d ar gammal", current_year - date_of_birth);
+	printf("\nYou are %d years old", current_year - date_of_birth);
 }
 
 void labb6(void)
 /*
-	Mata in två tal och returnera medelvärde, summa och differens mellan dessa tal
-		a.Skriv in Mata in tal 1:. Ta emot i en variabel
-		b.Skriv Mata in tal 2: . Ta emot i en variabel
-		c.Räkna ut medelvärde, summa och differens mellan dessa två tal
-		d. Skriv ut de beräknade värdena på skärmen
+	Enter two numbers and print their average, sum and difference
+		a.Print "Enter first number" and save in a variable
+		b.Print "Enter second number" and save in a variable
+		c.calculate average, sum and difference
+		d. display calculated values
 */
 {
 	newlabb();
 	int tal1, tal2;
-	printf("Mata in tal1: ");
+	printf("Enter first number: ");
 	scanf("%d", &tal1);
-	printf("\nMata in tal2: ");
+	printf("\nEnter second number: ");
 	scanf("%d", &tal2);
-	printf("\nMedelvarde: %.2f\nSumma: %d\nDifferens: %d", (float)(tal1 + tal2) / 2, tal1 + tal2, abs(tal1 - tal2));
+	printf("\nAverage: %.2f\nSum: %d\nDifference: %d", (float)(tal1 + tal2) / 2, tal1 + tal2, abs(tal1 - tal2));
 	/*
-		Här händer det lite grejer.
-			"Medelvarde: %.2f" där våran format specifier säger vi att ska trycka ut en float med två decimalpunkter.
-			det syns genom tvåan efter punkten ".2f".
-			"(float)" är en explicit kastning av uträkningen (tal1 + tal2)/2 från int till float.
-			hade vi inte kastat om uträkningen hade datorn rundat av uträkningen till ett heltal(int).
-			"abs(tal1-tal2)" vi stoppar in skillnaden mellan tal1 och tal2 in i en funktion "abs()" från <stdlib.h>
-			som returnerar det absoluta värdet(positiva) av dess argument.
+		Alright here's a few things.
+			"Average: %.2f" here our format specifiers says we want to print a float number with 2 decimal
+			points, the ".2" specifies the number of decimal points to print
+			"(float)" is explicit casting of the calculation (tal1 + tal2)/2 from int to float.
+			had we not casted the calculation it would have stayed an int and rounded to the nearest whole number.
+			And we would have lost information. ex: 3/4 evaluates to a fraction 0.75 != integer(whole number)
+			"abs(tal1-tal2)" we enter the difference between the numbers into "abs()" from <stdlib.h>
+			which returns the absolute value(positive value) of its argument.
 	*/
 }
 void labb7(void)
 /*
-	Be användaren mata in en summa.
-		Lägg på 25% moms dvs summan gånger 0,25 och skriv på skärmen den nya summan med moms
+	Ask the user to enter an amount
+		add 25% sales tax to the sum then print the sum onscreen
 */
 {
 	newlabb();
 	int summa = 0;
-	printf("Mata in din summa: ");
+	printf("Enter amount: ");
 	scanf("%d", &summa);
-	printf("Med moms: %.2f", summa * 1.25);
+	printf("with tax: %.2f", summa * 1.25);
 }
 void labb8(void)
 /*
-	Skapa ett program där användaren matar in ett antal minuter(minst 60 minuter). Programmet omvandlar sedan detta till timmar och minuter.
-		a. Skriv in ”Mata in antal minuter:”
-		b. Ta emot detta tal
-		c. Räkna om detta till antal timmar och minuter
-		d. Skriv ut på skärmen- Detta är .. timmar och … minuter
+	Create a program that takes minutes as input and prints the input in hours and minutes
+		a. print "Enter minutes"
+		b. Recieve input and save in variable
+		c. convert to hours and minutes
+		d. Print - "this is  .. hours and … minutes"
 */
 {
 	newlabb();
 	int minutes = 0, hours = 0;
 	do
 	{
-		printf("Mata in antal minuter: ");
+		printf("Enter minutes: ");
 		scanf("%d", &minutes);
 	} while (minutes < 60);
-	hours = minutes / 60; // minuter delat på mängden minuter i en timme
+	hours = minutes / 60; // minuter divided by the amount of minutes in an hour = multiples of hours
 	minutes = minutes % 60; // modul, rest division(maths)
-	printf("Detta ar %d timmar och %d minuter", hours, minutes);
+	printf("This is  %d hours and %d minutes", hours, minutes);
 }
 void newlabb(void)
 {
