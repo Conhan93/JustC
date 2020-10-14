@@ -70,7 +70,8 @@ void labb3(void) // this is in the wrong labb!!! string labb not loop labb
 	}
 	printf("Langden av strangen ar: %d", strlen(b));
 
-	char temp[] = b;
+	char temp[strlen(b)];
+	strcpy(temp, b);
 	char delimiter[] = " ";
 
 	char* word = strtok(temp, delimiter);
