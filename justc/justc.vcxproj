@@ -145,6 +145,10 @@
     <ClCompile Include="labb_if.c" />
     <ClCompile Include="labb_loop1.c" />
     <ClCompile Include="labb_string1.c" />
+    <ClCompile Include="SafeInput.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="safeinput.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -33,5 +33,13 @@
     <ClCompile Include="labb_string1.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SafeInput.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="safeinput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
