@@ -44,3 +44,7 @@ void labb2(void)
 	}
 	else printf("\nwtf");
 }
+void labb3(void)
+{
+
+}
