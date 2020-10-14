@@ -167,5 +167,6 @@ void labb6_b(void)
 		3) index = 1;
 		4) inputs values into elements[1-3] instead of elements[0-2] 
 		Setting index = -1 ticks it over to index = 0 before running the loop again
+		*/
 	}
 }

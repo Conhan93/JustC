@@ -1,45 +1,67 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
-#include <limits.h>
+#include <limits.h> // this is the header containing macros like LONG_MIN
 #include <stdlib.h>
 #include "safeinput.h"
 
 bool GetInputInt(char* prompt, int* value)
 {
-	char buff[255];
-	if (GetInput(prompt, buff, sizeof(buff)) != INPUT_RESULT_OK)
+	/*
+		the little * indicates that the variables are using "pass-by-reference"
+		which means we give the function access to the "boxes" the values are stored
+		in so they can be changed.
+
+		basiclly if you have a value you want to change when passed into a function
+		you use pass-by-reference otherwise they're passed by value which means
+		you're working with a copy of the value instead of the actual value
+
+	*/
+	char buff[255]; // creates a string which Getinput will read on to
+	if (GetInput(prompt, buff, sizeof(buff)) != INPUT_RESULT_OK) // runs getinput() and returns false if it fails
 		return false;
-	long l = LONG_MIN;
+	long l = LONG_MIN; // sets l to the lowest possible number
 
 	l = strtol(buff, NULL, 10);
 	if (l == LONG_MIN) return false;
 	*value = l;
 	return true;
+	/*
+		Here strtol(string to long) converts buffer to a long integer
+		to check if conversion was succesfull(I think) he checks if l
+		has been changed from LONG_MIN and if it has he assigns *value
+		the converted value(l)
+
+		then returns true to report sucessfull operation
+		*/
 }
 
 
 bool GetInputFloat(char* prompt, float* value)
 {
-	char buff[255];
-	if (GetInput(prompt, buff, sizeof(buff)) != INPUT_RESULT_OK)
+	char buff[255]; // creates a string which Getinput will read on to
+	if (GetInput(prompt, buff, sizeof(buff)) != INPUT_RESULT_OK) // runs getinput() and returns false if it fails
 		return false;
-	float l = -100000000.0f;
+	float l = -100000000.0f; // really small float number
 
 	l = strtof(buff, NULL, 10);
 	if (l == -100000000.0f) return false;
 	*value = l;
+	/*
+		This is basiclly the same as for GetInputInt but instead of LONG_MIN
+		he uses -100000000.0f and the function strtof(string to float)
+	*/
 	return true;
 }
 
 
 bool GetInputChar(char* prompt, char* value)
 {
-	char buff[255];
-	if (GetInput(prompt, buff, sizeof(buff)) != INPUT_RESULT_OK)
+	char buff[255]; // creates a string which Getinput will read on to
+	if (GetInput(prompt, buff, sizeof(buff)) != INPUT_RESULT_OK) // runs getinput() and returns false if it fails
 		return false;
-	*value = buff[0];
-	return true;
+	*value = buff[0]; // changes Value to the char at [0](first element in string)
+	return true; // returns true(so you can check if function was sucessfull
 }
 
 // the return is a typedef created in the header file(type deffed Enumeration)
@@ -101,7 +123,7 @@ INPUT_RESULT GetInput(char* prompt, char* buff, int maxSize)
 		*/
 	}
 
-	// Otherwise remove newline and give string back to caller.
-	buff[strlen(buff) - 1] = '\0';
-	return INPUT_RESULT_OK;
+	// Otherwise remove newline and give string back to caller. -- Stefan
+	buff[strlen(buff) - 1] = '\0'; // adds an EOF(End Of Line) character to the string to close it
+	return INPUT_RESULT_OK; // reports function as sucessfull
 }
