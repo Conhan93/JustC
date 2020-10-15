@@ -4,7 +4,7 @@ int strcmp(const char* p1, const char* p2)
 		The arguments are just input strings with arbitrary names
 		passed as chars because they're supposed to be strings
 		and const to indicate that they will not be modified
-		in the function
+		in the function(passed as pointers though!)
 	*/
 	const unsigned char* s1 = (unsigned char*)p1; // recasting p1 pointer type from char to
 	const unsigned char* s2 = (unsigned char*)p2; // unsigned and keeping it as a pointer
