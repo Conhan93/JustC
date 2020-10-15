@@ -1,10 +1,16 @@
 #include <stdio.h>
 #include <string.h>
-
+#include <ctype.h>
 
 #define STRLEN 100
 
-
+void labb1(void);
+void labb2(void);
+void labb3(void);
+void labb4(void);
+void labb5(void);
+void labb6(void);
+void labb7(void);
 
 
 
@@ -12,27 +18,33 @@
 
 void main(void)
 {
-
+	labb1();
+	labb2();
+	labb3();
+	labb4();
+	labb5();
+	labb6();
+	labb7();
 
 }
 void labb1(void)
 /*
-	Ask user to input 3 strings. 
-		Add strings and print them to screen. 
+	Ask user to input 3 strings.
+		Add strings and print them to screen.
 */
 {
 	char string1[3][STRLEN];
-	
+
 	for (int row = 0; row < 3; row++)
 	{
 		printf("Enter string %d: ", row);
-		if (scanf(" %s%*[^\n]", string1[row]) >= STRLEN)
+		if (scanf("%s", string1[row]) >= STRLEN)
 		{
 			printf("\nString too long.\nTry again(less than 100 characters).");
 			row--;
 		}
 	}
-	char added_strings[STRLEN * 3];
+	char added_strings[STRLEN * 3] = "";
 	for (int row = 0; row < 3; row++)
 	{
 		strcat(added_strings, string1[row]);
@@ -49,7 +61,7 @@ void labb2(void)
 	char hello_world[] = "Hello, world!";
 
 	for (int index = 0; index < strlen(hello_world); index++)
-		if (hello_world[index] == 'w') print("\nPosition is: %d", index);
+		if (hello_world[index] == 'w') printf("\nPosition is: %d", index);
 }
 void labb3(void)
 /*
@@ -60,7 +72,7 @@ void labb3(void)
 		d. Modify the string to "i Am A C hAcKeR"
 */
 {
-	char b[] = "I am a C  hacker";
+	char b[] = "I am a C hacker";
 
 	for (int index = strlen(b); index >= 0; index--)
 	{
@@ -70,16 +82,16 @@ void labb3(void)
 		*/
 		if (b[index] == 'a') // if element of b in position [index] == 'a'
 		{
-			printf("sista a har index: %d\n", index);
+			printf("\nsista a har index: %d", index);
 			break; // break out of the for loop when first "a" is found
 		}
 	}
 	for (int index = 0; index < strlen(b); index++)
 	{
 		if (b[index] == 'C')
-			printf("C har positionen: %d\n", index);
+			printf("\nC har positionen: %d", index);
 	}
-	printf("Length of string is: %d", strlen(b)); // strlen == string length
+	printf("\nLength of string is: %d", strlen(b)); // strlen == string length
 
 	char temp[strlen(b)];
 	strcpy(temp, b);
@@ -107,7 +119,7 @@ void labb3(void)
 		*/
 	while (word) // strtok returns NULL when it runs out of string to loop through. NULL == False, not NULL == true... kinda
 	{
-		print("%s\n", word); // prints whatever the pointer is pointing to in string format.
+		printf("\n%s", word); // prints whatever the pointer is pointing to in string format.
 		word = strtok(NULL, delimiter);
 		/*
 			Key part of using strtok() is that it only returns one "word" per run/call so it needs
@@ -122,4 +134,92 @@ void labb3(void)
 
 	// NOT FINISHED YET
 	// just been moved to correct labb/file
+}
+void labb4(void)
+/*
+	Given a string initiated with the name "kurt andersson"
+		Write code that capitalizes the first and last name
+		Result should be "Kurt Andersson"
+*/
+{
+	char name[] = "kurt andersson";
+	int capitalize = 1;
+	for (int index = 0; index < strlen(name); index++)
+	{
+		if (capitalize) name[index] = toupper(name[index]);
+		if (name[index] == ' ') capitalize = 1;
+		else capitalize = 0;
+	}
+	printf("\n%s", name);
+
+}
+void labb5(void)
+/*
+	Given a string initialized with "this is the string you will change"
+		Replace all the space " " character with "*"
+		Calculate the amount of "*" characters in the string
+*/
+{
+	char string[] = "this is the string you will change";
+	int count = 0;
+	for (int index = 0; index < strlen(string); index++)
+	{
+		if (string[index] == '*') count++;
+		if (string[index] == ' ')
+		{
+			string[index] = '*';
+			count++;
+		}
+	}
+	printf("\nModified string: %s\tcount of * chars: %d", string, count);
+}
+void labb6(void)
+/*
+	Given a string set to ”one,two,three,four,five,six,seven”.
+		create a 2-dimensional array
+		split the string at ","
+		put each number into a separate column in the array.
+*/
+{
+	char string[] = "one,two,three,four,five,six,seven";
+	char multidimensional[7][STRLEN];
+
+	char delimiter[] = ",";
+
+	char* number = strtok(string, delimiter);
+
+	for (int index = 0; index < 7; index++)
+	{
+		strcpy(multidimensional[index], number);
+		number = strtok(NULL, delimiter);
+	}
+	for (int index = 0; index < 7; index++) printf("\n%s", multidimensional[index]);
+}
+void labb7(void)
+/*
+	Ask user to input a mail address
+		Program will check that input is correct.
+		Is correct if address contains: one "@" and one "." followed by at least 2 characters
+		Notify user if address is correct.
+*/
+{
+	char mail_address[STRLEN];
+
+	do
+	{
+		printf("\nEnter mail address: ");
+		if (scanf(" %s", mail_address) < STRLEN) break;
+	} while (1);
+
+	int foundat = 0; // shitty variable names
+	int foundpunctuation = 0;
+
+	for (int index = 0; index < strlen(mail_address); index++)
+	{
+		if (mail_address[index] == '@') foundat++;
+		if (mail_address[index] == '.') foundpunctuation++;
+		if (foundpunctuation) foundpunctuation++;
+	}
+	if (foundat && foundpunctuation > 3) printf("\nAddress is correct");
+	else printf("\nIncorrect Address");
 }
