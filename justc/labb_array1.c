@@ -116,5 +116,7 @@ void labb4(void)
 		Print values, average and max
 */
 {
+	float temperatures[ARR_LEN] = { 0 };
 
+	int nr_values = 0;
 }
