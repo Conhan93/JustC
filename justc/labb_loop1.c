@@ -72,7 +72,7 @@ void labb3(void)
 	do
 	{
 		int number1 = 0, number2 = 0;
-		char break_loop = 'n';
+		char break_loop = 'n'; // Notice single qoutes here. Singles are used to single chars while double qoutes are for string literals
 		printf("\nEnter first number: ");
 		scanf("%d", &number1);
 		printf("\nEnter second number: ");
@@ -80,7 +80,7 @@ void labb3(void)
 		printf("\nSum: %d", number1 + number2);
 		printf("\nDo you want to continue(y/n)?: ");
 		scanf("%*[\n]%c", &break_loop); 
-		if (break_loop == 'n') return; // Notice single qoutes here. Singles are used to single chars while double qoutes are for string literals
+		if (break_loop == 'n') return; 
 	} while (1);
 	// (%*[\n]%c) tells scan to read but ignore a previous newline %*[ignore anything specified here]
 	//Since every scan input ends with the user pressing the enter key, a newline is produced
