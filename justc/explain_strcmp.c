@@ -16,7 +16,8 @@ int strcmp(const char* p1, const char* p2)
 		the basic data types are stored as bytes that are made up
 		off bits, 8 bits to be precise.
 		so 00001010 are 8 bits that equal 10 in decimal this is
-		how the memory cell for "int var = 10;" looks(not really)
+		how the memory cell for "int var = 10;" looks(not really
+		they're up to 32 or 64 bits)
 
 		11111111 == 255 -- unsigned char
 		01111111 == 127 -- regular old signed char
