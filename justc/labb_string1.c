@@ -2,7 +2,7 @@
 #include <string.h>
 
 
-
+#define STRLEN 100
 
 
 
@@ -14,6 +14,42 @@ void main(void)
 {
 
 
+}
+void labb1(void)
+/*
+	Ask user to input 3 strings. 
+		Add strings and print them to screen. 
+*/
+{
+	char string1[3][STRLEN];
+	
+	for (int row = 0; row < 3; row++)
+	{
+		printf("Enter string %d: ", row);
+		if (scanf(" %s%*[^\n]", string1[row]) >= STRLEN)
+		{
+			printf("\nString too long.\nTry again(less than 100 characters).");
+			row--;
+		}
+	}
+	char added_strings[STRLEN * 3];
+	for (int row = 0; row < 3; row++)
+	{
+		strcat(added_strings, string1[row]);
+	}
+	printf("\nconcatenated: %s", added_strings);
+}
+void labb2(void)
+/*
+	Given a string initiated with the text "Hello, world!"
+		a. Find the position of the letter "w"
+		b. Print ut the position of "w"
+*/
+{
+	char hello_world[] = "Hello, world!";
+
+	for (int index = 0; index < strlen(hello_world); index++)
+		if (hello_world[index] == 'w') print("\nPosition is: %d", index);
 }
 void labb3(void)
 /*
