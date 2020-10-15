@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <limits.h>
+#include <limits.h> // INT_MIN from here
 
-#define ARR_LEN 100
+#define ARR_LEN 100 // used to set the length of the array
 
 
 void main(void)
@@ -35,6 +35,13 @@ void labb2(void)
 	int values[ARR_LEN] = { 0 }; // automatically zeroes the rest of the array
 	int max = INT_MIN; // sets max to lowest possible int value
 	int nr_values = 0; // variable for amount of values to enter
+	
+	/*
+		The maximum size of the array is ARR_LEN == 100, you can't get
+		away from having fixed sizes for arrays unless you make a
+		dynamic array --- might make one here just to demonstrate
+		though it'll involve pointers and calls of malloc()
+	*/
 
 	printf("\nEnter amount of numbers to enter: ");
 	scanf("%d", &nr_values); // assigns number of values to enter
