@@ -97,3 +97,25 @@ void labb2dynamic(void)
 	printf("\nMax is %d: ", max);
 	free(dynamic); // de-allocates memory
 }
+void labb3(void)
+/*
+	Create an array and initialize it with 5 integers
+		Replace all odd numbers with 0
+		Print array to screen
+*/
+{
+	int array[] = { 1,2,3,4,5 };
+	for (int index = 0; index < 5; index++)
+		if (array[index] % 2) array[index] = 0;
+	for (int index = 0; index < 5; index++) printf("\n%d", array[index]);
+}
+void labb4(void)
+/*
+	Create an array to hold temperature readings
+		User gets to enter amount of readings to enter.
+		User gets to enter temperature readings in decimal
+		Print values, average and max
+*/
+{
+
+}
