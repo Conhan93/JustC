@@ -67,6 +67,8 @@ void labb3(void)
 */
 {
 	//Do-while loop always runs atleast one time before checking the stated condition
+	//Asks if you want to restart at the end rather than jumping back up to the start of the codeblock to check the condition.
+	//Not a huge difference in a small program like this but does save some computing time. Also in general a bit easier to follow, in my opinion
 	do
 	{
 		int number1 = 0, number2 = 0;
@@ -78,7 +80,7 @@ void labb3(void)
 		printf("\nSum: %d", number1 + number2);
 		printf("\nDo you want to continue(y/n)?: ");
 		scanf("%*[\n]%c", &break_loop); 
-		if (break_loop == 'n') return;
+		if (break_loop == 'n') return; // Notice single qoutes here. Singles are used to single chars while double qoutes are for string literals
 	} while (1);
 	// (%*[\n]%c) tells scan to read but ignore a previous newline %*[ignore anything specified here]
 	//Since every scan input ends with the user pressing the enter key, a newline is produced
