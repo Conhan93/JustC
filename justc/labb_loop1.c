@@ -66,6 +66,7 @@ void labb3(void)
 		e. if "n" exit program
 */
 {
+	//Do-while loop always runs atleast one time before checking the stated condition
 	do
 	{
 		int number1 = 0, number2 = 0;
@@ -76,9 +77,13 @@ void labb3(void)
 		scanf("%d", &number2);
 		printf("\nSum: %d", number1 + number2);
 		printf("\nDo you want to continue(y/n)?: ");
-		scanf("%*[\n]%c", &break_loop);
+		scanf("%*[\n]%c", &break_loop); 
 		if (break_loop == 'n') return;
 	} while (1);
+	// (%*[\n]%c) tells scan to read but ignore a previous newline %*[ignore anything specified here]
+	//Since every scan input ends with the user pressing the enter key, a newline is produced
+	//This newline will stay in what is called the buffer. Almost like a queue system for input values
+	//Which means next time a scan is called, the next value in line in the buffer will automatically fill the specified variable
 
 }
 void labb4(void)
