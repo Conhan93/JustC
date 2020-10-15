@@ -33,12 +33,12 @@ void labb1(void)
 		Add strings and print them to screen.
 */
 {
-	char string1[3][STRLEN];
+	char string1[3][STRLEN]; // 2-dimensional array of 3 rows and STRLEN columns(or 3 strings of length STRLEN)
 
 	for (int row = 0; row < 3; row++)
 	{
 		printf("Enter string %d: ", row);
-		if (scanf("%s", string1[row]) >= STRLEN)
+		if (scanf("%s", string1[row]) > STRLEN) // if the amount of characters scanf read is less than STRLEN
 		{
 			printf("\nString too long.\nTry again(less than 100 characters).");
 			row--;
