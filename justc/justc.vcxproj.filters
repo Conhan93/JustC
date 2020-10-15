@@ -36,6 +36,9 @@
     <ClCompile Include="SafeInput.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="labb_array1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="safeinput.h">
