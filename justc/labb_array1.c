@@ -84,9 +84,8 @@ void labb2dynamic(void)
 	{
 		/*
 			Here we start assigning input values the allocated memory slots
-			and we can do it just as if it was an array(or maybe an array
-			is just really a pointer? maybe that's why you don't need
-			to send it's adress when used as a function argument?
+			and we can do it just as if it was an array using index to
+			iterate over the memory slots!
 		*/
 		printf("\nEnter value nr %d: ", index + 1);
 		scanf("%d", &dynamic[index]);
