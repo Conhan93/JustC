@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <limits.h> // INT_MIN from here
+#include <stdlib.h> // included for calloc()
 
 #define ARR_LEN 100 // used to set the length of the array
 
@@ -54,4 +55,45 @@ void labb2(void)
 	}
 	for (int index = 0; index < 4; index++) printf("\nValue %d is: %d", index, values[index]);
 	printf("\nMax is %d: ", max);
+}
+void labb2dynamic(void)
+/*
+	labb 2 but with a dynamic array
+*/
+{
+	int nr_values = 0;
+	int max = INT_MIN;
+
+	printf("\nEnter nr of values to enter: ");
+	scanf("%d", &nr_values);
+
+	int* dynamic; // declares a pointer
+	dynamic = calloc(nr_values, sizeof(int));
+	/*
+		calloc allocates memory(boxes or size of a box) of nr_values * sizeof(int)
+		so it pretty much declares int (variable name) nr_value times.
+
+		calloc also initializes the memory it created and sets them to zero unlike
+		malloc()
+
+		then we assign the POINTER dynamic to that memory space, pointing at the first
+		(int) memory slot created
+	*/
+
+	for (int index = 0; index < nr_values; index++)
+	{
+		/*
+			Here we start assigning input values the allocated memory slots
+			and we can do it just as if it was an array(or maybe an array
+			is just really a pointer? maybe that's why you don't need
+			to send it's adress when used as a function argument?
+		*/
+		printf("\nEnter value nr %d: ", index + 1);
+		scanf("%d", &dynamic[index]);
+		if (dynamic[index] > max) max = dynamic[index];
+	}
+
+	for (int index = 0; index < nr_values; index++) printf("\nValue %d is: %d", index, dynamic[index]);
+	printf("\nMax is %d: ", max);
+	free(dynamic); // de-allocates memory
 }
