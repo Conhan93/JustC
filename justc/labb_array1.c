@@ -1,18 +1,36 @@
 #include <stdio.h>
 #include <limits.h> // INT_MIN from here
 #include <stdlib.h> // included for calloc()
-#include <float.h>
-#include <string.h>
+#include <float.h> // included for macro FLT_MIN
+#include <string.h> // string functions
 
 #define ARR_LEN 100 // used to set the length of the array
-#define ISO_LEN 11
+#define ISO_LEN 11 // for labb5
 
 // struct used for labb5b
 typedef struct
 {
 	float temperature;
 	char date[ISO_LEN];
+
 } Measurement;
+/*
+	We'll probably go through what a struct is in more depth next week
+
+	But briefly.
+		Structs are kinda lika a class/object in python in that they can
+		hold lots of values in one variable. accessed through "structname.variablename"
+		or "structname->variablename"
+
+		structs can hold basic data types, arrays, other structs, pointers.
+		they do not have a built-in support for functions like class methods for
+		python(though there is a way to put functions inside a struct, involves pointers)
+
+	Typedef allows you to define your types.
+	ex. you can declare your own int types like "typedef int custom_type" where custom_type
+		is whatever name you choose to call your int type.
+	here we declare our own type of struct and call that type "Measurement"-
+*/
 
 Measurement CreateMeasurement(float temperature, char date[]); // function used for labb5b
 void labb1(void);
