@@ -202,6 +202,14 @@ void labb5a(void)
 void labb5b(void)
 {
 	Measurement measurements[ARR_LEN];
+	/*
+		Declares an array of length ARR_LEN of the type "Measurements" which is
+		a type we have defined ourselves using typedef, as a struct with two variables.
+		A string and a float.
+
+		This is an array capable of holding structs of that type like an int array can
+		hold ints.
+	*/
 	char date[ISO_LEN] = "";
 	float temperature = 0;
 
@@ -220,6 +228,8 @@ void labb5b(void)
 
 		if (temperature > max_temp) max_temp = temperature;
 		sum += temperature;
+
+		// returns a struct of type measurement and enters it into array
 		measurements[index] = CreateMeasurement(temperature, date);
 	}
 	printf("\nDates\t\tMeasurements");
@@ -227,11 +237,30 @@ void labb5b(void)
 		printf("\n%s\t%.2f ", measurements[index].date, measurements[index].temperature);
 	printf("\nAverage: %.2f , max: %.2f", sum / nr_values, max_temp);
 }
+// It's possible to set return type to custom types, here we return our type defined struct Measurement
 Measurement CreateMeasurement(float temperature, char date[])
 {
+	/*
+		Function used to declare a struct of the type we have
+		defined using typedef(measurement), initializes it with
+		the function arguments(our input values) and returns it.
+
+		Measurement measurement;
+		^ this is a type ^ declaration just as if we would have declared an int or float.
+						 | this is the variable name.
+	*/
 	Measurement measurement;
+
 	measurement.temperature = temperature;
 	strcpy(measurement.date, date);
 
-	return measurement;
+	/*
+		Above we access the values of the struct measurement that we created
+		and assigm them values of the function arguments just like we would
+		have changed the values of an object in Python.
+		difference being you need to use strcpy() to assign the input string
+		to the struct string.
+	*/
+
+	return measurement; // returns initialized struct
 }
