@@ -4,7 +4,22 @@ int strcmp(const char* p1, const char* p2)
 		The arguments are just input strings with arbitrary names
 		passed as chars because they're supposed to be strings
 		and const to indicate that they will not be modified
-		in the function(passed as pointers though!)
+		in the function
+
+		There are two uses of "*" below(and in function argument)
+		1. declaring pointers, "type* var" just means that you declare
+		   a pointer of "type"(const unsigned char).
+		2. casting a pointer(p1 & p2) from (char*) to (unsigned char*)
+		   this just changes the type of the pointer(type being like char, int
+		   or float) and the "*" is just there to tell us that it's a pointer.
+		   
+		   like how you would declare any pointer ex. "int* var;" which declares
+		   a pointer of type int.
+
+		   but you could easily pretend the variables weren't pointers in the two lines
+		   below if you wanted to because there really isn't any pointer magic going on
+		   we're just accessing the type of "p1" & "p2", recasting to unsigned char and
+		   storing that in "s1" and "s2".
 	*/
 	const unsigned char* s1 = (unsigned char*)p1; // recasting p1 pointer type from char to
 	const unsigned char* s2 = (unsigned char*)p2; // unsigned and keeping it as a pointer
