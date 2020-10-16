@@ -265,7 +265,7 @@ Measurement CreateMeasurement(float temperature, char date[])
 
 		Measurement measurement;
 		^ this is a type ^ declaration just as if we would have declared an int or float.
-						 | this is the variable name.
+				 | this is the variable name.
 	*/
 	Measurement measurement;
 
