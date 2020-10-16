@@ -42,6 +42,9 @@
     <ClCompile Include="explain_strcmp.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="labb_datime.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="safeinput.h">
