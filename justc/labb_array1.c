@@ -1,20 +1,45 @@
 #include <stdio.h>
 #include <limits.h> // INT_MIN from here
 #include <stdlib.h> // included for calloc()
+#include <float.h>
+#include <string.h>
 
 #define ARR_LEN 100 // used to set the length of the array
+#define ISO_LEN 11
+
+typedef struct
+{
+	float temperature;
+	char date[ISO_LEN];
+} Measurement;
+
+Measurement CreateMeasurement(float temperature, char date[]);
+void labb1(void);
+void labb2(void);
+void labb2dynamic(void);
+void labb3(void);
+void labb4(void);
+void labb5(void);
+void labb5a(void);
+void labb5b(void);
+
 
 
 void main(void)
 {
-
+	labb1();
+	labb2();
+	labb2dynamic();
+	labb3();
+	labb4();
+	labb5();
 }
 void labb1(void)
 /*
 	Create a program where the user is asked input a number 4 times
 		Save all values in an array
-		Loop through the array and find the largest value 
-		Print the result on the screen 
+		Loop through the array and find the largest value
+		Print the result on the screen
 */
 {
 	int values[4] = { 0 }; // automatically zeroes the rest of the array
@@ -36,7 +61,7 @@ void labb2(void)
 	int values[ARR_LEN] = { 0 }; // automatically zeroes the rest of the array
 	int max = INT_MIN; // sets max to lowest possible int value
 	int nr_values = 0; // variable for amount of values to enter
-	
+
 	/*
 		The maximum size of the array is ARR_LEN == 100, you can't get
 		away from having fixed sizes for arrays unless you make a
@@ -53,7 +78,7 @@ void labb2(void)
 		scanf("%d", &values[index]);
 		if (values[index] > max) max = values[index]; // check if input value is larger than max
 	}
-	for (int index = 0; index < 4; index++) printf("\nValue %d is: %d", index, values[index]);
+	for (int index = 0; index < nr_values; index++) printf("\nValue %d is: %d", index, values[index]);
 	printf("\nMax is %d: ", max);
 }
 void labb2dynamic(void)
@@ -119,4 +144,93 @@ void labb4(void)
 	float temperatures[ARR_LEN] = { 0 };
 
 	int nr_values = 0;
+	float maxi = FLT_MIN, sum = 0;
+
+	printf("\nEnter nr values to enter: ");
+	scanf("%d%*c", &nr_values);
+
+	for (int index = 0; index < nr_values; index++)
+	{
+		printf("\nEnter temperature value nr %d: ", index);
+		scanf("%f%*c", &temperatures[index]);
+
+		if (temperatures[index] > maxi) maxi = temperatures[index];
+		sum += temperatures[index];
+	}
+	for (int index = 0; index < nr_values; index++)
+		printf("%.2f ", temperatures[index]);
+	printf("\nAverage: %.2f , max: %.2f", sum / nr_values, maxi);
+}
+void labb5(void)
+/*
+	The same as labb 4 but in addition to temperature input
+	you'll ask for date input too
+		a. solve using two arrays
+		b. solve using struct
+*/
+{
+	labb5a();
+	labb5b();
+}
+void labb5a(void)
+{
+	float temperatures[ARR_LEN] = { 0 };
+	char dates[ARR_LEN][ISO_LEN];
+
+	int nr_values = 0;
+	float max_temp = FLT_MIN, sum = 0;
+
+	printf("\nEnter nr values to enter: ");
+	scanf("%d%*c", &nr_values);
+
+	for (int index = 0; index < nr_values; index++)
+	{
+		printf("\nEnter measurement date(dd-mm-yyyy): ");
+		scanf("%s", dates[index]);
+		printf("\nEnter temperature value nr %d: ", index);
+		scanf(" %f%*c", &temperatures[index]);
+
+		if (temperatures[index] > max_temp) max_temp = temperatures[index];
+		sum += temperatures[index];
+	}
+	printf("\nDates\t\tMeasurements");
+	for (int index = 0; index < nr_values; index++)
+		printf("\n%s\t%.2f ", dates[index], temperatures[index]);
+	printf("\nAverage: %.2f , max: %.2f", sum / nr_values, max_temp);
+}
+void labb5b(void)
+{
+	Measurement measurements[ARR_LEN];
+	char date[ISO_LEN] = "";
+	float temperature = 0;
+
+	int nr_values = 0;
+	float max_temp = FLT_MIN, sum = 0;
+
+	printf("\nEnter nr values to enter: ");
+	scanf("%d", &nr_values);
+
+	for (int index = 0; index < nr_values; index++)
+	{
+		printf("\nEnter measurement date(dd-mm-yyyy): ");
+		scanf("%s", date);
+		printf("\nEnter temperature value nr %d: ", index);
+		scanf("%f", &temperature);
+
+		if (temperature > max_temp) max_temp = temperature;
+		sum += temperature;
+		measurements[index] = CreateMeasurement(temperature, date);
+	}
+	printf("\nDates\t\tMeasurements");
+	for (int index = 0; index < nr_values; index++)
+		printf("\n%s\t%.2f ", measurements[index].date, measurements[index].temperature);
+	printf("\nAverage: %.2f , max: %.2f", sum / nr_values, max_temp);
+}
+Measurement CreateMeasurement(float temperature, char date[])
+{
+	Measurement measurement;
+	measurement.temperature = temperature;
+	strcpy(measurement.date, date);
+
+	return measurement;
 }
