@@ -72,8 +72,8 @@ int strcmp(const char* p1, const char* p2)
 		The condition of the while loop in plain english means
 		that keep going if the last two read characters match
 
-		so strcmp() compares the last MATCHING characters of two
-		strings and returns the numerical difference(int) giving
+		so strcmp() compares the first NOT MATCHING characters of two
+		strings or EOF and returns the numerical difference(int) giving
 		rise to three different possibilites.
 
 		c1 > c2 --> strcmp returns a positive value greater than zero
