@@ -7,16 +7,17 @@
 #define ARR_LEN 100 // used to set the length of the array
 #define ISO_LEN 11
 
+// struct used for labb5b
 typedef struct
 {
 	float temperature;
 	char date[ISO_LEN];
 } Measurement;
 
-Measurement CreateMeasurement(float temperature, char date[]);
+Measurement CreateMeasurement(float temperature, char date[]); // function used for labb5b
 void labb1(void);
 void labb2(void);
-void labb2dynamic(void);
+void labb2dynamic(void); // labb 2 but with dynamic array
 void labb3(void);
 void labb4(void);
 void labb5(void);
