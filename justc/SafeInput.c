@@ -118,7 +118,7 @@ INPUT_RESULT GetInput(char* prompt, char* buff, int maxSize)
 					1. The last entered character is read, stored in "ch" and checked to see
 					   that it is NOT a newline character.
 					2. the value stored in ch is checked to see if it is NOT an EOF character
-					   EOF(End Of Line) character. Which would indicate an error
+					   EOF(End Of File) character. Which would indicate an error
 					   which runs the code below, (extra = 1)
 			*/
 			extra = 1;
