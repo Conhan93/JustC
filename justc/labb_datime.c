@@ -22,13 +22,19 @@ void labb1(void)
 	time_t time_struct;
 	char time_string[40];
 
+	// initializes time_struct
 	time_struct = time(NULL);
 
+	// initalizes pointer
 	time_ptr = localtime(&time_struct);
 
-	// complete form
-	printf("Complete date: %s", asctime(time_ptr));
+	// formats string for complete form
+	strftime(time_string, 40, "%d-%m-%Y %H:%M:%S", time_ptr);
 
+	// complete form
+	printf("Complete date: %s", time_string);
+
+	// formats string for short form
 	strftime(time_string, 40, "%d-%m-%Y", time_ptr);
 
 	printf("\nShort Date: %s", time_string);
