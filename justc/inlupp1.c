@@ -9,7 +9,6 @@
 
 #define TRANSACTION_WITHDRAWAL "uttag"
 #define TRANSACTION_DEPOSIT "ins"
-#define FILENAME "accounts.bin"
 
 typedef struct transaction
 {
@@ -87,7 +86,7 @@ void administer_account_menu(Account account_list[], int nr_accounts)
     {
         int selection = 0;
         printf("\n****KONTOMENY**** - konto:%s", active_account->account_nr);
-        printf("\n1. Ta ut pengar\n2. Sätt in pengar\n3. Visa Saldo\n4. Visa transaktioner\n5. Avsluta");
+        printf("\n1. Ta ut pengar\n2. SÃ¤tt in pengar\n3. Visa Saldo\n4. Visa transaktioner\n5. Avsluta");
         printf("\nAnge val: ");
         scanf(" %d", &selection);
         switch (selection)
