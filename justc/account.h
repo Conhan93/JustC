@@ -11,7 +11,6 @@
 
 #define TRANSACTION_WITHDRAWAL "uttag"
 #define TRANSACTION_DEPOSIT "ins"
-#define FILENAME "accounts.bin"
 
 typedef struct transaction
 {
