@@ -149,6 +149,7 @@
     <ClCompile Include="labb_array1.c" />
     <ClCompile Include="explain_strcmp.c" />
     <ClCompile Include="labb_datime.c" />
+    <ClCompile Include="inlupp1.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="safeinput.h" />
