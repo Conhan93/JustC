@@ -150,8 +150,10 @@
     <ClCompile Include="explain_strcmp.c" />
     <ClCompile Include="labb_datime.c" />
     <ClCompile Include="inlupp1.c" />
+    <ClCompile Include="account.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="account.h" />
     <ClInclude Include="safeinput.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
