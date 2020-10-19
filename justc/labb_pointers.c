@@ -22,9 +22,38 @@ void labb1(void)
 */
 {
 	int whatever = 0;
+
 	printf("\nEnter value: ");
 	scanf("%d", &whatever);
+
 	labb1function(&whatever);
+	/*
+		To be able to change a variable inside another function you have to pass a reference(pass-by-reference) to the value.
+		Otherwise you will only provide the function with a copy of the variable to work with, meaning it won't change the
+		variable outside of the function.
+
+		Using the box example. Lets say you declare a variable and initialize it(creating a box and putting something in it).
+		when you try to pass that variable directly, you're only creating a copy of the box and its content to the function.
+
+		To actually change the value of the original declared box you need to pass the location of that box to the function
+		so it'll know what to change(also what type of box, int, char).
+		This is done by providing the function with the address of where that variable was declared
+		using the address-of operator "&" <-- this is not a pointer, it's simply the address
+
+		to be able to use that address though you need to have a pointer pointing to it(a reference) which you create in your
+		functionargument.
+		ex. we want to change the value of "whatever" in "labb1function" so we need to pass the address to the function.
+		we use "&whatever" in the function call to send the address to the function.
+		in the function declaration "void labb1function(int* change_me)" we've declared a int pointer to recieve that address.
+		so "int* change_me" now points to the address provided by "&whatever".
+
+		the next step is accessing that address through the pointer created and changing the value located at the address.
+		this is done through using a dereference operator "*".
+		
+		so using the dereference operator "*" on the int pointer "change_me" like "*change_me" allows us to change the value of
+		"whatever" setting it to 0.
+		*/
+
 	printf("\nNew value: %d", whatever);
 }
 void labb1function(int* change_me)
