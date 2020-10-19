@@ -57,6 +57,9 @@
     <ClCompile Include="labb_pointers.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="more_pointers.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="safeinput.h">

@@ -153,6 +153,7 @@
     <ClCompile Include="account.c" />
     <ClCompile Include="labb_functions.c" />
     <ClCompile Include="labb_pointers.c" />
+    <ClCompile Include="more_pointers.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="account.h" />
