@@ -57,7 +57,7 @@ void labb1(void)
 	printf("\nNew value: %d", whatever);
 }
 void labb1function(int* change_me)
-{
+{	// accessing value of the address "change_me" is pointing to
 	if (*change_me > 10) (*change_me) = 0;
 }
 void labb2(void)
@@ -108,31 +108,49 @@ void labb2(void)
 	double dub_fx = 25;
 	char charizard = 'j';
 
+	/*
+		Declaring variables and initializing them. these are automaticlly given
+		addresses(boxes)
+	*/
+
 	int* int_ptr = &integer;
 	double* dub_ptr = &dub_fx;
 	char* char_ptr = &charizard;
 
+	/*
+		declaring pointers and initializing them with the addresses
+		of the previously declared variables.
 
+		using "&" address-of operator to access the addresses of those variables.
+	*/
+	
+
+	// values
 	printf("\nThe address of char %c is 0x%x", charizard, char_ptr);
 	printf("\nThe address of int %d is 0x%x", integer, int_ptr);
 	printf("\nThe address of double %.2lf is 0x%x", dub_fx, dub_ptr);
 
+	// accessing values of pointers by use of "*" dereference
 	printf("\nThe address of char* %c is 0x%x", *char_ptr, char_ptr);
 	printf("\nThe address of int* %d is 0x%x", *int_ptr, int_ptr);
 	printf("\nThe address of double* %.2lf is 0x%x", *dub_ptr, dub_ptr);
 
+	// value and values of pointers("*")
 	printf("\nThe value of char %c is %c", charizard, *char_ptr);
 	printf("\nThe value of int %d is %d", integer, *int_ptr);
 	printf("\nThe value of double %.2lf is %.2lf", dub_fx, *dub_ptr);
 
+	// value of pointer and value of pointer
 	printf("\nThe value of char* %c is %c", *char_ptr, *char_ptr);
 	printf("\nThe value of int* %d is %d", *int_ptr, *int_ptr);
 	printf("\nThe value of double* %.2lf is %.2lf", *dub_ptr, *dub_ptr);
 
+	// size of basic data types
 	printf("\nThe size of char is %d bytes = %d bits", sizeof(charizard), sizeof(charizard) * 8);
 	printf("\nThe size of int is %d bytes = %d bits", sizeof(integer), sizeof(integer) * 8);
 	printf("\nThe size of double is %d bytes = %d bits", sizeof(dub_fx), sizeof(dub_fx) * 8);
 
+	// size of pointers, pointers are just addresses
 	printf("\nThe size of char* is %d bytes = %d bits", sizeof(char_ptr), sizeof(char_ptr) * 8);
 	printf("\nThe size of int* is %d bytes = %d bits", sizeof(int_ptr), sizeof(int_ptr) * 8);
 	printf("\nThe size of double* is %d bytes = %d bits", sizeof(dub_ptr), sizeof(dub_ptr) * 8);
