@@ -84,6 +84,5 @@ void print_array(int* arr, int arr_size)
 }
 bool over18(int age)
 {
-	if (age > 18) return true;
-	else return false;
+	return age > 18 ? true : false;
 }
