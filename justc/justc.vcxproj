@@ -151,6 +151,7 @@
     <ClCompile Include="labb_datime.c" />
     <ClCompile Include="inlupp1.c" />
     <ClCompile Include="account.c" />
+    <ClCompile Include="labb_functions.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="account.h" />
