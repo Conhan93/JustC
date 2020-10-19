@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdbool.h>
 
+// prototypes
 void labb1(void);
 int labb1function(int first, int second, int third);
 void labb2(void);
@@ -63,11 +64,21 @@ void labb2(void)
 }
 const char* labb2function(const char* string1, const char* string2)
 {
+	/*
+		Uses strlen from "string.h" to check the length of strings
+		returns longest string.
+	*/
 	if (strlen(string1) > strlen(string2)) return string1;
 	else return string2;
 }
 const char* labb2function2(const char* string1, const char* string2)
 {
+	/*
+		Creates new pointers that will be for return.
+		since the pointers(string) from the function argument
+		will be incremented to loop through and compare
+		their elements
+	*/
 	const char* s1 = string1;
 	const char* s2 = string2;
 	do
@@ -94,16 +105,16 @@ void labb3(void)
 }
 const char* labb3function(float convertme)
 {
-	convertme *= 100;
+	convertme *= 100; // just to turn ex. 0.5 to 50
 
-	char string[10];
-	char* return_string = string;
+	char string[10]; // declare string that will be formatted, can't be returned though
+	char* return_string = string; // creates string that will be returned and points it at "string"
 
-	sprintf(string, "%d", (int)convertme);
-	strcat(string, "%");
+	sprintf(string, "%d", (int)convertme); // formats string using sprintf
+	strcat(string, "%"); // Adds "%" to string, I just remembered I could've just done this while formatting the string
 
 
-	return return_string;
+	return return_string; // returns pointer to string
 
 }
 void labb4(void)
@@ -124,6 +135,9 @@ void labb4(void)
 bool labb4function(int age)
 {
 	return age >= 18 ? true : false;
+	/*
+		Ternary Operator == "condition ? do this if condition true : do this if condition false"
+	*/
 }
 void labb5(void)
 /*
@@ -151,7 +165,11 @@ bool labb5function(int age, char location[])
 		krogen,
 		systemet,
 	};
-	const char* places[] = { "krogen", "systemet" };
+	/*
+		Enumerations... enumerate their members starting at 0, so krogen == 0, systemet == 1.
+		These are used for indexes in the places array below.
+	*/
+	const char* places[] = { "krogen", "systemet" }; // these are the strings being compared by places[krogen], places[systemet]
 	if (age >= 18 && !strcmp(location, places[krogen])) return true;
 	else if (age >= 20 && !strcmp(location, places[systemet])) return true;
 	else return false;
