@@ -167,7 +167,12 @@ bool labb5function(int age, char location[])
 	};
 	/*
 		Enumerations... enumerate their members starting at 0, so krogen == 0, systemet == 1.
+		the integer value increasing for every member of the enumeration.
+
+		You can also set the value of an enumeration member, "krogen = 12" if you'd like.
+
 		These are used for indexes in the places array below.
+			Where places[krogen] == places[0] and returns the string at index[0]
 	*/
 	const char* places[] = { "krogen", "systemet" }; // these are the strings being compared by places[krogen], places[systemet]
 	if (age >= 18 && !strcmp(location, places[krogen])) return true;
