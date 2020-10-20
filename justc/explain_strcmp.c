@@ -75,7 +75,7 @@ int strcmp(const char* p1, const char* p2)
 		*/
 		if (c1 == '\0') return c1 - c2;
 		/*
-			here we just check for an EOF which tells us that we've reached
+			here we just check for an end of line character which tells us that we've reached
 			the end of the string and we can exit the function
 
 			and when we do we return the numerical difference between the
