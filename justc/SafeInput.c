@@ -131,6 +131,6 @@ INPUT_RESULT GetInput(char* prompt, char* buff, int maxSize)
 	}
 
 	// Otherwise remove newline and give string back to caller. -- Stefan
-	buff[strlen(buff) - 1] = '\0'; // adds an EOF(End Of File) character to the string to close it
+	buff[strlen(buff) - 1] = '\0'; // adds an end of line character to the string to close it
 	return INPUT_RESULT_OK; // reports function as sucessfull
 }
