@@ -1,4 +1,5 @@
 #include <stdbool.h>
+#include <stdio.h>
 #include "account.h"
 
 /*
@@ -12,6 +13,8 @@ void administer_account_menu(Account account_list[], int nr_accounts);
 void display_balance(Account* active_account);
 void display_transactions(Account* active_account);
 Account* login(Account account_list[], int nr_accounts);
+void make_withdrawal(Account* active_account);
+void make_deposit(Account* active_account);
 
 int main(void)
 {
@@ -64,10 +67,10 @@ void administer_account_menu(Account account_list[], int nr_accounts)
         switch (selection)
         {
         case 1:
-            withdraw(active_account);
+            make_withdrawal(active_account);
             break;
         case 2:
-            deposit(active_account);
+            make_deposit(active_account);
             break;
         case 3:
             display_balance(active_account);
@@ -151,4 +154,41 @@ bool account_exists(Account account_list[], const char* new_account_nr, int* nr_
             return true;
     }
     return false;
+}
+void make_withdrawal(Account* active_account)
+{
+    char input[STRLEN];
+    float withdraw_amount = 0;
+    while (true)
+    {
+        printf("\nAnge belopp: ");
+        scanf("%s%[^\n]", input);
+        withdraw_amount = strtof(input, NULL);
+
+        if (valid_withdrawal(active_account, withdraw_amount))
+        {
+
+            withdraw(active_account, withdraw_amount);
+            return;
+        }
+        else printf("\nFelaktig inmatning");
+    }
+}
+void make_deposit(Account* active_account)
+{
+    char input[STRLEN];
+    float deposit_amount = 0;
+    while (true)
+    {
+        printf("\nAnge belopp: ");
+        scanf("%s%*[^\n]", input);
+        deposit_amount = strtof(input, NULL);
+        if (valid_deposit(deposit_amount))
+        {
+
+            deposit(active_account, deposit_amount);
+            return;
+        }
+        else printf("\nFelaktig inmatning");
+    }
 }

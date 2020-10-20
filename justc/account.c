@@ -1,47 +1,40 @@
 #include "account.h"
 
-void deposit(Account* active_account)
+void deposit(Account* active_account, int deposit_amount)
 {
-    char input[STRLEN];
-    float deposit_amount = 0;
-    while (true)
-    {
-        printf("\nAnge belopp: ");
-        scanf("%s%*[^\n]", input);
-        deposit_amount = strtof(input, NULL);
-        if (deposit_amount > 0)
-        {
+    // deposits amount to account balance, updates transaction log
+    active_account->account_balance += deposit_amount;
 
-            active_account->account_balance += deposit_amount;
-            active_account->transaction_log[active_account->nr_transactions]
-                = create_transaction(active_account->account_nr, deposit_amount, TRANSACTION_DEPOSIT);
-            active_account->nr_transactions++;
-            return;
-        }
-        else printf("\nFelaktig inmatning");
-    }
+    active_account->transaction_log[active_account->nr_transactions]
+        = create_transaction(active_account->account_nr, deposit_amount, TRANSACTION_DEPOSIT);
+
+    active_account->nr_transactions++;
+
+    return;
 }
-void withdraw(Account* active_account)
+bool valid_deposit(int deposit_amount)
 {
-    char input[STRLEN];
-    float withdraw_amount = 0;
-    while (true)
-    {
-        printf("\nAnge belopp: ");
-        scanf("%s%[^\n]", input);
-        withdraw_amount = strtof(input, NULL);
+    // checks if valid deposit amount
+    if (deposit_amount > 0) return true;
+    else return false;
+}
+void withdraw(Account* active_account, int withdraw_amount)
+{
+    // withdraws amount from account balance, updates transaction log
+    active_account->account_balance -= withdraw_amount;
 
-        if (withdraw_amount <= active_account->account_balance)
-        {
+    active_account->transaction_log[active_account->nr_transactions]
+        = create_transaction(active_account->account_nr, withdraw_amount, TRANSACTION_WITHDRAWAL);
 
-            active_account->account_balance -= withdraw_amount;
-            active_account->transaction_log[active_account->nr_transactions]
-                = create_transaction(active_account->account_nr, withdraw_amount, TRANSACTION_WITHDRAWAL);
-            active_account->nr_transactions++;
-            return;
-        }
-        else printf("\nFelaktig inmatning");
-    }
+    active_account->nr_transactions++;
+
+    return;
+}
+bool valid_withdrawal(Account* active_account, int withdraw_amount)
+{
+    // checks if valid withdrawal amount
+    if (withdraw_amount <= active_account->account_balance) return true;
+    else return false;
 }
 Account create_account(char account_nr[])
 {

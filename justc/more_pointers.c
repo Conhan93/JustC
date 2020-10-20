@@ -12,6 +12,11 @@ bool over18(int age);
 
 
 
+
+
+
+
+
 int main(void)
 {
 	// declares integer normal variable

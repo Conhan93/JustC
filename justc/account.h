@@ -3,7 +3,6 @@
 #include <time.h>
 #include <string.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include <stdbool.h>
 
 #define STRLEN 100
@@ -29,8 +28,10 @@ typedef struct account
     Transaction transaction_log[ARR_LEN];
 }Account;
 
-void deposit(Account* active_account);
-void withdraw(Account* active_account);
+void deposit(Account* active_account, int deposit_amount);
+bool valid_deposit(int deposit_amount);
+void withdraw(Account* active_account, int withdraw_amount);
+bool valid_withdrawal(Account* active_account, int withdraw_amount);
 
 
 Transaction create_transaction(char account_nr[], float amount, char transaction_type[]);
