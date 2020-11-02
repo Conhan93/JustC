@@ -5,8 +5,7 @@ introduction
 ---
 <p> Binary numbers are values represened in a base-2 system.
   There are alot of other ways to represent values like hex, or octal base system
-  The most commonly used one that we're all taught and use is the decimal system
-  which is in base-10</p>
+  The most common one that we all use is the decimal system which is in base-10</p>
   
   
   <p> Values represented in bases simply means that we represent values as multiples or powers of that
@@ -23,55 +22,74 @@ introduction
   
   <p> We're mostly going to be using the binary system which is in base-2. Which since it being base-2 only has
   2 possible values per "building block" this makes the binary system really really powerful in computing, because
-  it can be used to represent LOGIC, which is why it's used for computing. </p>
+  it can be used to represent LOGIC (on/true, off/false), which is why it's used for computing. </p>
   
   
-Numerical System - Binary
+talsystem - binära
 ---
+
+****BESKRIVA BINÄRA OCH KOPPLA DET TILL ASCII TABELL FÖR REFERENS****
 <p>
-  Because the binary system is expressed in base-2, there's only two values you can multiply each "building block"(power of) with.
-  which is why it's so handy in representing logic in. a value or "building block" can be either on or off, true or false, 1 or 0.
+![](https://miro.medium.com/max/2356/1*Ae2Vp6Z7rfhipVFX1PkLaw.gif)
+
+ Excellent tutorial for learning to calculate in Binary: https://medium.com/@LindaVivah/learn-how-to-read-binary-in-5-minutes-dac1feb991e
+  
 </p>
 
-<p> 
-  so like 100 = 10^2x1 + 10^1x0 + 10^0x0 in the decimal system, the same value in binary is written like
-  01100100 which is equal 100, each digit from right to left represents an increase in the power of 2.
-  
-  01100100 == 2^7x0 + 2^6x1 + 2^5x1 + 2^4x0 + 2^3x0 + 2^2x1 + 2^1x0 + 2^0x0 == 0 + 64 + 32 + 0 + 0 + 4 + 0 + 0
-  </p>
-  
- <p>
-  each digit in a binary number is refered(?) to as a bit and 8 bits makes up a byte(usually)
-  a byte is kinda the basic size of a memory cell(holds values, these are usually 32 or 64 bits in modern computers)
-  </p>
-  
-Logical Operators/Boolean Operators
+logiska operatörer
 ---
+<p> 
+  Logical/Bitwise operators work just like mathematical operators, in that they tell the compiler to perform certain mathematical or logical functions.
+  Look at the following operators the same way you would "+", "-", "*" signs when calculating mathematically. 
+  Trying to commit them all to memory right now may seem daunting so just focus on understanding each one by one. </p>
+  
+  <p>
+  Below we will look at the most commonly used operators and try our hand at some "boolean arithmetic". In our case this basically just means binary calculations.
+  This is just for understanding what all the operators actually do behind the scenes. Just learning to use codeblocks with these types of functions is honestly
+  good enough at this point. The rest will fall in to place later.
+</p>
+  <p>
+  Before we start, note that all the operations (or calculations) will be done FROM the left operand TO the right operand. 
+  For example, A + B adds the A-operand to the B-operand which results in a new third (A+B)-operand.
+</p>
+  
+ ![](https://www.tablesgenerator.com/markdown_tables)
+ 
+| A | B | A&B | A\|B | A^B |
+|:-:|:-:|:---:|:----:|:---:|
+| 0 | 0 |  0  |   0  |  0  |
+| 0 | 1 |  0  |   1  |  1  |
+| 1 | 1 |  1  |   1  |  0  |
+| 1 | 0 |  0  |   1  |  1  |
+ 
+ <p>
+Assume A = 60 and B = 13 in binary format, they will be as follows:
+
+A = 0011 1100 or 0b00111100
+
+B = 0000 1101 or 0b00001101
+
+-----------------
+
+A&B = 0000 1100 
+
+A|B = 0011 1101
+
+A^B = 0011 0001
+
+~A = 1100 0011
+
+</p>
+
+|  |  |  |
+|-|-|-|
+| & | Binary AND Operator copies a bit to the result if it exists in both operands.  | (A & B) = 12, i.e., 0000 1100 |
+| \| | Binary OR Operator copies a bit if it exists in either operand. | (A \| B) = 61, i.e., 0011 1101 |
+| ^ | Binary XOR Operator copies the bit if it is set in one operand but not both.  | (A ^ B) = 49, i.e., 0011 0001 |
+| ~ | Binary One's Complement Operator is unary and has the effect of 'flipping' bits. | (~A ) = ~(60), i.e,. -0111101 |
+| << | Binary Left Shift Operator. The left operands value is moved left by the number of bits specified by the right operand. | A << 2 = 240 i.e., 1111 0000 |
+| >> | Binary Right Shift Operator. The left operands value is moved right by the number of bits specified by the right operand. | A >> 2 = 15 i.e., 0000 1111 |
+
 <p>
-  This is the more interesting part to how we're going to be using binary numbers, here we're going to be using the binary numbers as logic and perform logical operations on them
-  </p>
-  
-  <p> 
-    There are a few logical operators, AND(&), OR(|) , NOT (~) and last but not least XOR(^) XOR meaning exclusive or, it's a bit special but we'll get to
-    that last one.
-  </p>
-  
-  <p>
-    Let's start with NOT, it's the easiest one.
-    NOT is just a negation, if you have a binary value 1 then NOT 1 is == 0, if you have a larger value 000100 = A then NOT A(~A) == 111011
-    So you just switch the bits to their opposite. If it's ON then NOT ON is OFF, it's TRUE then NOT TRUE is FALSE, if it's 1 then NOT 1 is 0.
-  </p>
-  
-  <p>
-    AND is the next one, it's a bit(hah bit!) more complicated.
-    AND is more of a conditional check, like an if statement. if both arguments are true, then the operation is evaluated as true. that's it.
-  </p>
-  
-  ![AND outcomes](http://web.cs.iastate.edu/~smkautz/cs127f16/notes/chapter09/_static/and_table.PNG)
-  
-  <p>
-    OR TEXT
-  </p>
-  
-  ![OR outcomes](http://web.cs.iastate.edu/~smkautz/cs127f16/notes/chapter09/_static/ab.PNG)
-  
+  Looking closer at the operations
+</p>
