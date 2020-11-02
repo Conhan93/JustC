@@ -48,7 +48,7 @@ Numerical System - Binary
 ****BESKRIVA BINÄRA OCH KOPPLA DET TILL ASCII TABELL FÖR REFERENS****
 </p>
 
-<img src="(https://miro.medium.com/max/2356/1*Ae2Vp6Z7rfhipVFX1PkLaw.gif" alt="ASCII table" width="600"/>
+<img src="https://miro.medium.com/max/2356/1*Ae2Vp6Z7rfhipVFX1PkLaw.gif" alt="ASCII table" height='400' width="800"/>
 
 
 
