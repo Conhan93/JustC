@@ -11,7 +11,7 @@ introduction
   <p> Values represented in bases simply means that we represent values as multiples or powers of that
   base.
   
-  The number 100 in decimal(base-10) being 10^2x1 + 10^1x0 + 10^0x0 == 100
+  The number 100 in decimal(base-10) being (10^2)x1 + (10^1)x0 + (10^0)x0 == 100
   </p>
   <p>
   Where each digit from the right to left is a step up in the power of 10, AND each digit can be
