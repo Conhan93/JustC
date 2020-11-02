@@ -64,7 +64,7 @@ void print_bits(int number)
         if (digit % 8 == 0 && (digit < 31 && digit > 0)) printf(" ");
 
         /*
-            BIT_CHECK bit shifts it's way to the digith position in "number"
+            BIT_CHECK bit shifts it's way to the digit position in "number"
             and returns the value of that bit.
 
             I'm using a ternary operator(condition ? this if true : this if false)
