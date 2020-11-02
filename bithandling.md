@@ -59,6 +59,13 @@ Logical Operators/Boolean Operators
   <p>
     Let's start with NOT, it's the easiest one.
     NOT is just a negation, if you have a binary value 1 then NOT 1 is == 0, if you have a larger value 000100 = A then NOT A(~A) == 111011
-    So you just switch the value to it's opposite. If it's ON then NOT ON is OFF, it's TRUE then NOT TRUE is FALSE, if it's 1 then NOT 1 is 0.
+    So you just switch the bits to their opposite. If it's ON then NOT ON is OFF, it's TRUE then NOT TRUE is FALSE, if it's 1 then NOT 1 is 0.
   </p>
+  
+  <p>
+    AND is the next one, it's a bit(hah bit!) more complicated.
+    AND is more of a conditional check, like an if statement. if both arguments are true, then the operation is evaluated as true. that's it.
+  </p>
+  
+  ![AND outcomes](http://web.cs.iastate.edu/~smkautz/cs127f16/notes/chapter09/_static/and_table.PNG)
   
