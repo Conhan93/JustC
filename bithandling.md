@@ -69,3 +69,9 @@ Logical Operators/Boolean Operators
   
   ![AND outcomes](http://web.cs.iastate.edu/~smkautz/cs127f16/notes/chapter09/_static/and_table.PNG)
   
+  <p>
+    OR TEXT
+  </p>
+  
+  ![OR outcomes](http://web.cs.iastate.edu/~smkautz/cs127f16/notes/chapter09/_static/ab.PNG)
+  
