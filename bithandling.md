@@ -28,5 +28,17 @@ introduction
   
 Numerical System - Binary
 ---
+<p>
+  Because the binary system is expressed in base-2, there's only two values you can multiply each "building block"(power of) with.
+  which is why it's so handy in representing logic in. a value or "building block" can be either on or off, true or false, 1 or 0.
+</p>
+
+<p> 
+  so like 100 = 10^2x1 + 10^1x0 + 10^0x0 in the decimal system, the same value in binary is written like
+  01100100 which is equal 100, each digit from right to left represents an increase in the power of 2.
+  
+  01100100 == 2^7x0 + 2^6x1 + 2^5x1 + 2^4x0 + 2^3x0 + 2^2x1 + 2^1x0 + 2^0x0 == 0 + 64 + 32 + 0 + 0 + 4 + 0 + 0
+  </p>
+  
 Logical Operators/Boolean Operators
 ---
