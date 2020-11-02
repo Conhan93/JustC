@@ -157,6 +157,7 @@
     <ClCompile Include="labbfiles.c" />
     <ClCompile Include="bitlabb1.c" />
     <ClCompile Include="bitlabb2.c" />
+    <ClCompile Include="bitlabb3.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="account.h" />
