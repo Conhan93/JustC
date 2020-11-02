@@ -82,9 +82,9 @@ Logical Operators/Boolean Operators
  <p>
 Assume A = 60 and B = 13 in binary format, they will be as follows:
 
-A = 0011 1100 or 0b00111100
+A = 0011 1100
 
-B = 0000 1101 or 0b00001101
+B = 0000 1101
 
 -----------------
 
