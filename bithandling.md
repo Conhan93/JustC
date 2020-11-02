@@ -47,3 +47,18 @@ Numerical System - Binary
   
 Logical Operators/Boolean Operators
 ---
+<p>
+  This is the more interesting part to how we're going to be using binary numbers, here we're going to be using the binary numbers as logic and perform logical operations on them
+  </p>
+  
+  <p> 
+    There are a few logical operators, AND(&), OR(|) , NOT (~) and last but not least XOR(^) XOR meaning exclusive or, it's a bit special but we'll get to
+    that last one.
+  </p>
+  
+  <p>
+    Let's start with NOT, it's the easiest one.
+    NOT is just a negation, if you have a binary value 1 then NOT 1 is == 0, if you have a larger value 000100 = A then NOT A(~A) == 111011
+    So you just switch the value to it's opposite. If it's ON then NOT ON is OFF, it's TRUE then NOT TRUE is FALSE, if it's 1 then NOT 1 is 0.
+  </p>
+  
