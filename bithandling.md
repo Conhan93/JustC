@@ -44,14 +44,17 @@ Numerical System - Binary
   a byte is kinda the basic size of a memory cell(holds values, these are usually 32 or 64 bits in modern computers)
   </p>
 
-
-****BESKRIVA BINÄRA OCH KOPPLA DET TILL ASCII TABELL FÖR REFERENS****
-
-![](https://miro.medium.com/max/2356/1*Ae2Vp6Z7rfhipVFX1PkLaw.gif)
 <p>
- Excellent tutorial for learning to calculate in Binary: https://medium.com/@LindaVivah/learn-how-to-read-binary-in-5-minutes-dac1feb991e
-  
+****BESKRIVA BINÄRA OCH KOPPLA DET TILL ASCII TABELL FÖR REFERENS****
 </p>
+
+<img src="(https://miro.medium.com/max/2356/1*Ae2Vp6Z7rfhipVFX1PkLaw.gif" alt="ASCII table" width="200"/>
+
+
+<p>
+ Excellent tutorial for learning to calculate in Binary:[Binary Tutorial](https://medium.com/@LindaVivah/learn-how-to-read-binary-in-5-minutes-dac1feb991e)
+  
+</p> 
 
 Logical Operators/Boolean Operators
 ---
