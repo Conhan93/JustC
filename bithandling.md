@@ -26,7 +26,7 @@ introduction
   it can be used to represent LOGIC, which is why it's used for computing. </p>
   
   
-talsystem - binära
+Numerical System - Binary
 ---
-logiska operatörer
+Logical Operators/Boolean Operators
 ---
