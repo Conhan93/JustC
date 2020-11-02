@@ -40,5 +40,10 @@ Numerical System - Binary
   01100100 == 2^7x0 + 2^6x1 + 2^5x1 + 2^4x0 + 2^3x0 + 2^2x1 + 2^1x0 + 2^0x0 == 0 + 64 + 32 + 0 + 0 + 4 + 0 + 0
   </p>
   
+ <p>
+  each digit in a binary number is refered(?) to as a bit and 8 bits makes up a byte(usually)
+  a byte is kinda the basic size of a memory cell(holds values, these are usually 32 or 64 bits in modern computers)
+  </p>
+  
 Logical Operators/Boolean Operators
 ---
