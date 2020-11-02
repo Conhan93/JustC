@@ -63,6 +63,9 @@
     <ClCompile Include="labbfiles.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="bitlabb1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="safeinput.h">
