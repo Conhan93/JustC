@@ -25,18 +25,35 @@ introduction
   it can be used to represent LOGIC (on/true, off/false), which is why it's used for computing. </p>
   
   
-talsystem - binära
+Numerical System - Binary
 ---
+<p>
+  Because the binary system is expressed in base-2, there's only two values you can multiply each "building block"(power of) with.
+  which is why it's so handy in representing logic in. a value or "building block" can be either on or off, true or false, 1 or 0.
+</p>
+
+<p> 
+  so like 100 = 10^2x1 + 10^1x0 + 10^0x0 in the decimal system, the same value in binary is written like
+  01100100 which is equal 100, each digit from right to left represents an increase in the power of 2.
+
+  01100100 == 2^7x0 + 2^6x1 + 2^5x1 + 2^4x0 + 2^3x0 + 2^2x1 + 2^1x0 + 2^0x0 == 0 + 64 + 32 + 0 + 0 + 4 + 0 + 0
+  </p>
+  
+  <p>
+  each digit in a binary number is refered(?) to as a bit and 8 bits makes up a byte(usually)
+  a byte is kinda the basic size of a memory cell(holds values, these are usually 32 or 64 bits in modern computers)
+  </p>
+
 
 ****BESKRIVA BINÄRA OCH KOPPLA DET TILL ASCII TABELL FÖR REFERENS****
-<p>
-![](https://miro.medium.com/max/2356/1*Ae2Vp6Z7rfhipVFX1PkLaw.gif)
 
+![](https://miro.medium.com/max/2356/1*Ae2Vp6Z7rfhipVFX1PkLaw.gif)
+<p>
  Excellent tutorial for learning to calculate in Binary: https://medium.com/@LindaVivah/learn-how-to-read-binary-in-5-minutes-dac1feb991e
   
 </p>
 
-logiska operatörer
+Logical Operators/Boolean Operators
 ---
 <p> 
   Logical/Bitwise operators work just like mathematical operators, in that they tell the compiler to perform certain mathematical or logical functions.
