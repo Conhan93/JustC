@@ -156,6 +156,9 @@
     <ClCompile Include="more_pointers.c" />
     <ClCompile Include="labbfiles.c" />
     <ClCompile Include="bitlabb1.c" />
+    <ClCompile Include="bitlabb2.c" />
+    <ClCompile Include="bitlabb3.c" />
+    <ClCompile Include="bitlabb4.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="account.h" />
