@@ -28,7 +28,8 @@ introduction
   
   Signed/Unsigned Datatypes
   ---
-  Lets start by looking at the simplest one, being 32bit integers. //You may recall ints in C take 4 bytes of memory (4 bytes * 8 bits = 32 bit)//
+  Lets start by looking at the simplest one, being 32bit integers. 
+  You may recall ints in C take 4 bytes of memory (4 bytes * 8 bits = 32 bit)
   A signed integer is any digit between about -2 billion to +2 billion.
   An UNsigned integer can only be positive digits between about 0 to 4 billion.
   Note that they both share a range of about 4 billion, but are shifted on the number line.
