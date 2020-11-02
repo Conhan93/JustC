@@ -15,7 +15,7 @@ introduction
   </p>
   <p>
   Where each digit from the right to left is a step up in the power of 10, AND each digit can be
-  multiplied by base-1 so for base-10 it's 0,1,2,3,4,5,6,7,8,9. ex: 10^0x6 == 6, 8^1x1 == 8.
+  multiplied by base-1 so for base-10 it's 0,1,2,3,4,5,6,7,8,9. ex: (10^0)x6 == 6, (8^1)x1 == 8.
   the other numerical system like hexadecimal, octal and binary systems work in exactly the same way.
   The idea being that the bases work as a building block to construct whatever value you're trying to represent.
   </p>
@@ -33,20 +33,16 @@ Numerical System - Binary
 </p>
 
 <p> 
-  so like 100 = 10^2x1 + 10^1x0 + 10^0x0 in the decimal system, the same value in binary is written like
+  so like 100 = (10^2)x1 + (10^1)x0 + (10^0)x0 in the decimal system, the same value in binary is written like
   01100100 which is equal 100, each digit from right to left represents an increase in the power of 2.
 
-  01100100 == 2^7x0 + 2^6x1 + 2^5x1 + 2^4x0 + 2^3x0 + 2^2x1 + 2^1x0 + 2^0x0 == 0 + 64 + 32 + 0 + 0 + 4 + 0 + 0
+  01100100 == (2^7)x0 + (2^6)x1 + (2^5)x1 + (2^4)x0 + (2^3)x0 + (2^2)x1 + (2^1)x0 + (2^0)x0 == 0 + 64 + 32 + 0 + 0 + 4 + 0 + 0
   </p>
   
   <p>
-  each digit in a binary number is refered(?) to as a bit and 8 bits makes up a byte(usually)
+  each digit in a binary number is referred to as a bit and 8 bits makes up a byte(usually)
   a byte is kinda the basic size of a memory cell(holds values, these are usually 32 or 64 bits in modern computers)
   </p>
-
-<p>
-****BESKRIVA BINÄRA OCH KOPPLA DET TILL ASCII TABELL FÖR REFERENS****
-</p>
 
 <img src="https://miro.medium.com/max/2356/1*Ae2Vp6Z7rfhipVFX1PkLaw.gif" alt="ASCII table" height='400' width="800"/>
 
@@ -85,21 +81,25 @@ Logical Operators/Boolean Operators
 
   ![OR outcomes](http://web.cs.iastate.edu/~smkautz/cs127f16/notes/chapter09/_static/ab.PNG)
 <p> 
-  Logical/Bitwise operators work just like mathematical operators, in that they tell the compiler to perform certain mathematical or logical functions.
-  Look at the following operators the same way you would "+", "-", "*" signs when calculating mathematically. 
-  Trying to commit them all to memory right now may seem daunting so just focus on understanding each one by one. </p>
+  
+Bitwise Operators
+---
+  
+  Bitwise operators work just like mathematical operators, in that they tell the compiler to perform certain mathematical, or in our case, logical functions.
+  Look at the following operators the same way you would "+", "-" "x" signs when calculating mathematically. 
+  Trying to commit them all to memory right now may feel daunting so just focus on understanding each one by one. </p>
   
   <p>
-  Below we will look at the most commonly used operators and try our hand at some "boolean arithmetic". In our case this basically just means binary calculations.
-  This is just for understanding what all the operators actually do behind the scenes. Just learning to use codeblocks with these types of functions is honestly
-  good enough at this point. The rest will fall in to place later.
+  Below we will look at the most commonly used operators and try our hand at some "boolean arithmetic". In our case this basically equates to binary calculations.
+  This is just for understanding what all the operators actually do behind the scenes. 
+  Just learning to use copied codeblocks with these types of functions is honestly good enough at this point. 
+  The rest will fall in to place later.
 </p>
   <p>
-  Before we start, note that all the operations (or calculations) will be done FROM the left operand TO the right operand. 
+  Before we start, note that all the operations (or "calculations") will be done FROM the left operand TO the right operand. 
   For example, A + B adds the A-operand to the B-operand which results in a new third (A+B)-operand.
 </p>
-  
- ![](https://www.tablesgenerator.com/markdown_tables)
+
  
 | A | B | A&B | A\|B | A^B |
 |:-:|:-:|:---:|:----:|:---:|
@@ -137,5 +137,5 @@ A^B = 0011 0001
 | >> | Binary Right Shift Operator. The left operands value is moved right by the number of bits specified by the right operand. | A >> 2 = 15 i.e., 0000 1111 |
 
 <p>
-  Looking closer at the operations
+  Looking closer at the operations {forts. följer}
 </p>
