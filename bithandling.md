@@ -99,7 +99,8 @@ Bitwise Operators
   Before we start, note that all the operations (or "calculations") will be done FROM the left operand TO the right operand. 
   For example, A + B adds the A-operand to the B-operand which results in a new third (A+B)-operand.
 </p>
-
+<p>
+  This first table lists completed operations so just try and use it as a reference going forward.
  
 | A | B | A&B | A\|B | A^B |
 |:-:|:-:|:---:|:----:|:---:|
