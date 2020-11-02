@@ -48,13 +48,13 @@ Numerical System - Binary
 ****BESKRIVA BINÄRA OCH KOPPLA DET TILL ASCII TABELL FÖR REFERENS****
 </p>
 
-<img src="(https://miro.medium.com/max/2356/1*Ae2Vp6Z7rfhipVFX1PkLaw.gif" alt="ASCII table" width="200"/>
+<img src="(https://miro.medium.com/max/2356/1*Ae2Vp6Z7rfhipVFX1PkLaw.gif" alt="ASCII table" width="600"/>
 
 
-<p>
- Excellent tutorial for learning to calculate in Binary:[Binary Tutorial](https://medium.com/@LindaVivah/learn-how-to-read-binary-in-5-minutes-dac1feb991e)
+
+ Excellent tutorial for learning to calculate in Binary: [Binary Tutorial](https://medium.com/@LindaVivah/learn-how-to-read-binary-in-5-minutes-dac1feb991e)
   
-</p> 
+
 
 Logical Operators/Boolean Operators
 ---
