@@ -24,6 +24,38 @@ introduction
   2 possible values per "building block" this makes the binary system really really powerful in computing, because
   it can be used to represent LOGIC (on/true, off/false), which is why it's used for computing. </p>
   
+<p>
+  
+  Signed/Unsigned Datatypes
+  ---
+  Lets start by looking at the simplest one, being 32bit integers. 
+  You may recall ints in C take 4 bytes of memory (4 bytes * 8 bits = 32 bit).
+  A signed integer is any digit between about -2 billion to +2 billion.
+  An UNsigned integer can only be positive digits between about 0 to 4 billion.
+  Note that they both share a range of about 4 billion, but are shifted on the number line.
+</p>
+  
+<p>
+  Now lets look at chars which are only 1 byte (8 bits). A signed char has the range -127 to +127 while the UNsigned is 0-256.
+  The name signed comes from the fact that 1 of 8 bits holds the sign determining if the value is positive of negative.
+</p>
+  
+  <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200806155050/signed-and-unsigned-char-in-C.png" alt="ASCII table" height='300' width="600"/>
+  
+<p>
+  
+  This also explains the lower max values of +-127 since a signed char only has 7 bits open to fill, compared to unsigned 8 bits. 
+  Although as you can see below, the value range is again, the same, only shifted on the number line.
+  
+
+  ![](https://i.stack.imgur.com/0SQVh.png)
+
+</p>
+  
+  <p>
+  Consider the fact that if you want to access the full ASCII-table or work with 8bit-manipulation (which we are) you will 
+  need all 8 bits in that 1 byte unsigned char to do it. 
+  </p>
   
 Numerical System - Binary
 ---
