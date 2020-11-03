@@ -75,6 +75,11 @@ Numerical System - Binary
   each digit in a binary number is referred to as a bit and 8 bits makes up a byte(usually)
   a byte is kinda the basic size of a memory cell(holds values, these are usually 32 or 64 bits in modern computers)
   </p>
+  
+  <p>
+  Below is a table showing conversion between different bases and the ASCII table which is used to convert bytes
+  into chars, just to show you that they're really just numbers
+  </p>
 
 <img src="https://miro.medium.com/max/2356/1*Ae2Vp6Z7rfhipVFX1PkLaw.gif" alt="ASCII table" height='400' width="800"/>
 
@@ -108,7 +113,8 @@ Logical Operators/Boolean Operators
   ![AND outcomes](http://web.cs.iastate.edu/~smkautz/cs127f16/notes/chapter09/_static/and_table.PNG)
   
   <p>
-    OR TEXT
+    The OR operation evaluates if to true if either operand is true. if 1 or 0 == 1 so only one needs to be true. the only
+    case in which OR evaluates to false is if both operands are false or 0(<-- look an OR operation in a sentence!)
   </p>
 
   ![OR outcomes](http://web.cs.iastate.edu/~smkautz/cs127f16/notes/chapter09/_static/ab.PNG)
