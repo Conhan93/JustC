@@ -314,7 +314,7 @@ Using Bitwise Shifting to Access Bits
     the bit we're looking for if it is on(1) otherwise we'll get 0
     
     I = 7 == 00000111
-    ((1 << 0) == 00000001
+    (1 << 0) == 00000001
     I & (1 << 0) == 00000111 & 00000001 = 00000001
     I & (1 << 0) == 1
     
@@ -337,5 +337,30 @@ Using Bitwise Shifting to Access Bits
   to clear it, set it to 0  
     
     Clearing a Bit
+    
+    Clearing a bit works very much like setting a bit, once you've accessed the bit you're
+    going to perform the reverse operation of setting.
+    When you set a bit you're using the AND operation, we're still going to be using the
+    AND operation but with a tweak.
+    
+    We're going to combine logical operators to perform a NAND operation(or run it through a
+    NAND gate).
+    That is done by using the NOT operator to reverse the bitshifted bit before we and it
+    with our device state byte. the symbol for the NOT operator in C is "~".
+    
+    
+    I = 7 == 00000111
+    (1 << 0) == 00000001
+    ~(1 << 0) == 11111110
+    I &= ~(1 << 0) == 00000111 & 11111110 == 00000110
+    I is now 00000110
+    
+    Now the bit is cleared so if we run the check on that bit again.
+    
+    if(I & (1 << 0))  {
+    device.record();
+    }
+    
+    It will be evaluated as false
     
     
