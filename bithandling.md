@@ -390,3 +390,17 @@ Using Bitwise Shifting to Access Bits
     I == 00000111
     
     So we the last bit(bit[0]) flipping between 1 and 0 everytime we run the operation on it.
+    If we run an if statement on that after everychange, and that bit is tied to say a led light.
+    
+    if(I & (1 << 0))  {
+    device.lightOn();
+    }
+    else  {
+    device.ledOff();
+    }
+    
+    or even better, use the state of the bit to set the light.
+    
+    device.light(I ^= (1 << 0));
+    
+    Then the light will switch on and off everytime the function is called.
