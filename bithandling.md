@@ -85,9 +85,11 @@ Numerical System - Binary
   Below is a table showing conversion between different bases and the ASCII table which is used to convert bytes
   into chars, just to show you that they're really just numbers
   </p>
-
+<p aling="center">
+  
 <img src="https://miro.medium.com/max/2356/1*Ae2Vp6Z7rfhipVFX1PkLaw.gif" alt="ASCII table" height='400' width="800"/>
 
+</p>
 
 
  Excellent tutorial for learning to calculate in Binary: [Binary Tutorial](https://medium.com/@LindaVivah/learn-how-to-read-binary-in-5-minutes-dac1feb991e)
@@ -128,6 +130,7 @@ Logical Operators/Boolean Operators
     XOR or Exclusive OR means either or, so not both. we'll be using this quite alot to flip bits, since if one operands is different the outcome
     will be the opposite of that. it's a bit difficult to put into text but hopefully the truth charts make it a bit more clear.
   </p>
+  
   
   ![XOR outcomes](https://iq.opengenus.org/content/images/2018/10/xor-table-5.png)
   
