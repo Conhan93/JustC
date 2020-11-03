@@ -363,4 +363,30 @@ Using Bitwise Shifting to Access Bits
     
     It will be evaluated as false
     
+ <p>
+    The last example is bit flipping, meaning that everytime we run this operation the value of the will be changed  
+    from 0 to 1 to 0 and so on. Which might be useful for say... flashing a led light when a certain type of card  
+    has been scanned.  
+      
+    Bit Flipping
     
+    To flip a bit we're going to as always, use bitshifting to access the bit we want to change and then apply
+    a logical operation to it. This time we'll be using XOR(exclusive or)
+    
+    XOR changes the value of the byte or bit it's applied to 1 if they differ and 1 if they're the same,
+    the symbol in C for XOR is "^" so if a = 0 and b = 1 then a ^= b changes a to 1 then
+    if we do it again a ^= b then a = 0
+    
+    
+    I = 7 == 00000110
+    (1 << 0) == 00000001
+    I ^= (1 << 0)
+    I == 00000111
+    If we do it again...
+    I ^= (1 << 0)
+    I == 00000110
+    and again..
+    I ^= (1 << 0)
+    I == 00000111
+    
+    So we the last bit(bit[0]) flipping between 1 and 0 everytime we run the operation on it.
