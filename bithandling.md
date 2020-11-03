@@ -3,12 +3,12 @@
 Contents
 -----
 
-- [Introduction](text)
-- [Signed/Unsigned Datatypes](link)
-- [Numerical Systems - Binary](link)
-- [Logical Operators/Boolean Operators](link)
-- [Bitwise Operators](link)
-- [Using Bitwise Shifting to Access Bits](link)
+- [Introduction](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#introduction)
+- [Signed/Unsigned Datatypes](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#signedunsigned-datatypes)
+- [Numerical Systems - Binary](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#numerical-system---binary)
+- [Logical Operators/Boolean Operators](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#logical-operatorsboolean-operators)
+- [Bitwise Operators](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#bitwise-operators)
+- [Using Bitwise Shifting to Access Bits](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#using-bitwise-shifting-to-access-bits)
 
 
 introduction
