@@ -39,16 +39,21 @@ introduction
   Now lets look at chars which are only 1 byte (8 bits). A signed char has the range -127 to +127 while the UNsigned is 0-256.
   The name signed comes from the fact that 1 of 8 bits holds the sign determining if the value is positive of negative.
 </p>
-  
+
+  <p align="center">
   <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200806155050/signed-and-unsigned-char-in-C.png" alt="ASCII table" height='300' width="600"/>
+  </p>
   
 <p>
   
   This also explains the lower max values of +-127 since a signed char only has 7 bits open to fill, compared to unsigned 8 bits. 
   Although as you can see below, the value range is again, the same, only shifted on the number line.
   
-
-  ![](https://i.stack.imgur.com/0SQVh.png)
+<p align="center">
+  
+  <img src="https://i.stack.imgur.com/0SQVh.png" alt="ASCII table" height='300' width="600"/>
+  
+</p>
 
 </p>
   
