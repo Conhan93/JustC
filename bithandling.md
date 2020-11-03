@@ -9,6 +9,7 @@ Contents
 - [Logical Operators/Boolean Operators](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#logical-operatorsboolean-operators)
 - [Bitwise Operators](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#bitwise-operators)
 - [Using Bitwise Shifting to Access Bits](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#using-bitwise-shifting-to-access-bits)
+- [Using Bitwise Shift and Operators to modify bits](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#using-bitwise-shift-and-operators-to-modify-bits)
 
 
 introduction
@@ -260,3 +261,132 @@ Using Bitwise Shifting to Access Bits
     (a << n)
     
    </p>
+   
+   Using Bitwise Shift and Operators to modify bits
+   -----
+   
+   <p>
+    So now that we have a really basic understanding of logical operations(hopefully!) and how to access bits.  
+    Let's talk about how to change those bits and the syntax for how to do that in C
+    </p>
+    
+    
+      Setting Bits  
+      Setting a bit means turning it "on" or setting it to 1. You could use a bit to store device state or  
+      setting, for recording an input on the device, to start recording you'd need to turn that bit on.   
+      
+      Let's say that we have the bit for recording on the first bit, to start that recording we'd first  
+      need to SET the first bit.  
+      
+      This is our device state I, with a two bits already turned on. 
+      To access the first bit we use bitwise shifting as in the previous section.
+      Bitshifting from to the zeroth(first place, think of it like an array index).  
+      
+      To be able to change the value we use OR operation. the OR operation will  
+      always set the two bits it is operating on to on(1) unless they're both off  
+      but since the bit we're using to access(from the bitshifting) is always 1  
+      the effect is that the targeted bit will always be set to on and all  
+      other bits in the target byte will remain untouched.
+      
+      I = 6 == 00000110  
+      (1 << 0) == 00000001
+      I |= (1 << 0)  == 00000110 | 00000001  
+      I = 7 == 00000111
+      
+<p>
+  Now the first bit in the device state I has been set, but to turn on whatever function is  
+  responsible for that input we'd probably need to check the device states first bit and  
+  see what value it has  
+  </p>
+    
+    Testing a Bit
+    
+    To be able to test a bit we again need to first access the bit we want to look at
+    through bitshifting and then perform a logical operation on it that gives us the
+    value of that bit.
+    
+    The logical operation needs to return only the value of the bit we're interested in
+    and the operation for that is AND.
+    
+    AND evaluates to true(or 1) only and if only both bits are true and since the only
+    bit that's turned on in our bitshifted byte is one we're interested in(first one)
+    all other bits will be cancelled(turned off) and we'll be left with the value of
+    the bit we're looking for if it is on(1) otherwise we'll get 0
+    
+    I = 7 == 00000111
+    (1 << 0) == 00000001
+    I & (1 << 0) == 00000111 & 00000001 = 00000001
+    I & (1 << 0) == 1
+    
+    Now that we have the value of the first bit we can plug it into an if statement
+    and to get a simple check on wether it is on or not.
+    
+    if(I & (1 << 0))  {
+    device.record();
+    }
+    
+    If the bit is on, it'll have a value >= 0 and will be evaluated as true, if not
+    it will be evaluated as false.(since C evaluates anything other than 0 as true)
+    
+    Negative values are not possible for bits
+<p>
+  Now that the device has been running the recording for a while a condition might have told us to finish  
+  and stop recording whatever we're doing.  
+  To do that we're going to once again use bitwise shifting to access the first bit  
+  and then we're going to have use a logical operation on that bit again, but this time  
+  to clear it, set it to 0  
+    
+    Clearing a Bit
+    
+    Clearing a bit works very much like setting a bit, once you've accessed the bit you're
+    going to perform the reverse operation of setting.
+    When you set a bit you're using the AND operation, we're still going to be using the
+    AND operation but with a tweak.
+    
+    We're going to combine logical operators to perform a NAND operation(or run it through a
+    NAND gate).
+    That is done by using the NOT operator to reverse the bitshifted bit before we and it
+    with our device state byte. the symbol for the NOT operator in C is "~".
+    
+    
+    I = 7 == 00000111
+    (1 << 0) == 00000001
+    ~(1 << 0) == 11111110
+    I &= ~(1 << 0) == 00000111 & 11111110 == 00000110
+    I is now 00000110
+    
+    Now the bit is cleared so if we run the check on that bit again.
+    
+    if(I & (1 << 0))  {
+    device.record();
+    }
+    
+    It will be evaluated as false
+    
+ <p>
+    The last example is bit flipping, meaning that everytime we run this operation the value of the will be changed  
+    from 0 to 1 to 0 and so on. Which might be useful for say... flashing a led light when a certain type of card  
+    has been scanned.  
+      
+    Bit Flipping
+    
+    To flip a bit we're going to as always, use bitshifting to access the bit we want to change and then apply
+    a logical operation to it. This time we'll be using XOR(exclusive or)
+    
+    XOR changes the value of the byte or bit it's applied to 1 if they differ and 1 if they're the same,
+    the symbol in C for XOR is "^" so if a = 0 and b = 1 then a ^= b changes a to 1 then
+    if we do it again a ^= b then a = 0
+    
+    
+    I = 7 == 00000110
+    (1 << 0) == 00000001
+    I ^= (1 << 0)
+    I == 00000111
+    If we do it again...
+    I ^= (1 << 0)
+    I == 00000110
+    and again..
+    I ^= (1 << 0)
+    I == 00000111
+    
+    So we the last bit(bit[0]) flipping between 1 and 0 everytime we run the operation on it.
