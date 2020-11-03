@@ -297,3 +297,34 @@ Using Bitwise Shifting to Access Bits
   responsible for that input we'd probably need to check the device states first bit and  
   see what value it has  
   </p>
+    
+    Testing a Bit
+    
+    To be able to test a bit we again need to first access the bit we want to look at
+    through bitshifting and then perform a logical operation on it that gives us the
+    value of that bit.
+    
+    The logical operation needs to return only the value of the bit we're interested in
+    and the operation for that is AND.
+    
+    AND evaluates to true(or 1) only and if only both bits are true and since the only
+    bit that's turned on in our bitshifted byte is one we're interested in(first one)
+    all other bits will be cancelled(turned off) and we'll be left with the value of
+    the bit we're looking for if it is on(1) otherwise we'll get 0
+    
+    I = 7 == 00000111
+    ((1 << 0) == 00000001
+    I & (1 << 0) == 00000111 & 00000001 = 00000001
+    I & (1 << 0) == 1
+    
+    Now that we have the value of the first bit we can plug it into an if statement
+    and to get a simple check on wether it is on or not.
+    
+    if(I & (1 << 0))  {
+    device.record();
+    }
+    
+    If the bit is on, it'll have a value >= 0 and will be evaluated as true, if not
+    it will be evaluated as false.(since C evaluates anything other than 0 as true)
+    
+    Negative values are not possible for bits
