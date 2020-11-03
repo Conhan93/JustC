@@ -1,4 +1,4 @@
-# bithandling
+# Bithandling
 
 
 introduction
@@ -204,3 +204,32 @@ A^B = 0011 0001
 <p>
   Looking closer at the operations {forts. följer}
 </p>
+------
+
+<p>
+  Bitwise shifting
+  </p>
+
+<p>
+  Bitwise shifting means shifting the bits a number of places to left or right depending on the direction you're shifting.
+ </p>
+ <p>
+  the syntax for bitwise shifting in C is "a << b" where the bits in "a" are shifted by "b" positions to the left.
+  
+  EX:
+  5 << 2 == 20  
+  |0|0|0|0|0|1|0|1| << 2 == |0|0|0|1|0|1|0|0|  
+  here the bits have been shifted to the left by 2 places.
+  </p>
+  
+  <p>
+    When we do low level programming we might want to store several values in a bit, by turning those bits on or off(1 or 0).  
+    Bitwise shifting allows us to access the individual bits in a byte and perform operations to modify them and store information there.  
+  
+    Say we have a value I = 00000000 and we want to modify the fourth bit in I to store some value or setting
+    We could change it by using the OR operation on I with another byte with the fourth bit set to on(1).  
+    other_bit = 00010000  
+    since 0 | 1 == 1 and operations are done on a per-bit base only the fourth bit on I will be switched on.  
+    
+    I |= other_bit == 00010000.
+   </p>
