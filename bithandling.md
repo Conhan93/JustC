@@ -75,6 +75,11 @@ Numerical System - Binary
   each digit in a binary number is referred to as a bit and 8 bits makes up a byte(usually)
   a byte is kinda the basic size of a memory cell(holds values, these are usually 32 or 64 bits in modern computers)
   </p>
+  
+  <p>
+  Below is a table showing conversion between different bases and the ASCII table which is used to convert bytes
+  into chars, just to show you that they're really just numbers
+  </p>
 
 <img src="https://miro.medium.com/max/2356/1*Ae2Vp6Z7rfhipVFX1PkLaw.gif" alt="ASCII table" height='400' width="800"/>
 
@@ -108,10 +113,25 @@ Logical Operators/Boolean Operators
   ![AND outcomes](http://web.cs.iastate.edu/~smkautz/cs127f16/notes/chapter09/_static/and_table.PNG)
   
   <p>
-    OR TEXT
+    The OR operation evaluates if to true if either operand is true. if 1 or 0 == 1 so only one needs to be true. the only
+    case in which OR evaluates to false is if both operands are false or 0(<-- look an OR operation in a sentence!)
   </p>
 
   ![OR outcomes](http://web.cs.iastate.edu/~smkautz/cs127f16/notes/chapter09/_static/ab.PNG)
+  
+  <p>
+    XOR or Exclusive OR means either or, so not both. we'll be using this quite alot to flip bits, since if one operands is different the outcome
+    will be the opposite of that. it's a bit difficult to put into text but hopefully the truth charts make it a bit more clear.
+  </p>
+  
+  ![XOR outcomes](https://iq.opengenus.org/content/images/2018/10/xor-table-5.png)
+  
+  <p>
+    These are all the basic operations(technically XOR is a composite of the others). there are lots of other types that are made by
+    combining different operations into one, like NAND(NOT AND) or NOR(NOT OR) or XOR but what's important is understanding the basic
+    theory behind them.
+  </p>
+  
 <p> 
   
 Bitwise Operators
@@ -147,6 +167,10 @@ Assume A = 60 and B = 13 in binary format, they will be as follows:
 A = 0011 1100
 
 B = 0000 1101
+
+It's important to note that these operations are done on a bit-by-bit basis, so if you're performing an AND operations on two binary
+numbers, then the first two digit in both numbers will AND:ed then the result of that operation will be first bit in the new number
+and so on and so on.
 
 -----------------
 

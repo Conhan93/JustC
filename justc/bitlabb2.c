@@ -21,6 +21,11 @@ enum
 void AddWithSpaceIfNotEmpty(char* chBuf, char* chWhat, size_t size);
 void WriteLogMessage(char* message, unsigned char settings);
 
+void include_date(char* buffer, struct tm* now, size_t buffer_size);
+void include_time(char* buffer, struct tm* now, size_t buffer_size);
+void include_day(char* buffer, struct tm* now, size_t buffer_size);
+void set_to_uppercase(char* message, char* buffer, size_t buffer_size);
+
 
 int main()
 {
@@ -83,32 +88,19 @@ void WriteLogMessage(char* message, unsigned char settings)
 
     if (BIT_CHECK(settings, INCLUDE_DATE))
     {
-        char date[12];
-        strftime(date, sizeof(date), "%Y-%m-%d", now);
-        AddWithSpaceIfNotEmpty(buf, date, sizeof(buf));
+        include_date(buf, now, sizeof(buf));
     }
     if (BIT_CHECK(settings, INCLUDE_TIME))
     {
-        char time[10];
-        strftime(time, sizeof(time), "%H:%M:%S", now);
-        AddWithSpaceIfNotEmpty(buf, time, sizeof(buf));
+        include_time(buf, now, sizeof(buf));
     }
     if (BIT_CHECK(settings, INCLUDE_DAY))
     {
-        char day[10];
-        strftime(day, sizeof(day), "%A", now);
-        AddWithSpaceIfNotEmpty(buf, day, sizeof(buf));
+        include_day(buf, now, sizeof(buf));
     }
     if (BIT_CHECK(settings, UPPERCASE))
     {
-        const char* ch = message;
-        int index = 0;
-        while (*ch != '\0')
-        {
-            message[index] = toupper(*ch);
-            ch++;
-            index++;
-        }
+        set_to_uppercase(message, buf, sizeof(buf));
         AddWithSpaceIfNotEmpty(buf, message, sizeof(buf));
     }
     else
@@ -132,4 +124,31 @@ void AddWithSpaceIfNotEmpty(char* chBuf, char* chWhat, size_t size)
     if (*chBuf != 0)
         strncat(chBuf, " ", size);
     strncat(chBuf, chWhat, size);
+}
+void include_date(char* buffer, struct tm* now, size_t buffer_size)
+{
+    char date[12];
+    strftime(date, sizeof(date), "%Y-%m-%d", now);
+    AddWithSpaceIfNotEmpty(buffer, date, buffer_size);
+}
+void include_time(char* buffer, struct tm* now, size_t buffer_size)
+{
+    char time[10];
+    strftime(time, sizeof(time), "%H:%M:%S", now);
+    AddWithSpaceIfNotEmpty(buffer, time, buffer_size);
+}
+void include_day(char* buffer, struct tm* now, size_t buffer_size)
+{
+    char day[10];
+    strftime(day, sizeof(day), "%A", now);
+    AddWithSpaceIfNotEmpty(buffer, day, buffer_size);
+}
+void set_to_uppercase(char* message, char* buffer, size_t buffer_size)
+{
+    const char* ch = message;
+
+    while (*ch != '\0')
+    {
+        *(message++) = toupper(*(ch++));
+    }
 }
