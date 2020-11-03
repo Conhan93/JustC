@@ -260,3 +260,35 @@ Using Bitwise Shifting to Access Bits
     (a << n)
     
    </p>
+   
+   Using Bitwise Shift and Operators to modify bits
+   -----
+   
+   <p>
+    So now that we have a really basic understanding of logical operations(hopefully!) and how to access bits.  
+    Let's talk about how to change those bits and the syntax for how to do that in C
+    </p>
+    
+    
+      Setting Bits  
+      Setting a bit means turning it "on" or setting it to 1. You could use a bit to store device state or  
+      setting, for recording an input on the device, to start recording you'd need to turn that bit on.   
+      
+      Let's say that we have the bit for recording on the first bit, to start that recording we'd first  
+      need to SET the first bit.  
+      
+      This is our device state I, with a two bits already turned on. 
+      To access the first bit we use bitwise shifting as in the previous section.
+      Bitshifting from to the zeroth(first place, think of it like an array index).  
+      
+      To be able to change the value we use OR operation. the OR operation will  
+      always set the two bits it is operating on to on(1) unless they're both off  
+      but since the bit we're using to access(from the bitshifting)  
+      the effect is that the targeted bit will always be set to on and all  
+      other bits in the target byte will remain untouched.
+      
+      I = 6 == 00000110  
+      (1 << 0) == 00000001
+      I |= (1 << 0)  == 00000110 | 00000001  
+      I = 7 == 00000111
+      
