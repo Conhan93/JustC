@@ -283,7 +283,7 @@ Using Bitwise Shifting to Access Bits
       
       To be able to change the value we use OR operation. the OR operation will  
       always set the two bits it is operating on to on(1) unless they're both off  
-      but since the bit we're using to access(from the bitshifting)  
+      but since the bit we're using to access(from the bitshifting) is always 1  
       the effect is that the targeted bit will always be set to on and all  
       other bits in the target byte will remain untouched.
       
@@ -292,3 +292,8 @@ Using Bitwise Shifting to Access Bits
       I |= (1 << 0)  == 00000110 | 00000001  
       I = 7 == 00000111
       
+<p>
+  Now the first bit in the device state I has been set, but to turn on whatever function is  
+  responsible for that input we'd probably need to check the device states first bit and  
+  see what value it has  
+  </p>
