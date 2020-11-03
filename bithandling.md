@@ -1,4 +1,14 @@
-# bithandling
+# Bithandling
+
+Contents
+-----
+
+- [Introduction](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#introduction)
+- [Signed/Unsigned Datatypes](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#signedunsigned-datatypes)
+- [Numerical Systems - Binary](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#numerical-system---binary)
+- [Logical Operators/Boolean Operators](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#logical-operatorsboolean-operators)
+- [Bitwise Operators](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#bitwise-operators)
+- [Using Bitwise Shifting to Access Bits](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#using-bitwise-shifting-to-access-bits)
 
 
 introduction
@@ -39,16 +49,21 @@ introduction
   Now lets look at chars which are only 1 byte (8 bits). A signed char has the range -127 to +127 while the UNsigned is 0-256.
   The name signed comes from the fact that 1 of 8 bits holds the sign determining if the value is positive of negative.
 </p>
-  
+
+  <p align="center">
   <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200806155050/signed-and-unsigned-char-in-C.png" alt="ASCII table" height='300' width="600"/>
+  </p>
   
 <p>
   
   This also explains the lower max values of +-127 since a signed char only has 7 bits open to fill, compared to unsigned 8 bits. 
   Although as you can see below, the value range is again, the same, only shifted on the number line.
   
-
-  ![](https://i.stack.imgur.com/0SQVh.png)
+<p align="center">
+  
+  <img src="https://i.stack.imgur.com/0SQVh.png" alt="ASCII table" height='300' width="600"/>
+  
+</p>
 
 </p>
   
@@ -80,9 +95,11 @@ Numerical System - Binary
   Below is a table showing conversion between different bases and the ASCII table which is used to convert bytes
   into chars, just to show you that they're really just numbers
   </p>
-
+<p aling="center">
+  
 <img src="https://miro.medium.com/max/2356/1*Ae2Vp6Z7rfhipVFX1PkLaw.gif" alt="ASCII table" height='400' width="800"/>
 
+</p>
 
 
  Excellent tutorial for learning to calculate in Binary: [Binary Tutorial](https://medium.com/@LindaVivah/learn-how-to-read-binary-in-5-minutes-dac1feb991e)
@@ -123,6 +140,7 @@ Logical Operators/Boolean Operators
     XOR or Exclusive OR means either or, so not both. we'll be using this quite alot to flip bits, since if one operands is different the outcome
     will be the opposite of that. it's a bit difficult to put into text but hopefully the truth charts make it a bit more clear.
   </p>
+  
   
   ![XOR outcomes](https://iq.opengenus.org/content/images/2018/10/xor-table-5.png)
   
@@ -196,3 +214,49 @@ A^B = 0011 0001
 <p>
   Looking closer at the operations {forts. följer}
 </p>
+
+Using Bitwise Shifting to Access Bits
+------
+
+
+<p>
+  Bitwise shifting means shifting the bits a number of places to left or right depending on the direction you're shifting.
+ </p>
+ <p>
+  the syntax for bitwise shifting in C is "a << b" where the bits in "a" are shifted by "b" positions to the left.
+  
+  EX:
+  5 << 2 == 20  
+  |0|0|0|0|0|1|0|1| << 2 == |0|0|0|1|0|1|0|0|  
+  here the bits have been shifted to the left by 2 places.
+  </p>
+  
+  <p>
+    When we do low level programming we might want to store several values in a bit, by turning those bits on or off(1 or 0).  
+    Bitwise shifting allows us to access the individual bits in a byte and perform operations to modify them and store information there.  
+  
+    Say we have a value I = 00000000 and we want to modify the fourth bit in I to store some value or setting
+    We could change it by using the OR operation on I with another byte with the fourth bit set to on(1).  
+    other_bit = 00010000  
+    since 0 | 1 == 1 and operations are done on a per-bit base only the fourth bit on I will be switched on.  
+    
+    I |= other_bit == 00010000.  
+    
+    A more general way to get other_bit = 00010000 that doesn't involve declaring another variable  
+    would be to write it using bitwise shifting to get the number that we want.  
+    
+    If we bitshift the one here by 4 places to left we'll get other_bit.  
+    1 == 00000001  
+    (1 << 4) == 00010000  
+    So now if we we're to use OR from that bitwise shift operation on I we would get the same  
+    result.  
+    I = 00000000
+    I |= (1 << 4) == 00010000  
+    
+    If we generalize even more we can say that that expression below can reach any bit in position n  
+    and by performing logic/bool operations with it we can set, clear, test, flip any bit of the same
+    size as "a".  
+    
+    (a << n)
+    
+   </p>

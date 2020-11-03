@@ -6,7 +6,23 @@
 
 #define BIT_SET(a, b) ((a) |= (1UL << b))
 #define BIT_CHECK(a, b) ((a) & (1UL << b))
+/*
+    Enum with values corresponding to
+    reserved bit positions.
 
+    INCLUDE_DATE == 0, when used with BIT_CHECK
+    or BIT_SET gets the first bit in the byte.
+
+    INCLUDE_DATE == 0
+    INCLUDE_TIME == 1
+    INCLUDE_DAY == 2
+    UPPERCASE == 3
+    TO_CONSOLE == 4
+    TO_FILE == 5
+
+    Think of it like array indexes and the byte(settings)
+    is a mini array of bits.
+*/
 enum
 {
     INCLUDE_DATE,
@@ -24,7 +40,7 @@ void WriteLogMessage(char* message, unsigned char settings);
 void include_date(char* buffer, struct tm* now, size_t buffer_size);
 void include_time(char* buffer, struct tm* now, size_t buffer_size);
 void include_day(char* buffer, struct tm* now, size_t buffer_size);
-void set_to_uppercase(char* message, char* buffer, size_t buffer_size);
+void set_to_uppercase(char* message);
 
 
 int main()
@@ -48,6 +64,10 @@ int main()
                 "\n6. write to file."
                 "\n7. execute\n");
             scanf(" %d%*c", &sel);
+            /*
+                BIT_SETS turns "on" the bit at the location
+                at the value of the enum put in.
+            */
             switch (sel)
             {
             case 1:
@@ -85,7 +105,13 @@ void WriteLogMessage(char* message, unsigned char settings)
 
     char buf[512];
     buf[0] = 0;
+    /*
+        BIT_CHECK fetches the value of the bit
+        at the location of the enum value.
 
+        since it's a bit the value is either
+        > 1 or 0, which evaluates to true or false.
+    */
     if (BIT_CHECK(settings, INCLUDE_DATE))
     {
         include_date(buf, now, sizeof(buf));
@@ -143,7 +169,7 @@ void include_day(char* buffer, struct tm* now, size_t buffer_size)
     strftime(day, sizeof(day), "%A", now);
     AddWithSpaceIfNotEmpty(buffer, day, buffer_size);
 }
-void set_to_uppercase(char* message, char* buffer, size_t buffer_size)
+void set_to_uppercase(char* message)
 {
     const char* ch = message;
 
