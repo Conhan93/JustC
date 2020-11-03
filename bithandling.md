@@ -1,5 +1,15 @@
 # Bithandling
 
+Contents
+-----
+
+- [Introduction](text)
+- [Signed/Unsigned Datatypes](link)
+- [Numerical Systems - Binary](link)
+- [Logical Operators/Boolean Operators](link)
+- [Bitwise Operators](link)
+- [Using Bitwise Shifting to Access Bits](link)
+
 
 introduction
 ---
@@ -205,7 +215,7 @@ A^B = 0011 0001
   Looking closer at the operations {forts. följer}
 </p>
 
-Using bitwise shifting to access bits
+Using Bitwise Shifting to Access Bits
 ------
 
 
