@@ -9,6 +9,7 @@ Contents
 - [Logical Operators/Boolean Operators](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#logical-operatorsboolean-operators)
 - [Bitwise Operators](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#bitwise-operators)
 - [Using Bitwise Shifting to Access Bits](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#using-bitwise-shifting-to-access-bits)
+- [Using Bitwise Shift and Operators to modify bits](https://github.com/Conhan93/JustC/blob/developing/bithandling.md#using-bitwise-shift-and-operators-to-modify-bits)
 
 
 introduction
