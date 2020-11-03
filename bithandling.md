@@ -399,8 +399,9 @@ Using Bitwise Shifting to Access Bits
     device.ledOff();
     }
     
-    or even better, use the state of the bit to set the light.
+    or even better, use the state of the bit with a "Test Bit" operation
+    to set the light.
     
-    device.light(I ^= (1 << 0));
+    device.light((I ^= (1 << 0)) & (1 << 0));
     
     Then the light will switch on and off everytime the function is called.
