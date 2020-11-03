@@ -329,3 +329,13 @@ Using Bitwise Shifting to Access Bits
     it will be evaluated as false.(since C evaluates anything other than 0 as true)
     
     Negative values are not possible for bits
+<p>
+  Now that the device has been running the recording for a while a condition might have told us to finish  
+  and stop recording whatever we're doing.  
+  To do that we're going to once again use bitwise shifting to access the first bit  
+  and then we're going to have use a logical operation on that bit again, but this time  
+  to clear it, set it to 0  
+    
+    Clearing a Bit
+    
+    
