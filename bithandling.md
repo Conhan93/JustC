@@ -168,6 +168,10 @@ A = 0011 1100
 
 B = 0000 1101
 
+It's important to note that these operations are done on a bit-by-bit basis, so if you're performing an AND operations on two binary
+numbers, then the first two digit in both numbers will AND:ed then the result of that operation will be first bit in the new number
+and so on and so on.
+
 -----------------
 
 A&B = 0000 1100 
