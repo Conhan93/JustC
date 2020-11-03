@@ -241,6 +241,12 @@ Using bitwise shifting to access bits
     So now if we we're to use OR from that bitwise shift operation on I we would get the same  
     result.  
     I = 00000000
-    I |= (1 << 4) == 00010000 
+    I |= (1 << 4) == 00010000  
+    
+    If we generalize even more we can say that that expression below can reach any bit in position n  
+    and by performing logic/bool operations with it we can set, clear, test, flip any bit of the same
+    size as "a".  
+    
+    (a << n)
     
    </p>
