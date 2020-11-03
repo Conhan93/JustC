@@ -204,11 +204,10 @@ A^B = 0011 0001
 <p>
   Looking closer at the operations {forts. följer}
 </p>
+
+Using bitwise shifting to access bits
 ------
 
-<p>
-  Bitwise shifting
-  </p>
 
 <p>
   Bitwise shifting means shifting the bits a number of places to left or right depending on the direction you're shifting.
