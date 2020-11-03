@@ -118,6 +118,20 @@ Logical Operators/Boolean Operators
   </p>
 
   ![OR outcomes](http://web.cs.iastate.edu/~smkautz/cs127f16/notes/chapter09/_static/ab.PNG)
+  
+  <p>
+    XOR or Exclusive OR means either or, so not both. we'll be using this quite alot to flip bits, since if one operands is different the outcome
+    will be the opposite of that. it's a bit difficult to put into text but hopefully the truth charts make it a bit more clear.
+  </p>
+  
+  ![XOR outcomes](https://iq.opengenus.org/content/images/2018/10/xor-table-5.png)
+  
+  <p>
+    These are all the basic operations(technically XOR is a composite of the others). there are lots of other types that are made by
+    combining different operations into one, like NAND(NOT AND) or NOR(NOT OR) or XOR but what's important is understanding the basic
+    theory behind them.
+  </p>
+  
 <p> 
   
 Bitwise Operators
