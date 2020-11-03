@@ -231,5 +231,17 @@ A^B = 0011 0001
     other_bit = 00010000  
     since 0 | 1 == 1 and operations are done on a per-bit base only the fourth bit on I will be switched on.  
     
-    I |= other_bit == 00010000.
+    I |= other_bit == 00010000.  
+    
+    A more general way to get other_bit = 00010000 that doesn't involve declaring another variable  
+    would be to write it using bitwise shifting to get the number that we want.  
+    
+    If we bitshift the one here by 4 places to left we'll get other_bit.  
+    1 == 00000001  
+    (1 << 4) == 00010000  
+    So now if we we're to use OR from that bitwise shift operation on I we would get the same  
+    result.  
+    I = 00000000
+    I |= (1 << 4) == 00010000 
+    
    </p>
