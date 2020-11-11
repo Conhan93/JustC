@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 void labb2a();
 void labb2b();
@@ -9,13 +10,23 @@ void read_ints(int* array, size_t* size);
 void print_sum(int* array, size_t size);
 
 void labb3();
+void labb4();
+void labb5();
+void labb6();
+
+void labb7();
+void remove_not_letter(char* orig, char* new);
 
 int main()
 {
     //labb2a();
     //labb2b();
 
-    labb3();
+    //labb3();
+    //labb4();
+    //labb5();
+    //labb6();
+    labb7();
 }
 void labb2a()
 {
@@ -126,4 +137,118 @@ void labb3()
             return;
         }
     printf("\nYes");
+}
+void labb4()
+{
+    /*
+        Enter a string, parse it and find the most occuring
+        character.(most common char in string)
+    */
+    char string[100];
+
+    // awful variable names
+    char common_letter = 0;
+    int count = 0;
+
+    // prompt
+    printf("\nEnter string: ");
+    // scan till newline, leave it on stdin then scan newline and supress it
+    scanf("%[^\n]%*c", string);
+
+    for(int letter = 0 ; string[letter] != '\0' ; letter++)
+    {
+      int current_letter_count = 0;
+      for(int index = 0 ; string[index] != '\0' ; index++)
+      {
+          if(string[letter] == string[index]) current_letter_count++;
+      }
+      if(current_letter_count > count)
+      {
+        count = current_letter_count;
+        common_letter = string[letter];
+      }
+    }
+
+    printf("\nThe most common letter is %c, found %d times.",
+            common_letter, count);
+}
+void labb5()
+{
+    /*
+        Enter a string, enter a start position and an
+        end position and get the substring between
+        those two positions
+    */
+    char string[100];
+    int start = 0, end = 0;
+
+    // get string
+    printf("\nEnter string: ");
+    scanf("%[^\n]%*c", string);
+
+    // get positions
+    printf("\nEnter starting pos: ");
+    scanf("%d%*c",&start);
+    printf("\nEnter end pos: ");
+    scanf("%d%*c",&end);
+
+    // print substring
+    printf("\nSubstring between %d and %d is: ", start, end);
+    for(int pos = start ; pos != end ; pos++) printf("%c",string[pos]);
+}
+void labb6()
+{
+  /*
+      Enter a string and change the case on every char
+  */
+  char string[100];
+
+  // get string
+  printf("\nEnter string: ");
+  scanf("%[^\n]%*c", string);
+
+  // loop through string, use is(upper/lower) to check char
+  // use to(upper/lower) to change them
+  for(int index = 0 ; string[index] != '\0'; index++)
+    if(isupper(string[index])) string[index] = tolower(string[index]);
+    else if(islower(string[index])) string[index] = toupper(string[index]);
+
+  printf("\nString : %s", string);
+
+}
+void labb7()
+{
+  /*
+      Enter a string and remove anything that's not
+      a letter.
+  */
+  char string[100], new_string[100];
+
+  // get string
+  printf("\nEnter string: ");
+  scanf("%[^\n]%*c", string);
+
+  remove_not_letter(string, new_string);
+
+  printf("\nFiltered: %s",new_string);
+
+
+}
+void remove_not_letter(char* orig, char* new)
+{
+  // while orig
+  while(*orig != '\0')
+  {
+    // if *orig is a letter
+    if(isalpha(*orig))
+    {
+      // add letter to new and increment new pos
+      *new = *orig;
+      new++;
+    }
+    // next char in orig
+    orig++;
+  }
+  // add end of line char to close new
+  *new = *orig;
 }
