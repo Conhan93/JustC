@@ -17,6 +17,9 @@ void labb6();
 void labb7();
 void remove_not_letter(char* orig, char* new);
 
+void labb8();
+void labb9();
+
 int main()
 {
     //labb2a();
@@ -26,7 +29,9 @@ int main()
     //labb4();
     //labb5();
     //labb6();
-    labb7();
+    //labb7();
+    //labb8();
+    labb9();
 }
 void labb2a()
 {
@@ -251,4 +256,77 @@ void remove_not_letter(char* orig, char* new)
   }
   // add end of line char to close new
   *new = *orig;
+}
+void labb8()
+{
+  FILE* file_ptr = NULL;
+
+  file_ptr = fopen("text.txt", "r");
+  if(file_ptr == NULL)
+  {
+    printf("\nNo file found");
+  }
+  else
+  {
+    char read_char = 0;
+    printf("\n");
+    while((read_char = fgetc(file_ptr)) != EOF)
+      if(read_char != ' ' && read_char != '\n')
+        printf("%c",read_char);
+  }
+  fclose(file_ptr);
+
+}
+void labb9()
+{
+  /*
+      Get string and line number then
+      replace the line in a text file
+      with the new string
+  */
+  // strings
+  char string[100], buffer[100];
+  // lines
+  int line_replc = 0, line_count = 1;
+  // get string
+  printf("Enter string: ");
+  scanf("%[^\n]%*c",string);
+  // get line
+  printf("Enter line to replace: ");
+  scanf("%d%*c",&line_replc);
+
+  // open files
+  char filename1[] = "text.txt", filename2[] = "temp.txt";
+  FILE* file1_ptr = NULL;
+  FILE* file2_ptr = NULL;
+
+  file1_ptr = fopen(filename1, "r");
+  file2_ptr = fopen(filename2,"w");
+
+  if(file1_ptr == NULL || file2_ptr == NULL)
+  {
+    printf("\nFile %s not found", filename1);
+  }
+  else
+  {
+    // read from file into buffer
+    while(fgets(buffer,100,file1_ptr) != NULL)
+    {
+        // replace line with string
+        if(line_count == line_replc) fprintf(file2_ptr,"%s\n",string);
+        // enter original text into new file
+        else fputs(buffer,file2_ptr);
+
+        // count lines
+        line_count++;
+    }
+  }
+  // close streams
+  fclose(file1_ptr);
+  fclose(file2_ptr);
+
+  // replace old file and rename
+  remove(filename1);
+  rename(filename2,filename1);
+
 }
