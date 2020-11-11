@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <time.h>
 
 void labb2a();
 void labb2b();
@@ -20,6 +21,11 @@ void remove_not_letter(char* orig, char* new);
 void labb8();
 void labb9();
 
+void labb10();
+void labb11();
+
+void labb12();
+
 int main()
 {
     //labb2a();
@@ -31,7 +37,10 @@ int main()
     //labb6();
     //labb7();
     //labb8();
-    labb9();
+    //labb9();
+    //labb10();
+    //labb11();
+    labb12();
 }
 void labb2a()
 {
@@ -329,4 +338,53 @@ void labb9()
   remove(filename1);
   rename(filename2,filename1);
 
+}
+void labb10()
+{
+  // get time
+  time_t seconds = time(NULL);
+
+  // print time
+  printf("\n%s",asctime(localtime(&seconds)));
+}
+void labb11()
+{
+  // time now
+  time_t now;
+  time(&now);
+
+  // time at start of the month
+  struct tm* month_start;
+  month_start = localtime(&now);
+  month_start->tm_hour = 0;
+  month_start->tm_min = 0;
+  month_start->tm_sec = 0;
+  month_start->tm_mday = 1;
+
+  // get difference in seconds
+  long diff = difftime(now, mktime(month_start));
+
+  printf("\n%d seconds since start of this month",diff);
+}
+void labb12()
+{
+  int value = 0;
+  char result[30];
+
+  printf("\nGet multiplication table from 1 to :");
+  scanf("%d%*c",&value);
+
+
+  for(int multiplier = 1 ; multiplier <= 10 ; multiplier++)
+  {
+    printf("\n");
+    for(int argument = 1 ; argument <= value ; argument++)
+    {
+      // just to make it look nice when printed
+      snprintf(result,sizeof(result),"%dx%d = %d ",
+      argument, multiplier, argument*multiplier);
+      printf("%-15s",result);
+    }
+
+  }
 }
