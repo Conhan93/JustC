@@ -104,7 +104,7 @@ void labb4()
 }
 void labb5()
 {
-  // so we don't have to write std:: infront of EVERYTHING
+  // so we don't have to write std:: infront of EVERYTHING!!!
   using namespace std;
 
 
