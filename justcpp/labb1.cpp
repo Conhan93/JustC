@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <string>
+#include <vector>
 #include "Employee.h"
 
 
@@ -7,13 +9,15 @@ void labb1();
 void labb2();
 void labb3();
 void labb4();
+void labb5();
 
 int main()
 {
     //labb1();
     //labb2();
     //labb3();
-    labb4();
+    //labb4();
+    labb5();
 }
 void labb1()
 {
@@ -96,4 +100,52 @@ void labb4()
       cin.getline(new_line,100);
       outfile << new_line << endl;
     }
+    outfile.close();
+}
+void labb5()
+{
+  // so we don't have to write std:: infront of EVERYTHING
+  using namespace std;
+
+
+  // filenames
+  string filename1, filename2;
+
+  // get filenames
+  cout << "Enter filename1: ";
+  getline(cin, filename1);
+  cout << '\n' << "Enterfilename2: ";
+  getline(cin, filename2);
+
+  // list of strings
+  vector<string> buffer;
+
+  // fopens, read
+  ifstream infile1(filename1);
+  ifstream infile2(filename2);
+  // string to read input to
+  string read;
+
+  //read with getline, put read string onto buffer list
+  while(getline(infile1,read)) buffer.push_back(read);
+  infile1.close();
+  while(getline(infile2,read)) buffer.push_back(read);
+  infile2.close();
+
+  // get filename for third file
+  string outfilename;
+  cout << '\n' << "Enter filename for outfile: ";
+  getline(cin,outfilename);
+
+  // assign filename to outstream
+  ofstream outfile(outfilename);
+
+  // loop through buffer list(vector) and print to outfile
+  for(size_t index = 0 ; index < buffer.size() ; index++)
+  {
+    outfile << buffer[index] << endl;
+  }
+
+  outfile.close();
+
 }
