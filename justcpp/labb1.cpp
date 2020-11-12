@@ -10,6 +10,7 @@ void labb2();
 void labb3();
 void labb4();
 void labb5();
+void labb6();
 
 int main()
 {
@@ -17,7 +18,8 @@ int main()
     //labb2();
     //labb3();
     //labb4();
-    labb5();
+    //labb5();
+    labb6();
 }
 void labb1()
 {
@@ -79,7 +81,17 @@ void labb4()
 {
     // instead of writing "std::"
     using namespace std;
+    /*
+        using namespaces are kinda like calling a scope.
+        instead of just declaring a datatype, we're also
+        declaring a scope type.
 
+        So we don't accidentally overload a function from
+        std with something else.
+
+        I think of it kinda lika "import whatever as whatev" in
+        Python, we're using methods from this library or class
+    */
     int nr_lines = 0;
     char filename[50];
     char new_line[100];
@@ -148,4 +160,17 @@ void labb5()
 
   outfile.close();
 
+}
+void labb6()
+{
+  double km = 0;
+  // cout to print string literal to terminal
+  std::cout << "Enter number of kms to convert: ";
+  // cin(c-in) to get input
+  std::cin >> km;
+  // ignore what's left on stdin
+  std::cin.ignore();
+
+  // print all this crap
+  std::cout << "\n" << km << " is " << km * 1.609 << " miles" << std::endl;
 }
