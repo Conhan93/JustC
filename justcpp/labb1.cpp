@@ -14,12 +14,14 @@ void labb6();
 
 int main()
 {
-    //labb1();
+    labb1();
     //labb2();
     //labb3();
     //labb4();
     //labb5();
-    labb6();
+    //labb6();
+
+    return 0;
 }
 void labb1()
 {
