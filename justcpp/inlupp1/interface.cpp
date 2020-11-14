@@ -34,17 +34,17 @@ void Interface::list_cards(STATE* SYSTEM_STATE)
     printf("\nID\t\t\tACCESS\t\t\tDATE ADDED\n"
     "------------------------------------------------------------");
 
-    for (int index = 0; index < SYSTEM_STATE->nr_cards; index++)
+    for (int index = 0; index < SYSTEM_STATE->card_list.size(); index++)
     {
         format_date_string(
-            SYSTEM_STATE->card_list[index].date_added,
+            SYSTEM_STATE->card_list[index].get_date(),
             date_string,
             sizeof(date_string)
         );
 
         printf("\n%-20s\t%-20s\t%s",
-            SYSTEM_STATE->card_list[index].ID,
-            SYSTEM_STATE->card_list[index].access ? "Access" : "No Access",
+            SYSTEM_STATE->card_list[index].get_id(),
+            SYSTEM_STATE->card_list[index].get_access() ? "Access" : "No Access",
             date_string
         );
     }
@@ -63,7 +63,7 @@ void Interface::change_card_access(STATE* SYSTEM_STATE)
     while (Scanner.readline(new_card_id, sizeof(new_card_id))) invalid_input();
     if (valid_id(new_card_id))
     {
-        if ((active_card = get_card(SYSTEM_STATE->card_list, SYSTEM_STATE->nr_cards, new_card_id)) == NULL)
+        if ((active_card = get_card(SYSTEM_STATE->card_list, SYSTEM_STATE->card_list.size(), new_card_id)) == NULL)
         {
             if (add_new_card())
                 add_card(SYSTEM_STATE, new_card_id);
@@ -74,12 +74,12 @@ void Interface::change_card_access(STATE* SYSTEM_STATE)
             int new_access = 0;
 
             printf("\nThis card has %s, enter 1 for access, 2 for no access",
-                active_card->access ? "access" : "no access");
+                active_card->get_access() ? "access" : "no access");
             // sets new access for card
             if (Scanner.readint(&new_access))
             {
                 if (new_access == 0 || new_access == 1)
-                    active_card->access = new_access;
+                    active_card->set_access(new_access);
 
             }
             else invalid_input();
@@ -108,7 +108,7 @@ Card* Interface::search_id(STATE* SYSTEM_STATE)
 
             active_card = get_card(
                 SYSTEM_STATE->card_list,
-                SYSTEM_STATE->nr_cards,
+                SYSTEM_STATE->card_list.size(),
                 search_term
             );
         }

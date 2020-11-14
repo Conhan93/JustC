@@ -9,7 +9,7 @@ class STATE
       {
         this->port = Serial(portName);
       }
-    private:
       std::vector<Card> card_list;
       Serial port;
+
 };
