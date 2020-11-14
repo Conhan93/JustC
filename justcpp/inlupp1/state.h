@@ -4,20 +4,23 @@
 #include <vector>
 #include "utils\card.h"
 #include "utils\serial.h"
+#include "interface.h"
 #include "admin.h"
+
 
 class STATE
 {
     public:
-      STATE(char* portName)
-      {
-        this->port = Serial(portName);
-        this->admin = Admin();
-      }
+      // list of cards
       std::vector<Card> card_list;
+
+      // objects
       Serial port;
       Admin admin;
+      Interface interface;
 
+      // constructor
+      STATE(char* portName);    
 };
 
 #endif

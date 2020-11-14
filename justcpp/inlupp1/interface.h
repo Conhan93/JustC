@@ -1,3 +1,6 @@
+#ifndef INTERACE_INCLUDED
+#define INTERFACE_INCLUDED
+
 #include "state.h"
 #include "utils\readinput.h"
 
@@ -21,3 +24,4 @@ class Interface
       ReadInput Scanner;
       Admin admin;
 };
+#endif
