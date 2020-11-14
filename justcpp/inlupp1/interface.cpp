@@ -3,9 +3,10 @@
 
 
 
-Interface::Interface()
+Interface::Interface(Admin state_admin)
 {
   this->Scanner = ReadInput();
+  this->admin = state_admin;
 }
 int Interface::admin_menu()
 {
@@ -36,7 +37,7 @@ void Interface::list_cards(STATE* SYSTEM_STATE)
 
     for (int index = 0; index < SYSTEM_STATE->card_list.size(); index++)
     {
-        format_date_string(
+        admin.format_date_string(
             SYSTEM_STATE->card_list[index].get_date(),
             date_string,
             sizeof(date_string)
@@ -61,12 +62,12 @@ void Interface::change_card_access(STATE* SYSTEM_STATE)
            "and 255\nAnge Kortnr: ");
 
     while (Scanner.readline(new_card_id, sizeof(new_card_id))) invalid_input();
-    if (valid_id(new_card_id))
+    if (admin.valid_id(new_card_id))
     {
-        if ((active_card = get_card(SYSTEM_STATE->card_list, SYSTEM_STATE->card_list.size(), new_card_id)) == NULL)
+        if ((active_card = admin.get_card(SYSTEM_STATE->card_list, SYSTEM_STATE->card_list.size(), new_card_id)) == NULL)
         {
             if (add_new_card())
-                add_card(SYSTEM_STATE, new_card_id);
+                admin.add_card(SYSTEM_STATE, new_card_id);
             return;
         }
         else
@@ -106,7 +107,7 @@ Card* Interface::search_id(STATE* SYSTEM_STATE)
         {
             if (!strcmp(search_term, "exit")) return NULL;
 
-            active_card = get_card(
+            active_card = admin.get_card(
                 SYSTEM_STATE->card_list,
                 SYSTEM_STATE->card_list.size(),
                 search_term
