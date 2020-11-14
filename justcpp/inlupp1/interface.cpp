@@ -1,16 +1,15 @@
 #include <iostream>
-#include "readinput.h"
-
-
+#include "utils\readinput.h"
 
 
 
 int main()
 {
-    char input[50];
-    ReadInput scanner = ReadInput();
+  char input[50];
 
-    scanner.readline(input,50);
+  auto scanner = ReadInput();
 
-    std::cout << input << '\n';
+  scanner.readline(input,50);
+
+  std::cout << input << '\n';
 }
