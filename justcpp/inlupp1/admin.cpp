@@ -50,10 +50,10 @@ void Admin::format_date_string(time_t date_added, char* buffer, int buffersize)
 
     strftime(buffer, buffersize, "%Y-%m-%d", date_ptr);
 }
-void Admin::add_card(STATE* SYSTEM_STATE, char* new_card_id)
+void Admin::add_card(std::vector<Card>& card_list, char* new_card_id)
 { /*
         Adds new card to list
   */
-    SYSTEM_STATE->card_list.push_back(Card(new_card_id));
+    card_list.push_back(Card(new_card_id));
 
 }

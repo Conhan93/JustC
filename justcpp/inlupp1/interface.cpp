@@ -8,6 +8,45 @@ Interface::Interface(Admin state_admin)
   this->Scanner = ReadInput();
   this->admin = state_admin;
 }
+void Interface::main_loop(STATE* SYSTEM_STATE)
+{
+  int selection = 0;
+
+  while (true)
+  {
+      selection = admin_menu();
+      switch (selection)
+      {
+      case 1:
+          //if (remote_open_door(&SYSTEM_STATE)) printf("\nDoor Open");
+          //else printf("\nUnable to open door");
+          break;
+      case 2:
+          list_cards(SYSTEM_STATE);
+          break;
+      case 4:
+          change_card_access(SYSTEM_STATE);
+          break;
+      case 5:
+          //save_to_file(&SYSTEM_STATE);
+          break;
+      case 6:
+          //send_card(&SYSTEM_STATE);
+          break;
+      case 7:
+          //if (clear_cards(SYSTEM_STATE)) printf("\nCards cleared");
+          //else printf("\nUnable to clear cards");
+          break;
+      case 9:
+          //SerialClose(SYSTEM_STATE.port);
+          return;
+
+      default:
+          printf("\nError! invalid input.");
+          break;
+      }
+    }
+}
 int Interface::admin_menu()
 {
     /*  Prints main menu and gets menu input    */
@@ -70,7 +109,7 @@ void Interface::change_card_access(STATE* SYSTEM_STATE)
         if ((active_card = admin.get_card(SYSTEM_STATE->card_list, SYSTEM_STATE->card_list.size(), new_card_id)) == NULL)
         {
             if (add_new_card())
-                admin.add_card(SYSTEM_STATE, new_card_id);
+                admin.add_card(SYSTEM_STATE->card_list, new_card_id);
             return;
         }
         else
