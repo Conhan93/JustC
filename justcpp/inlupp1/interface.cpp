@@ -31,6 +31,7 @@ void Interface::list_cards(STATE* SYSTEM_STATE)
 {
     // displays all cards in system.
     char date_string[STRLEN];
+    char ID_string[STRLEN];
 
     printf("\nID\t\t\tACCESS\t\t\tDATE ADDED\n"
     "------------------------------------------------------------");
@@ -43,8 +44,10 @@ void Interface::list_cards(STATE* SYSTEM_STATE)
             sizeof(date_string)
         );
 
+        SYSTEM_STATE->card_list[index].get_id(ID_string);
+
         printf("\n%-20s\t%-20s\t%s",
-            SYSTEM_STATE->card_list[index].get_id(),
+            ID_string,
             SYSTEM_STATE->card_list[index].get_access() ? "Access" : "No Access",
             date_string
         );
