@@ -4,7 +4,7 @@
 #include <vector>
 #include "utils\card.h"
 #include "utils\serial.h"
-#include "interface.h"
+#include "userinterface.h"
 #include "admin.h"
 
 
@@ -17,10 +17,10 @@ class STATE
       // objects
       Serial port;
       Admin admin;
-      Interface interface;
+      UserInterface UI;
 
       // constructor
-      STATE(char* portName);    
+      STATE(char* portName);
 };
 
 #endif
