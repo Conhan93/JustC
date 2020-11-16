@@ -22,7 +22,6 @@ class UI
 
       // variables/objects
       class ReadInput Scanner;
-      //class Engine engine; // empty functions causing problems?
 
 };
 #endif
