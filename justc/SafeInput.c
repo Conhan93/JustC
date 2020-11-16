@@ -43,7 +43,7 @@ bool GetInputFloat(char* prompt, float* value)
 	if (GetInput(prompt, buff, sizeof(buff)) != INPUT_RESULT_OK) // runs getinput() and returns false if it fails
 		return false;
 	float l = -100000000.0f; // really small float number
-	
+
 	/*
 		I just checked and I think Stefan wanted to use a Macro here like for
 		LONG_MIN but couldn't find it because the macro for the smallest float
@@ -91,7 +91,7 @@ INPUT_RESULT GetInput(char* prompt, char* buff, int maxSize)
 	if (fgets(buff, maxSize, stdin) == NULL)
 		return INPUT_RESULT_NO_INPUT;
 	/*
-		in the if statement above, Bad Boi Stefan actually uses a deprecated(outdated) input function
+		in the if statement above Stefan uses fgets to read a line from stdin
 		like scanf() to read input from the "standard input stream" where
 		buff - is the variable where input is stored.
 		maxSize - is the same as above.
