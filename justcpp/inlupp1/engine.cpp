@@ -39,9 +39,7 @@ void Engine::format_card_time(Card *card, std::string& return_string)
 {
     char buffer[40];
 
-    struct tm *now = localtime(card->get_time());
-
-    strftime(buffer,40,"%Y-%m-%d",now);
+    strftime(buffer,40,"%Y-%m-%d",localtime(card->get_time()));
 
     return_string = buffer;
 

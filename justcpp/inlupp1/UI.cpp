@@ -52,7 +52,7 @@ void UI::menu(STATE* SYSTEM_STATE)
 void UI::display_cards(STATE* SYSTEM_STATE)
 {
     // prints all cards in list
-    std::cout << "ID\tAccess\tDate" << '\n';
+    std::cout << "ID\tAccess\t\tDate" << '\n';
     for(Card& card: SYSTEM_STATE->card_list)
     {
       print_card(&card);
