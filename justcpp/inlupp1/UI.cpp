@@ -11,6 +11,7 @@ UI::UI()
 {
   // Create scanner object
   this->Scanner = ReadInput();
+  this->filehandler = FileHandler();
 }
 void UI::print_menu()
 {
@@ -18,11 +19,15 @@ void UI::print_menu()
     std::cout << "1. Add Cards" << '\n'
     << "2. Display Cards" << '\n'
     << "3. Fake Scan" << '\n'
-    << "4. Exit Program" << '\n';
+    << "4. Save Cards to File" << '\n'
+    << "5. Exit Program" << '\n';
 }
 void UI::menu(STATE* SYSTEM_STATE)
 {
     // main menu loop
+
+    load_cards(SYSTEM_STATE);
+
     int sel = 0;
 
     while(true)
@@ -41,6 +46,9 @@ void UI::menu(STATE* SYSTEM_STATE)
           fake_scan(SYSTEM_STATE);
           break;
         case 4:
+          save_cards(SYSTEM_STATE);
+          break;
+        case 5:
           std::cout << "exiting..." << '\n';
           return;
         default:
@@ -134,4 +142,18 @@ void UI::fake_scan(STATE *SYSTEM_STATE)
 
         std::cout << "No card with that ID found" << '\n';
     }
+}
+void UI::load_cards(STATE *SYSTEM_STATE)
+{
+    std::cout << "Loading Cards..." << '\n';
+
+    std::cout << (this->filehandler.load_from_file(SYSTEM_STATE) ?
+      "Cards loaded" : "Unable to load cards") << '\n';
+}
+void UI::save_cards(STATE *SYSTEM_STATE)
+{
+    std::cout << "Saving files..." << '\n';
+
+    std::cout << (this->filehandler.save_to_file(SYSTEM_STATE) ?
+      "Cards saved to file" : "Unable to save cards") << '\n';
 }
