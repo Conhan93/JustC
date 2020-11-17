@@ -4,7 +4,7 @@ class STATE;
 class Card;
 
 #include "utils\ReadInput.h"
-
+#include "utils\filehandling.h"
 
 
 class UI
@@ -19,9 +19,13 @@ class UI
       void print_card(Card *card); // prints card for display list method
       void change_access(Card *card);
       void fake_scan(STATE *SYSTEM_STATE);
+      void load_cards(STATE *SYSTEM_STATE);
+      void save_cards(STATE *SYSTEM_STATE);
 
       // variables/objects
       class ReadInput Scanner;
+      class FileHandler filehandler;
+      //class Engine engine; // empty functions causing problems?
 
 };
 #endif
