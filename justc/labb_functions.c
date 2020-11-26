@@ -113,8 +113,7 @@ void labb3(void)
 */
 void labb3william(char* string, float convertme) // praise be William
 {
-  convertme *= 100; // just to turn ex. 0.5 to 50
-  sprintf(string, "%d", (int)(convertme)); // formats string using sprintf
+  sprintf(string, "%d", (int)(convertme *= 100)); // formats string using sprintf
 }
 const char* labb3function(float convertme)
 {
