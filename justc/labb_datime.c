@@ -3,6 +3,8 @@
 
 #define TIMELEN 100
 
+void labb7daniel();
+
 int main(void)
 {
     struct tm* now;
@@ -85,11 +87,36 @@ int main(void)
     printf("\n6. %s", time_string);
 
     //labb7
-    // what?
+    labb7daniel();
 
 
 
     //labb8
+}
+void labb7daniel()
+{
+    /*
+        Daniels super awesome solution to labb 7
+        full of swenglish ;)
+    */
+    time_t usertime;
+    struct tm* datum;
+    int year;
+    int month;
+    
+    printf("Skriv in year:");
+    scanf("%d", &year);
+    printf("Skriv in month:");
+    scanf("%d", &month);
+    time(&usertime);
+    datum=localtime(&usertime);
 
-
+    datum->tm_year = year -1900;
+    datum->tm_mon = month;
+    datum->tm_mday = 1;
+    datum->tm_mday -= 1;
+    mktime(datum);
+    printf("Månad %d, %04d har %d dagar\n", datum->tm_mon+1,
+        datum->tm_year+1900, datum->tm_mday
+        );
 }
