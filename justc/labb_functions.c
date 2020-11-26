@@ -10,6 +10,7 @@ const char* labb2function(const char* string1, const char* string2);
 const char* labb2function2(const char* string1, const char* string2);
 void labb3(void);
 const char* labb3function(float convertme);
+void labb3william(char* string, float convertme);
 void labb4(void);
 bool labb4function(int age);
 void labb5(void);
@@ -102,6 +103,18 @@ void labb3(void)
 	scanf(" %f", &topercentage);
 	strcpy(string, labb3function(topercentage));
 	printf("\nconverted: %s", string);
+	
+	labb3william(string,topercentage);
+  	printf("\nconverted: %s%%", string);
+}
+/*
+	Passing strings as function arguments and modifying them is
+	always better than trying to return pointers to strings.
+*/
+void labb3william(char* string, float convertme) // praise be William
+{
+  convertme *= 100; // just to turn ex. 0.5 to 50
+  sprintf(string, "%d", (int)(convertme)); // formats string using sprintf
 }
 const char* labb3function(float convertme)
 {
