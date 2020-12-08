@@ -16,6 +16,8 @@ void labb5();
 void labb6();
 void labb7();
 void labb8();
+void labb9();
+void labb10();
 
 int main()
 {
@@ -26,7 +28,9 @@ int main()
     //labb5();
     //labb6();
     //labb7();
-    labb8();
+    //labb8();
+    //labb9();
+    labb10();
 
     return 0;
 }
@@ -319,4 +323,120 @@ void labb8()
 
       // start over again
     }
+}
+void labb9()
+{
+  /*
+      Enter a number(1-100) and write a program
+      to guess the number
+  */
+
+  // constants
+  enum limits { max = 100, min = 1 };
+  std::string buffer; // input buffer
+
+  auto diceRoll{0};
+  auto correctGuess{false};
+  auto nrGuesses{0};
+
+  // get diceroll
+  std::cout << "Enter your number(1-100): ";
+  std::getline(std::cin,buffer);
+
+  // convert input to integer
+  diceRoll = stoi(buffer);
+
+  // initialize computers guess
+  int guess{max/2};
+
+  while(!correctGuess)
+  {
+      nrGuesses++;
+      std::cout << "Computers guess is " << guess << '\n'
+      << "lower,higher or correct?: ";
+      std::getline(std::cin,buffer);
+
+      if(buffer == "lower") guess -= (max - guess)/2;
+      else if(buffer == "higher") guess += (max - guess)/2;
+      else if(buffer == "correct") correctGuess = true;
+
+      if(guess < min || guess > max)
+      {
+        // the computer knows
+        std::cout << "Liar" << '\n';
+        correctGuess = true;
+      }
+  }
+
+  std::cout << "Only took me " << nrGuesses << " attempts! hooman" << '\n';
+}
+void labb10()
+{
+    /*
+        Read from input.txt and convert all chars
+        to lower case and print into lower.txt
+    */
+
+    std::vector<std::string> buffer;
+    std::string inputBuffer;
+
+    /*
+        A vector of strings to store read lines
+        from the input file
+    */
+
+    // initialize streams with filenames/paths
+    std::ifstream input("input.txt");
+    std::ofstream output("lower.txt");
+
+    /*
+        getline reads from a stream(our is infilesteam "input")
+        and stores in string inputBuffer, it reads up to a delim
+        which is set to '\n' by default.
+
+        getline evaluates to true while it is able to read from
+        a stream(uses flags in ios).
+        by checking the return value of getline you can read
+        until end of file
+
+        each read line is saved in buffer string vector
+    */
+    while(std::getline(input,inputBuffer)) buffer.push_back(inputBuffer);
+
+    /*
+        auto determines type by looking at the type of it's
+        initializing value(buffer or line).
+
+        the outer loop gets references(actual object) for each
+        line/string read into the vector.
+
+        the inner loop gets references to the members of the line/strings
+        (chars) and uses tolower to change each letter
+        to lowercase
+    */
+    for(auto& line : buffer)
+      for(auto& letter : line) letter = tolower(letter);
+
+    /*
+        For each line/string in buffer
+          print line to output file
+          then
+          print newline to output file
+    */
+    for(auto line : buffer)
+      output << line << '\n';
+
+
+    // tolower del 2
+
+    for(auto& line : buffer)
+      for(auto& letter : line)
+        if(letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o'
+          || letter == 'u')
+          letter = toupper(letter);
+
+    std::ofstream output2("bigvowels.txt");
+
+    for(auto line : buffer)
+      output2 << line << '\n';
 }
