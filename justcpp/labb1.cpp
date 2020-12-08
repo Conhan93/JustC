@@ -2,6 +2,9 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <cstdlib>
+#include <ctime>
 #include "Employee.h"
 
 
@@ -11,28 +14,40 @@ void labb3();
 void labb4();
 void labb5();
 void labb6();
+void labb7();
+void labb8();
 
 int main()
 {
-    labb1();
+    //labb1();
     //labb2();
     //labb3();
     //labb4();
     //labb5();
     //labb6();
+    //labb7();
+    labb8();
 
     return 0;
 }
 void labb1()
 {
+    // instantiates three objects of class employee
     Employee employee1(160);
     Employee employee2(160,140);
     Employee employee3(160,160,0.4);
 
+    // call object methods
     std::cout << employee1.calculateSalary() << '\n';
     std::cout << employee2.calculateSalary() << '\n';
     std::cout << employee3.calculateSalary() << '\n';
 }
+
+/*
+    Functions share the same name but differ on input
+    arguments, will overload each other depending
+    on what arguments are given to function when called.
+*/
 void minSuperPrint(int val)
 {
   std::cout << val << '\n';
@@ -55,6 +70,13 @@ void labb2()
   minSuperPrint(v2);
   minSuperPrint(string);
 }
+
+/*
+    Same principle as minSuperPrint, compiler
+    will find the correct function to call
+    depending on the arguments given to the
+    function call of summera
+*/
 int summera(int v1, int v2) {return v1 + v2; }
 int summera(int v1, int v2, int v3) {return v1+v2+v3; }
 int summera(int v1, int v2, int v3, int v4) {return v1+v2+v3+v4;}
@@ -175,4 +197,126 @@ void labb6()
 
   // print all this crap
   std::cout << "\n" << km << " is " << km * 1.609 << " miles" << std::endl;
+}
+void labb7()
+{
+    // initialize vector with ints
+    std::vector<int> hardCode {0,1,2,3,4,10,9,8,6,5};
+
+    // C-style loop using iterators
+    for(auto it = begin(hardCode) ; it < end(hardCode) ; it++)
+      std::cout << *it << ' ';
+
+    /*
+        this is what a range based for loop actually looks like.
+        like a traditional for loop over an array like we're used
+        to in C.
+
+        Difference being that the loop is using iterators, pointers
+        to navigate the array/collection(which is why we have to dereference
+        the iterator to print the number!)
+    */
+
+    // sort vector using sort func from <algorithm>
+    std::sort(begin(hardCode),end(hardCode));
+
+    /*
+        provide pointers(iterators) to the start and end of your
+        container and the sort function will loop through and sort
+        it for you.
+    */
+
+    std::cout << '\n' << "Sorted" << '\n';
+
+    // range based for loop with auto type detection
+    for(auto number : hardCode)
+      std::cout << number << ' ';
+
+    /*
+        Range-based for loop that works like the for loop in Python.
+
+        for number in hardCode:
+          print(number)
+
+        this one creates a copy of the value in hardCode and
+        gives it to number, you can use the value directly by
+        turning number into a reference using "auto& number".
+
+        auto is a kind of compile-time polymorphism, polymorphism meaning many
+        shapes(kinda?).
+        The compiler will try to figure out what datatype auto
+        should have by looking at what value is used to
+        initialize it.
+
+    */
+}
+void labb8()
+{
+    /*
+        Dice guessing game, roll dice, guess the number
+    */
+    // seed rand with current time
+    srand(time(NULL));
+
+    /*
+        srand seeds the rand functions, the rand functions
+        have a sort of random walk that is based on the seed.
+
+        if you've ever had issues with rand() giving off the Same
+        values, it's probably because you called srand() with the same
+        value everytime you tried to use rand().
+        Causing rand() to take the first step of the same
+        random walk based on the same seed
+        every
+        single
+        time
+    */
+
+    int diceRoll;
+    while(true)
+    {
+      // used for input
+      std::string buffer;
+
+      // rolls dice
+      diceRoll = (rand() % 100) + 1;
+
+      auto nrGuesses{0};
+      auto correctGuess{false};
+
+      /*
+          Braced initialization throws errors if truncating occurs.
+          ex. initalizing an int with a float value 3.5 will cause
+          a narrowing conversion from 3.5 to 3 which means a loss
+          of data, using braced initializers throws warnings at
+          compile time.
+
+          Kinda unneccesary here.
+      */
+
+      // while correctGuess == false
+      while(!correctGuess)
+      {
+        auto guess{0};
+        std::cout << "Enter your guess(1-100): ";
+
+        // uses getline to avoid any issues with newlines
+        std::getline(std::cin,buffer);
+        // stoi(string to int) converts to input to integer
+        guess = stoi(buffer);
+
+
+        // elif chain
+        if(diceRoll < guess) std::cout << "Little lower..." << '\n';
+        else if(diceRoll > guess) std::cout << "Little Higher..." << '\n';
+        else correctGuess = true; // break out of loop
+
+        nrGuesses++; // count number of guesses
+      }
+
+      // yay
+      std::cout << "Correct! you made " << nrGuesses << " Attempts" << '\n';
+
+      // start over again
+    }
 }
