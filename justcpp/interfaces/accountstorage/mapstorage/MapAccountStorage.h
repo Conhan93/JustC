@@ -9,8 +9,10 @@
 #include <string>
 
 
-
+// alias - makes for prettier code
 using mapStorage = std::map<std::string, Account *>;
+
+
 class MapAccountStorage : public IAccountStorage
 {
   public:
