@@ -7,9 +7,7 @@ MapAccountStorage::~MapAccountStorage()
   using mapIter = mapStorage::const_iterator;
 
   for (mapIter it = accounts.begin(); it != accounts.end(); it++)
-	{
 		delete  it->second;
-	}
 }
 void MapAccountStorage::AddAccount(std::string id)
 {
