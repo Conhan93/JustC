@@ -32,17 +32,17 @@
 				meaning the derived class has to override and implement
 				these functions.
 
-			last bit: the important bit is that you can a pointer(or reference)
-			of the type of the base class but it will also accept a target
-			that is derived from the base class.
+		last bit: the important bit is that you can a pointer(or reference)
+		of the type of the base class but it will also accept a target
+		that is derived from the base class.
 
-			So a bank may have a pointer to an interface for accountstorage
-			that can take other implementations of that interface. 
+		So a bank may have a pointer to an interface for accountstorage
+		that can take other implementations of that interface.
 
-			Interfaces encourage encapsulation and loosely coupled design. With
-			simple, focused interfaces, you can encourage code reuse by making
-			your code portable across projects.
-																					- C++ Crash Course p.147
+		Interfaces encourage encapsulation and loosely coupled design. With
+		simple, focused interfaces, you can encourage code reuse by making
+		your code portable across projects.
+																			- C++ Crash Course p.147
 */
 
 class IAccountStorage
