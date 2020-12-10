@@ -42,7 +42,7 @@
 		Interfaces encourage encapsulation and loosely coupled design. With
 		simple, focused interfaces, you can encourage code reuse by making
 		your code portable across projects.
-																			- C++ Crash Course p.147
+																					- C++ Crash Course p.147
 */
 
 class IAccountStorage
