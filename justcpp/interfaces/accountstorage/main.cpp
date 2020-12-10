@@ -42,8 +42,8 @@ int main()
   clock::time_point start;
   clock::time_point end;
 
-  //VectorAccountStorage *storage = new VectorAccountStorage();
-  MapAccountStorage *storage = new MapAccountStorage();
+  VectorAccountStorage *storage = new VectorAccountStorage();
+  //MapAccountStorage *storage = new MapAccountStorage();
   //MultiDistributedVectorAccountStorage *storage = new MultiDistributedVectorAccountStorage();
   Bank bank = Bank(storage);
 
